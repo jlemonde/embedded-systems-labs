@@ -1,0 +1,63 @@
+BODY.body-container {
+	WIDTH: 100%; BACKGROUND-COLOR: #fff
+}
+DIV.page-container {
+	WIDTH: 100%; TEXT-ALIGN: left
+}
+SPAN.top-banner-right {
+	DISPLAY: none
+}
+DIV.top-banner DIV FORM {
+	DISPLAY: none
+}
+DIV.top-banner DIV UL {
+	DISPLAY: none
+}
+DIV.menu-blur {
+	DISPLAY: none
+}
+DIV.leftnav-content-footer-container {
+	BACKGROUND-IMAGE: none; WIDTH: 100%; BACKGROUND-COLOR: #fff
+}
+DIV.content-container {
+	BACKGROUND-IMAGE: none; WIDTH: 100%; TEXT-ALIGN: left
+}
+DIV.content {
+	WIDTH: auto; TEXT-ALIGN: left
+}
+DIV.cta {
+	DISPLAY: none
+}
+DIV.breadcrumb {
+	DISPLAY: none
+}
+DIV.ratethispage {
+	DISPLAY: none
+}
+DIV.bottom-leftnav {
+	DISPLAY: none
+}
+DIV.left-navigation {
+	DISPLAY: none
+}
+DIV.footer-gutter {
+	DISPLAY: none
+}
+DIV.footer-container-blur {
+	HEIGHT: auto; BACKGROUND-COLOR: #fff
+}
+DIV.footer-container-shadow {
+	HEIGHT: auto; BACKGROUND-COLOR: #fff
+}
+DIV.footer-container {
+	HEIGHT: auto; BACKGROUND-COLOR: #fff
+}
+DIV.footer-navigation {
+	DISPLAY: none
+}
+DIV.footer-copyright {
+	COLOR: #000; TEXT-ALIGN: center
+}
+TABLE.footer-icons {
+	DISPLAY: none
+}

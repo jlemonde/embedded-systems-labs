@@ -24,9 +24,9 @@ int main()
 	int delay;
 	printf("Hello from Nios II !!! !!!\n");
 	while(1){
-		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE, count & 0x01);
+		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE, count);
 		delay = 0;
-		while(delay < 50000){
+		while(delay < 500){
 			delay++;
 		}
 		count++;

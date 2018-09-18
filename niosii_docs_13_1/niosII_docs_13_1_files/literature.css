@@ -1,0 +1,21 @@
+.literature-hb-volume {
+	PADDING-RIGHT: 0.2em; DISPLAY: inline; PADDING-LEFT: 0.2em; FONT-SIZE: 11pt; PADDING-BOTTOM: 0.2em; MARGIN: 0.1em; PADDING-TOP: 0.2em
+}
+.literature-hb-topic {
+	PADDING-RIGHT: 0.2em; DISPLAY: inline; PADDING-LEFT: 0.2em; FONT-SIZE: 9pt; PADDING-BOTTOM: 0.2em; MARGIN: 0.1em; PADDING-TOP: 0.2em
+}
+.literature-hb-section {
+	PADDING-RIGHT: 0.2em; DISPLAY: inline; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; MARGIN: 0.1em; PADDING-TOP: 0.2em
+}
+.literature-hb-twisty {
+	PADDING-RIGHT: 0.2em; DISPLAY: inline; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; MARGIN: 0.1em; FONT: bold 1em Arial; COLOR: blue; PADDING-TOP: 0.2em
+}
+.literature-hb-collapsable {
+	PADDING-RIGHT: 0.2em; PADDING-LEFT: 0.2em; PADDING-BOTTOM: 0.2em; MARGIN: 0.1em; PADDING-TOP: 0.2em
+}
+.literature-subarea {
+	LEFT: -18px; POSITION: relative; TOP: -10px
+}
+DIV.content {
+	OVERFLOW: auto; WIDTH: 680px
+}

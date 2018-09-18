@@ -1,0 +1,21 @@
+.dhtmlwindow {
+	BORDER-RIGHT: #069 2px solid; BORDER-TOP: #069 2px solid; VISIBILITY: hidden; BORDER-LEFT: #069 2px solid; BORDER-BOTTOM: #069 2px solid; POSITION: absolute; BACKGROUND-COLOR: white
+}
+.drag-handle {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FILTER: progid:DXImageTransform.Microsoft.alpha(opacity=100); PADDING-BOTTOM: 1px; OVERFLOW: hidden; WIDTH: auto; CURSOR: move; COLOR: white; TEXT-INDENT: 3px; PADDING-TOP: 1px; BACKGROUND-COLOR: #069; -moz-opacity: 1; opacity: 1
+}
+.drag-handle .drag-controls {
+	RIGHT: 1px; CURSOR: pointer; POSITION: absolute; TOP: 2px
+}
+* HTML .drag-handle {
+	WIDTH: 100%
+}
+.drag-contentarea {
+	BORDER-TOP: #fff 0px solid; OVERFLOW: auto; COLOR: #069; HEIGHT: 500px; BACKGROUND-COLOR: #fff
+}
+.drag-statusarea {
+	BORDER-TOP: gray 1px solid; HEIGHT: 13px; BACKGROUND-COLOR: #fff
+}
+.drag-resizearea {
+	FONT-SIZE: 0px; FLOAT: right; WIDTH: 13px; CURSOR: nw-resize; HEIGHT: 13px
+}
