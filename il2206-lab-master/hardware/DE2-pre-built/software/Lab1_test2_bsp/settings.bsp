@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 18, 2018 4:57:37 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1537289857539</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Sep 18, 2018 7:03:14 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1537290194535</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/student/Projets/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/software/Lab1_test2_bsp</BspGeneratedLocation>
-        <BspSettingsFile>./settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../DE2_Nios2System.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2</Cpu>
