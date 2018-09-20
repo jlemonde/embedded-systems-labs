@@ -142,9 +142,13 @@ ACDS_VERSION := 13.0sp1
 ELF := Lab1_test6.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := hello_world.c
+C_SRCS += puthex.c
+C_SRCS += puttime.c
+C_SRCS += tick.c
+C_SRCS += main.c
 CXX_SRCS :=
-ASM_SRCS :=
+ASM_SRCS += delay_asm.S
+ASM_SRCS += hexasc_asm.S
 
 
 # Path to root of object file tree.
