@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C35F672) Path("/home/student/Projets/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/") File("IL2206_DE2_Nios2.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C35F672) Path("/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/") File("IL2206_DE2_Nios2.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
