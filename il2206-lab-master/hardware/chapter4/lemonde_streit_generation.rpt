@@ -1,0 +1,212 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: ip-generate --project-directory=/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/ --output-directory=/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit/ --report-file=bsf:/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit.bsf --system-info=DEVICE_FAMILY="Cyclone II" --system-info=DEVICE=Unknown --system-info=DEVICE_SPEEDGRADE=Unknown --component-file=/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit.qsys
+Progress: Loading chapter4/lemonde_streit.qsys
+Progress: Reading input file
+Progress: Adding clk [clock_source 13.0]
+Progress: Parameterizing module clk
+Progress: Adding nios2_lemonde_streit [altera_nios2_qsys 13.0]
+Progress: Parameterizing module nios2_lemonde_streit
+Progress: Adding onchip_memory [altera_avalon_onchip_memory2 13.0.1.99.2]
+Progress: Parameterizing module onchip_memory
+Progress: Adding de2_pio_toggles18 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_toggles18
+Progress: Adding de2_pio_keys4 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_keys4
+Progress: Adding de2_pio_redleds18 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_redleds18
+Progress: Adding de2_pio_greenleds9 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_greenleds9
+Progress: Adding de2_pio_hex_high28 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_hex_high28
+Progress: Adding de2_pio_hex_low28 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_hex_low28
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 13.0.1.99.2]
+Progress: Parameterizing module jtag_uart_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: lemonde_streit.de2_pio_toggles18: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: lemonde_streit.de2_pio_keys4: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/ --output-directory=/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit/synthesis/ --file-set=QUARTUS_SYNTH --report-file=sopcinfo:/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit.sopcinfo --report-file=html:/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit.html --report-file=qip:/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit/synthesis/lemonde_streit.qip --report-file=cmp:/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit.cmp --report-file=svd --system-info=DEVICE_FAMILY="Cyclone II" --system-info=DEVICE=Unknown --system-info=DEVICE_SPEEDGRADE=Unknown --component-file=/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit.qsys --language=VERILOG
+Progress: Loading chapter4/lemonde_streit.qsys
+Progress: Reading input file
+Progress: Adding clk [clock_source 13.0]
+Progress: Parameterizing module clk
+Progress: Adding nios2_lemonde_streit [altera_nios2_qsys 13.0]
+Progress: Parameterizing module nios2_lemonde_streit
+Progress: Adding onchip_memory [altera_avalon_onchip_memory2 13.0.1.99.2]
+Progress: Parameterizing module onchip_memory
+Progress: Adding de2_pio_toggles18 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_toggles18
+Progress: Adding de2_pio_keys4 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_keys4
+Progress: Adding de2_pio_redleds18 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_redleds18
+Progress: Adding de2_pio_greenleds9 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_greenleds9
+Progress: Adding de2_pio_hex_high28 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_hex_high28
+Progress: Adding de2_pio_hex_low28 [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module de2_pio_hex_low28
+Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 13.0.1.99.2]
+Progress: Parameterizing module jtag_uart_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: lemonde_streit.de2_pio_toggles18: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: lemonde_streit.de2_pio_keys4: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: lemonde_streit: Generating lemonde_streit "lemonde_streit" for QUARTUS_SYNTH
+Info: pipeline_bridge_swap_transform: After transform: 10 modules, 41 connections
+Info: No custom instruction connections, skipping transform 
+Info: merlin_translator_transform: After transform: 21 modules, 85 connections
+Info: merlin_domain_transform: After transform: 42 modules, 227 connections
+Info: merlin_router_transform: After transform: 53 modules, 271 connections
+Info: reset_adaptation_transform: After transform: 54 modules, 212 connections
+Info: merlin_network_to_switch_transform: After transform: 75 modules, 256 connections
+Info: merlin_mm_transform: After transform: 75 modules, 256 connections
+Info: merlin_interrupt_mapper_transform: After transform: 76 modules, 259 connections
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Warning: lemonde_streit: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
+Info: nios2_lemonde_streit: Starting RTL generation for module 'lemonde_streit_nios2_lemonde_streit'
+Info: nios2_lemonde_streit:   Generation command is [exec /opt/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/eperl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I /opt/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I /opt/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -I /opt/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -- /opt/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=lemonde_streit_nios2_lemonde_streit --dir=/tmp/alt7796_8990482243882455261.dir/0001_nios2_lemonde_streit_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0001_nios2_lemonde_streit_gen//lemonde_streit_nios2_lemonde_streit_processor_configuration.pl  --do_build_sim=0    --bogus  ]
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:32 (*) Starting Nios II generation
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:32 (*)   Checking for plaintext license.
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   Couldn't query license setup in Quartus directory /opt/altera/13.0sp1/quartus
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   LM_LICENSE_FILE environment variable is empty
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   Plaintext license not found.
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   No license required to generate encrypted Nios II/e.
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   Elaborating CPU configuration settings
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:35 (*)   Creating all objects for CPU
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:36 (*)   Generating RTL from CPU objects
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:36 (*)   Creating plain-text RTL
+Info: nios2_lemonde_streit: # 2018.09.22 11:24:39 (*) Done Nios II generation
+Info: nios2_lemonde_streit: Done RTL generation for module 'lemonde_streit_nios2_lemonde_streit'
+Info: nios2_lemonde_streit: "lemonde_streit" instantiated altera_nios2_qsys "nios2_lemonde_streit"
+Info: onchip_memory: Starting RTL generation for module 'lemonde_streit_onchip_memory'
+Info: onchip_memory:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=lemonde_streit_onchip_memory --dir=/tmp/alt7796_8990482243882455261.dir/0002_onchip_memory_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0002_onchip_memory_gen//lemonde_streit_onchip_memory_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory: Done RTL generation for module 'lemonde_streit_onchip_memory'
+Info: onchip_memory: "lemonde_streit" instantiated altera_avalon_onchip_memory2 "onchip_memory"
+Info: de2_pio_toggles18: Starting RTL generation for module 'lemonde_streit_de2_pio_toggles18'
+Info: de2_pio_toggles18:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=lemonde_streit_de2_pio_toggles18 --dir=/tmp/alt7796_8990482243882455261.dir/0003_de2_pio_toggles18_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0003_de2_pio_toggles18_gen//lemonde_streit_de2_pio_toggles18_component_configuration.pl  --do_build_sim=0  ]
+Info: de2_pio_toggles18: Done RTL generation for module 'lemonde_streit_de2_pio_toggles18'
+Info: de2_pio_toggles18: "lemonde_streit" instantiated altera_avalon_pio "de2_pio_toggles18"
+Info: de2_pio_keys4: Starting RTL generation for module 'lemonde_streit_de2_pio_keys4'
+Info: de2_pio_keys4:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=lemonde_streit_de2_pio_keys4 --dir=/tmp/alt7796_8990482243882455261.dir/0004_de2_pio_keys4_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0004_de2_pio_keys4_gen//lemonde_streit_de2_pio_keys4_component_configuration.pl  --do_build_sim=0  ]
+Info: de2_pio_keys4: Done RTL generation for module 'lemonde_streit_de2_pio_keys4'
+Info: de2_pio_keys4: "lemonde_streit" instantiated altera_avalon_pio "de2_pio_keys4"
+Info: de2_pio_redleds18: Starting RTL generation for module 'lemonde_streit_de2_pio_redleds18'
+Info: de2_pio_redleds18:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=lemonde_streit_de2_pio_redleds18 --dir=/tmp/alt7796_8990482243882455261.dir/0005_de2_pio_redleds18_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0005_de2_pio_redleds18_gen//lemonde_streit_de2_pio_redleds18_component_configuration.pl  --do_build_sim=0  ]
+Info: de2_pio_redleds18: Done RTL generation for module 'lemonde_streit_de2_pio_redleds18'
+Info: de2_pio_redleds18: "lemonde_streit" instantiated altera_avalon_pio "de2_pio_redleds18"
+Info: de2_pio_greenleds9: Starting RTL generation for module 'lemonde_streit_de2_pio_greenleds9'
+Info: de2_pio_greenleds9:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=lemonde_streit_de2_pio_greenleds9 --dir=/tmp/alt7796_8990482243882455261.dir/0006_de2_pio_greenleds9_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0006_de2_pio_greenleds9_gen//lemonde_streit_de2_pio_greenleds9_component_configuration.pl  --do_build_sim=0  ]
+Info: de2_pio_greenleds9: Done RTL generation for module 'lemonde_streit_de2_pio_greenleds9'
+Info: de2_pio_greenleds9: "lemonde_streit" instantiated altera_avalon_pio "de2_pio_greenleds9"
+Info: de2_pio_hex_high28: Starting RTL generation for module 'lemonde_streit_de2_pio_hex_high28'
+Info: de2_pio_hex_high28:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=lemonde_streit_de2_pio_hex_high28 --dir=/tmp/alt7796_8990482243882455261.dir/0007_de2_pio_hex_high28_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0007_de2_pio_hex_high28_gen//lemonde_streit_de2_pio_hex_high28_component_configuration.pl  --do_build_sim=0  ]
+Info: de2_pio_hex_high28: Done RTL generation for module 'lemonde_streit_de2_pio_hex_high28'
+Info: de2_pio_hex_high28: "lemonde_streit" instantiated altera_avalon_pio "de2_pio_hex_high28"
+Info: jtag_uart_0: Starting RTL generation for module 'lemonde_streit_jtag_uart_0'
+Info: jtag_uart_0:   Generation command is [exec /opt/altera/13.0sp1/quartus/linux/perl/bin/perl -I /opt/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /opt/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /opt/altera/13.0sp1/quartus/sopc_builder/bin -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /opt/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=lemonde_streit_jtag_uart_0 --dir=/tmp/alt7796_8990482243882455261.dir/0008_jtag_uart_0_gen/ --quartus_dir=/opt/altera/13.0sp1/quartus --verilog --config=/tmp/alt7796_8990482243882455261.dir/0008_jtag_uart_0_gen//lemonde_streit_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart_0: Done RTL generation for module 'lemonde_streit_jtag_uart_0'
+Info: jtag_uart_0: "lemonde_streit" instantiated altera_avalon_jtag_uart "jtag_uart_0"
+Info: nios2_lemonde_streit_instruction_master_translator: "lemonde_streit" instantiated altera_merlin_master_translator "nios2_lemonde_streit_instruction_master_translator"
+Info: nios2_lemonde_streit_jtag_debug_module_translator: "lemonde_streit" instantiated altera_merlin_slave_translator "nios2_lemonde_streit_jtag_debug_module_translator"
+Info: nios2_lemonde_streit_instruction_master_translator_avalon_universal_master_0_agent: "lemonde_streit" instantiated altera_merlin_master_agent "nios2_lemonde_streit_instruction_master_translator_avalon_universal_master_0_agent"
+Info: nios2_lemonde_streit_jtag_debug_module_translator_avalon_universal_slave_0_agent: "lemonde_streit" instantiated altera_merlin_slave_agent "nios2_lemonde_streit_jtag_debug_module_translator_avalon_universal_slave_0_agent"
+Info: nios2_lemonde_streit_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo: "lemonde_streit" instantiated altera_avalon_sc_fifo "nios2_lemonde_streit_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo"
+Info: addr_router: "lemonde_streit" instantiated altera_merlin_router "addr_router"
+Info: addr_router_001: "lemonde_streit" instantiated altera_merlin_router "addr_router_001"
+Info: id_router: "lemonde_streit" instantiated altera_merlin_router "id_router"
+Info: id_router_002: "lemonde_streit" instantiated altera_merlin_router "id_router_002"
+Info: rst_controller: "lemonde_streit" instantiated altera_reset_controller "rst_controller"
+Info: cmd_xbar_demux: "lemonde_streit" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_demux_001: "lemonde_streit" instantiated altera_merlin_demultiplexer "cmd_xbar_demux_001"
+Info: cmd_xbar_mux: "lemonde_streit" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: rsp_xbar_demux_002: "lemonde_streit" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_002"
+Info: rsp_xbar_mux: "lemonde_streit" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file /home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_mux_001: "lemonde_streit" instantiated altera_merlin_multiplexer "rsp_xbar_mux_001"
+Info: Reusing file /home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/chapter4/lemonde_streit/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: irq_mapper: "lemonde_streit" instantiated altera_irq_mapper "irq_mapper"
+Info: lemonde_streit: Done lemonde_streit" with 26 modules, 92 files, 1927548 bytes
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
