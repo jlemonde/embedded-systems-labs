@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Sep 22 17:18:37 2018
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : nios2_ht18_lemonde_streit
+Top-level Entity Name : nios2_ht18_lemonde_streit
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 1,651 / 33,216 ( 5 % )
+    Total combinational functions : 1,562 / 33,216 ( 5 % )
+    Dedicated logic registers : 896 / 33,216 ( 3 % )
+Total registers : 896
+Total pins : 2 / 475 ( < 1 % )
+Total virtual pins : 0
+Total memory bits : 273,408 / 483,840 ( 57 % )
+Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
