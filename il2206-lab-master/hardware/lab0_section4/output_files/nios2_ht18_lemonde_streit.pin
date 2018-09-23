@@ -73,17 +73,17 @@ VCCIO3                       : A3        : power  :                   : 3.3V    
 GND*                         : A4        :        :                   :         : 3         :                
 GND*                         : A5        :        :                   :         : 3         :                
 GND*                         : A6        :        :                   :         : 3         :                
-GND*                         : A7        :        :                   :         : 3         :                
-GND*                         : A8        :        :                   :         : 3         :                
-GND*                         : A9        :        :                   :         : 3         :                
-GND*                         : A10       :        :                   :         : 3         :                
+de2_pio_hex_low28_external_connection_export[0] : A7        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_redled18_external_connection_export[7] : A8        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_low28_external_connection_export[22] : A9        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_low28_external_connection_export[18] : A10       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : A11       : power  :                   : 3.3V    : 3         :                
 GND                          : A12       : gnd    :                   :         :           :                
 GND+                         : A13       :        :                   :         : 4         :                
-GND*                         : A14       :        :                   :         : 4         :                
+sdram_dqm[0]                 : A14       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : A15       : gnd    :                   :         :           :                
 VCCIO4                       : A16       : power  :                   : 3.3V    : 4         :                
-GND*                         : A17       :        :                   :         : 4         :                
+sdram_addr[9]                : A17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : A18       :        :                   :         : 4         :                
 GND*                         : A19       :        :                   :         : 4         :                
 GND*                         : A20       :        :                   :         : 4         :                
@@ -100,13 +100,13 @@ GND*                         : AA5       :        :                   :         
 GND*                         : AA6       :        :                   :         : 1         :                
 GND*                         : AA7       :        :                   :         : 1         :                
 VCCA_PLL1                    : AA8       : power  :                   : 1.2V    :           :                
-GND*                         : AA9       :        :                   :         : 8         :                
-GND*                         : AA10      :        :                   :         : 8         :                
-GND*                         : AA11      :        :                   :         : 8         :                
-GND*                         : AA12      :        :                   :         : 8         :                
+sram_DQ[3]                   : AA9       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[4]                   : AA10      : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[6]                   : AA11      : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[15] : AA12      : input  : 3.3-V LVTTL       :         : 8         : N              
 GND*                         : AA13      :        :                   :         : 7         :                
-GND*                         : AA14      :        :                   :         : 7         :                
-GND*                         : AA15      :        :                   :         : 7         :                
+sdram_dq[0]                  : AA14      : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[14]                 : AA15      : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AA16      :        :                   :         : 7         :                
 GND*                         : AA17      :        :                   :         : 7         :                
 GND*                         : AA18      :        :                   :         : 7         :                
@@ -125,14 +125,14 @@ GND*                         : AB4       :        :                   :         
 VCCIO1                       : AB5       : power  :                   : 3.3V    : 1         :                
 VCCIO8                       : AB6       : power  :                   : 3.3V    : 8         :                
 GND                          : AB7       : gnd    :                   :         :           :                
-GND*                         : AB8       :        :                   :         : 8         :                
+sram_ADDR[16]                : AB8       : output : 3.3-V LVTTL       :         : 8         : Y              
 VCCIO8                       : AB9       : power  :                   : 3.3V    : 8         :                
-GND*                         : AB10      :        :                   :         : 8         :                
+sram_DQ[5]                   : AB10      : bidir  : 3.3-V LVTTL       :         : 8         : Y              
 GND                          : AB11      : gnd    :                   :         :           :                
-GND*                         : AB12      :        :                   :         : 8         :                
+de2_pio_toggles18_external_connection_export[8] : AB12      : input  : 3.3-V LVTTL       :         : 8         : N              
 VCCIO8                       : AB13      : power  :                   : 3.3V    : 8         :                
 VCCIO7                       : AB14      : power  :                   : 3.3V    : 7         :                
-GND*                         : AB15      :        :                   :         : 7         :                
+sdram_dq[13]                 : AB15      : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND                          : AB16      : gnd    :                   :         :           :                
 VCCIO7                       : AB17      : power  :                   : 3.3V    : 7         :                
 GND*                         : AB18      :        :                   :         : 7         :                
@@ -148,18 +148,18 @@ GND*                         : AC1       :        :                   :         
 GND*                         : AC2       :        :                   :         : 1         :                
 GND*                         : AC3       :        :                   :         : 1         :                
 GND                          : AC4       : gnd    :                   :         :           :                
-GND*                         : AC5       :        :                   :         : 8         :                
-GND*                         : AC6       :        :                   :         : 8         :                
-GND*                         : AC7       :        :                   :         : 8         :                
-GND*                         : AC8       :        :                   :         : 8         :                
-GND*                         : AC9       :        :                   :         : 8         :                
-GND*                         : AC10      :        :                   :         : 8         :                
-GND*                         : AC11      :        :                   :         : 8         :                
-GND*                         : AC12      :        :                   :         : 8         :                
+sram_ADDR[2]                 : AC5       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[3]                 : AC6       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[12]                : AC7       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[17]                : AC8       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[14]                  : AC9       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[15]                  : AC10      : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_CE_N                    : AC11      : output : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[6] : AC12      : input  : 3.3-V LVTTL       :         : 8         : N              
 GND+                         : AC13      :        :                   :         : 8         :                
-GND*                         : AC14      :        :                   :         : 7         :                
-GND*                         : AC15      :        :                   :         : 7         :                
-GND*                         : AC16      :        :                   :         : 7         :                
+sdram_dq[2]                  : AC14      : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[12]                 : AC15      : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[15]                 : AC16      : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AC17      :        :                   :         : 7         :                
 GND*                         : AC18      :        :                   :         : 7         :                
 GND*                         : AC19      :        :                   :         : 7         :                
@@ -173,19 +173,19 @@ GND*                         : AC26      :        :                   :         
 VCCIO1                       : AD1       : power  :                   : 3.3V    : 1         :                
 GND*                         : AD2       :        :                   :         : 1         :                
 GND*                         : AD3       :        :                   :         : 1         :                
-GND*                         : AD4       :        :                   :         : 8         :                
-GND*                         : AD5       :        :                   :         : 8         :                
-GND*                         : AD6       :        :                   :         : 8         :                
-GND*                         : AD7       :        :                   :         : 8         :                
-GND*                         : AD8       :        :                   :         : 8         :                
+sram_ADDR[4]                 : AD4       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[5]                 : AD5       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[8]                 : AD6       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[9]                 : AD7       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[0]                   : AD8       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
 GND                          : AD9       : gnd    :                   :         :           :                
-GND*                         : AD10      :        :                   :         : 8         :                
-GND*                         : AD11      :        :                   :         : 8         :                
-GND*                         : AD12      :        :                   :         : 8         :                
-GND+                         : AD13      :        :                   :         : 8         :                
+sram_OE_N                    : AD10      : output : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[12] : AD11      : input  : 3.3-V LVTTL       :         : 8         : N              
+de2_pio_hex_low28_external_connection_export[23] : AD12      : output : 3.3-V LVTTL       :         : 8         : N              
+clk_clk                      : AD13      : input  : 3.3-V LVTTL       :         : 8         : N              
 GND                          : AD14      : gnd    :                   :         :           :                
-GND*                         : AD15      :        :                   :         : 7         :                
-GND*                         : AD16      :        :                   :         : 7         :                
+sdram_dq[9]                  : AD15      : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[3]                  : AD16      : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AD17      :        :                   :         : 7         :                
 GND                          : AD18      : gnd    :                   :         :           :                
 GND*                         : AD19      :        :                   :         : 7         :                
@@ -199,20 +199,20 @@ VCCIO6                       : AD26      : power  :                   : 3.3V    
 GND                          : AE1       : gnd    :                   :         :           :                
 GND*                         : AE2       :        :                   :         : 1         :                
 GND*                         : AE3       :        :                   :         : 1         :                
-GND*                         : AE4       :        :                   :         : 8         :                
-GND*                         : AE5       :        :                   :         : 8         :                
-GND*                         : AE6       :        :                   :         : 8         :                
-GND*                         : AE7       :        :                   :         : 8         :                
-GND*                         : AE8       :        :                   :         : 8         :                
-GND*                         : AE9       :        :                   :         : 8         :                
-GND*                         : AE10      :        :                   :         : 8         :                
-GND*                         : AE11      :        :                   :         : 8         :                
-GND*                         : AE12      :        :                   :         : 8         :                
-GND*                         : AE13      :        :                   :         : 8         :                
+sram_ADDR[0]                 : AE4       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[6]                 : AE5       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[1]                   : AE6       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[8]                   : AE7       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[10]                  : AE8       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_LB_N                    : AE9       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_WE_N                    : AE10      : output : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[10] : AE11      : input  : 3.3-V LVTTL       :         : 8         : N              
+de2_pio_hex_low28_external_connection_export[15] : AE12      : output : 3.3-V LVTTL       :         : 8         : N              
+de2_pio_hex_high28_external_connection_export[23] : AE13      : output : 3.3-V LVTTL       :         : 8         : N              
 GND+                         : AE14      :        :                   :         : 7         :                
-GND*                         : AE15      :        :                   :         : 7         :                
-GND*                         : AE16      :        :                   :         : 7         :                
-GND*                         : AE17      :        :                   :         : 7         :                
+sdram_dq[10]                 : AE15      : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[1]                  : AE16      : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[8]                  : AE17      : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AE18      :        :                   :         : 7         :                
 GND*                         : AE19      :        :                   :         : 7         :                
 GND*                         : AE20      :        :                   :         : 7         :                
@@ -224,20 +224,20 @@ GND*                         : AE25      :        :                   :         
 GND                          : AE26      : gnd    :                   :         :           :                
 GND                          : AF2       : gnd    :                   :         :           :                
 VCCIO8                       : AF3       : power  :                   : 3.3V    : 8         :                
-GND*                         : AF4       :        :                   :         : 8         :                
-GND*                         : AF5       :        :                   :         : 8         :                
-GND*                         : AF6       :        :                   :         : 8         :                
-GND*                         : AF7       :        :                   :         : 8         :                
-GND*                         : AF8       :        :                   :         : 8         :                
-GND*                         : AF9       :        :                   :         : 8         :                
-GND*                         : AF10      :        :                   :         : 8         :                
+sram_ADDR[1]                 : AF4       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[7]                 : AF5       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[2]                   : AF6       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[9]                   : AF7       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[11]                  : AF8       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_UB_N                    : AF9       : output : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[14] : AF10      : input  : 3.3-V LVTTL       :         : 8         : N              
 VCCIO8                       : AF11      : power  :                   : 3.3V    : 8         :                
 GND                          : AF12      : gnd    :                   :         :           :                
-GND*                         : AF13      :        :                   :         : 8         :                
+de2_pio_hex_high28_external_connection_export[15] : AF13      : output : 3.3-V LVTTL       :         : 8         : N              
 GND+                         : AF14      :        :                   :         : 7         :                
 GND                          : AF15      : gnd    :                   :         :           :                
 VCCIO7                       : AF16      : power  :                   : 3.3V    : 7         :                
-GND*                         : AF17      :        :                   :         : 7         :                
+sdram_dq[11]                 : AF17      : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AF18      :        :                   :         : 7         :                
 GND*                         : AF19      :        :                   :         : 7         :                
 GND*                         : AF20      :        :                   :         : 7         :                
@@ -253,16 +253,16 @@ GND*                         : B4        :        :                   :         
 GND*                         : B5        :        :                   :         : 3         :                
 GND*                         : B6        :        :                   :         : 3         :                
 GND*                         : B7        :        :                   :         : 3         :                
-GND*                         : B8        :        :                   :         : 3         :                
-GND*                         : B9        :        :                   :         : 3         :                
-GND*                         : B10       :        :                   :         : 3         :                
-GND*                         : B11       :        :                   :         : 3         :                
-GND*                         : B12       :        :                   :         : 3         :                
+de2_pio_redled18_external_connection_export[2] : B8        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_high28_external_connection_export[21] : B9        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_high28_external_connection_export[18] : B10       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_keys4_external_connection_export[0] : B11       : input  : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_greenled9_external_connection_export[0] : B12       : output : 3.3-V LVTTL       :         : 3         : N              
 GND+                         : B13       :        :                   :         : 4         :                
-GND*                         : B14       :        :                   :         : 4         :                
-GND*                         : B15       :        :                   :         : 4         :                
-GND*                         : B16       :        :                   :         : 4         :                
-GND*                         : B17       :        :                   :         : 4         :                
+sdram_ba[1]                  : B14       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[3]                : B15       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[2]                : B16       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_ras_n                  : B17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : B18       :        :                   :         : 4         :                
 GND*                         : B19       :        :                   :         : 4         :                
 GND*                         : B20       :        :                   :         : 4         :                
@@ -279,16 +279,16 @@ GND*                         : C4        :        :                   :         
 GND*                         : C5        :        :                   :         : 3         :                
 GND*                         : C6        :        :                   :         : 3         :                
 GND*                         : C7        :        :                   :         : 3         :                
-GND*                         : C8        :        :                   :         : 3         :                
-GND*                         : C9        :        :                   :         : 3         :                
-GND*                         : C10       :        :                   :         : 3         :                
-GND*                         : C11       :        :                   :         : 3         :                
-GND*                         : C12       :        :                   :         : 3         :                
-reset_reset_n                : C13       : input  : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_redled18_external_connection_export[3] : C8        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_low28_external_connection_export[6] : C9        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_greenled9_external_connection_export[7] : C10       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_toggles18_external_connection_export[17] : C11       : input  : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_greenled9_external_connection_export[5] : C12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND+                         : C13       :        :                   :         : 3         :                
 GND                          : C14       : gnd    :                   :         :           :                
-GND*                         : C15       :        :                   :         : 4         :                
-GND*                         : C16       :        :                   :         : 4         :                
-GND*                         : C17       :        :                   :         : 4         :                
+sdram_addr[8]                : C15       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[7]                : C16       : output : 3.3-V LVTTL       :         : 4         : N              
+de2_pio_hex_high28_external_connection_export[6] : C17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : C18       : gnd    :                   :         :           :                
 GND*                         : C19       :        :                   :         : 4         :                
 VCCIO4                       : C20       : power  :                   : 3.3V    : 4         :                
@@ -303,19 +303,19 @@ GND*                         : D2        :        :                   :         
 ~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D3        : input  : 3.3-V LVTTL       :         : 2         : N              
 GND                          : D4        : gnd    :                   :         :           :                
 GND*                         : D5        :        :                   :         : 3         :                
-GND*                         : D6        :        :                   :         : 3         :                
+de2_pio_hex_high28_external_connection_export[0] : D6        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : D7        :        :                   :         : 3         :                
-GND*                         : D8        :        :                   :         : 3         :                
-GND*                         : D9        :        :                   :         : 3         :                
-GND*                         : D10       :        :                   :         : 3         :                
-GND*                         : D11       :        :                   :         : 3         :                
-GND*                         : D12       :        :                   :         : 3         :                
+de2_pio_redled18_external_connection_export[0] : D8        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_high28_external_connection_export[2] : D9        : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_high28_external_connection_export[22] : D10       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_toggles18_external_connection_export[16] : D11       : input  : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_keys4_external_connection_export[2] : D12       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND+                         : D13       :        :                   :         : 3         :                
-GND*                         : D14       :        :                   :         : 4         :                
-GND*                         : D15       :        :                   :         : 4         :                
-GND*                         : D16       :        :                   :         : 4         :                
+sdram_ba[0]                  : D14       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[5]                : D15       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[10]               : D16       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : D17       :        :                   :         : 4         :                
-GND*                         : D18       :        :                   :         : 4         :                
+de2_pio_hex_low28_external_connection_export[3] : D18       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : D19       :        :                   :         : 4         :                
 GND*                         : D20       :        :                   :         : 4         :                
 GND*                         : D21       :        :                   :         : 4         :                
@@ -333,17 +333,17 @@ VCCIO3                       : E6        : power  :                   : 3.3V    
 GND                          : E7        : gnd    :                   :         :           :                
 GND*                         : E8        :        :                   :         : 3         :                
 VCCIO3                       : E9        : power  :                   : 3.3V    : 3         :                
-GND*                         : E10       :        :                   :         : 3         :                
+de2_pio_redled18_external_connection_export[6] : E10       : output : 3.3-V LVTTL       :         : 3         : N              
 GND                          : E11       : gnd    :                   :         :           :                
-GND*                         : E12       :        :                   :         : 3         :                
+de2_pio_hex_high28_external_connection_export[25] : E12       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : E13       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : E14       : power  :                   : 3.3V    : 4         :                
-GND*                         : E15       :        :                   :         : 4         :                
+sdram_addr[4]                : E15       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : E16       : gnd    :                   :         :           :                
 VCCIO4                       : E17       : power  :                   : 3.3V    : 4         :                
 GND*                         : E18       :        :                   :         : 4         :                
 GND                          : E19       : gnd    :                   :         :           :                
-GND*                         : E20       :        :                   :         : 4         :                
+sdram_cke                    : E20       : output : 3.3-V LVTTL       :         : 4         : N              
 GND_PLL2                     : E21       : gnd    :                   :         :           :                
 GND*                         : E22       :        :                   :         : 5         :                
 GND*                         : E23       :        :                   :         : 5         :                
@@ -359,14 +359,14 @@ GND*                         : F6        :        :                   :         
 GND*                         : F7        :        :                   :         : 2         :                
 GNDA_PLL3                    : F8        : gnd    :                   :         :           :                
 GND*                         : F9        :        :                   :         : 3         :                
-GND*                         : F10       :        :                   :         : 3         :                
-GND*                         : F11       :        :                   :         : 3         :                
-GND*                         : F12       :        :                   :         : 3         :                
-GND*                         : F13       :        :                   :         : 4         :                
-GND*                         : F14       :        :                   :         : 4         :                
-GND*                         : F15       :        :                   :         : 4         :                
-GND*                         : F16       :        :                   :         : 4         :                
-GND*                         : F17       :        :                   :         : 4         :                
+de2_pio_hex_high28_external_connection_export[5] : F10       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_greenled9_external_connection_export[3] : F11       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_toggles18_external_connection_export[5] : F12       : input  : 3.3-V LVTTL       :         : 3         : N              
+sdram_addr[0]                : F13       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[1]                : F14       : output : 3.3-V LVTTL       :         : 4         : N              
+de2_pio_redled18_external_connection_export[5] : F15       : output : 3.3-V LVTTL       :         : 4         : N              
+de2_pio_hex_high28_external_connection_export[7] : F16       : output : 3.3-V LVTTL       :         : 4         : N              
+de2_pio_hex_high28_external_connection_export[3] : F17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : F18       :        :                   :         : 4         :                
 GNDA_PLL2                    : F19       : gnd    :                   :         :           :                
 GND*                         : F20       :        :                   :         : 5         :                
@@ -385,14 +385,14 @@ GND*                         : G6        :        :                   :         
 GND_PLL3                     : G7        : gnd    :                   :         :           :                
 VCCA_PLL3                    : G8        : power  :                   : 1.2V    :           :                
 GND*                         : G9        :        :                   :         : 3         :                
-GND*                         : G10       :        :                   :         : 3         :                
-GND*                         : G11       :        :                   :         : 3         :                
-GND*                         : G12       :        :                   :         : 3         :                
-GND*                         : G13       :        :                   :         : 4         :                
-GND*                         : G14       :        :                   :         : 4         :                
-GND*                         : G15       :        :                   :         : 4         :                
-GND*                         : G16       :        :                   :         : 4         :                
-GND*                         : G17       :        :                   :         : 4         :                
+de2_pio_hex_low28_external_connection_export[2] : G10       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_low28_external_connection_export[25] : G11       : output : 3.3-V LVTTL       :         : 3         : N              
+reset_reset_n                : G12       : input  : 3.3-V LVTTL       :         : 3         : N              
+sdram_addr[6]                : G13       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_dqm[1]                 : G14       : output : 3.3-V LVTTL       :         : 4         : N              
+de2_pio_hex_low28_external_connection_export[7] : G15       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_we_n                   : G16       : output : 3.3-V LVTTL       :         : 4         : N              
+de2_pio_hex_low28_external_connection_export[27] : G17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : G18       :        :                   :         : 4         :                
 VCCA_PLL2                    : G19       : power  :                   : 1.2V    :           :                
 GND_PLL2                     : G20       : gnd    :                   :         :           :                
@@ -403,7 +403,7 @@ GND*                         : G24       :        :                   :         
 GND*                         : G25       :        :                   :         : 5         :                
 GND*                         : G26       :        :                   :         : 5         :                
 GND*                         : H1        :        :                   :         : 2         :                
-GND*                         : H2        :        :                   :         : 2         :                
+de2_pio_greenled9_external_connection_export[4] : H2        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : H3        :        :                   :         : 2         :                
 GND*                         : H4        :        :                   :         : 2         :                
 GND                          : H5        : gnd    :                   :         :           :                
@@ -412,12 +412,12 @@ VCCD_PLL3                    : H7        : power  :                   : 1.2V    
 GND*                         : H8        :        :                   :         : 3         :                
 VCCIO3                       : H9        : power  :                   : 3.3V    : 3         :                
 GND*                         : H10       :        :                   :         : 3         :                
-GND*                         : H11       :        :                   :         : 3         :                
-GND*                         : H12       :        :                   :         : 3         :                
+de2_pio_greenled9_external_connection_export[6] : H11       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_greenled9_external_connection_export[2] : H12       : output : 3.3-V LVTTL       :         : 3         : N              
 GND                          : H13       : gnd    :                   :         :           :                
 GND                          : H14       : gnd    :                   :         :           :                
-GND*                         : H15       :        :                   :         : 4         :                
-GND*                         : H16       :        :                   :         : 4         :                
+de2_pio_redled18_external_connection_export[15] : H15       : output : 3.3-V LVTTL       :         : 4         : N              
+sdram_addr[11]               : H16       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : H17       :        :                   :         : 4         :                
 VCCIO4                       : H18       : power  :                   : 3.3V    : 4         :                
 GND*                         : H19       :        :                   :         : 5         :                
@@ -428,8 +428,8 @@ GND*                         : H23       :        :                   :         
 GND*                         : H24       :        :                   :         : 5         :                
 GND*                         : H25       :        :                   :         : 5         :                
 GND*                         : H26       :        :                   :         : 5         :                
-GND*                         : J1        :        :                   :         : 2         :                
-GND*                         : J2        :        :                   :         : 2         :                
+de2_pio_redled18_external_connection_export[13] : J1        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_high28_external_connection_export[4] : J2        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : J3        :        :                   :         : 2         :                
 GND*                         : J4        :        :                   :         : 2         :                
 GND*                         : J5        :        :                   :         : 2         :                
@@ -437,14 +437,14 @@ GND*                         : J6        :        :                   :         
 GND*                         : J7        :        :                   :         : 2         :                
 GND*                         : J8        :        :                   :         : 2         :                
 GND*                         : J9        :        :                   :         : 3         :                
-GND*                         : J10       :        :                   :         : 3         :                
-GND*                         : J11       :        :                   :         : 3         :                
+de2_pio_hex_low28_external_connection_export[5] : J10       : output : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_hex_low28_external_connection_export[21] : J11       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : J12       : power  :                   : 3.3V    : 3         :                
-GND*                         : J13       :        :                   :         : 3         :                
-GND*                         : J14       :        :                   :         : 3         :                
+de2_pio_keys4_external_connection_export[3] : J13       : input  : 3.3-V LVTTL       :         : 3         : N              
+de2_pio_keys4_external_connection_export[1] : J14       : input  : 3.3-V LVTTL       :         : 3         : N              
 VCCIO4                       : J15       : power  :                   : 3.3V    : 4         :                
 GND*                         : J16       :        :                   :         : 4         :                
-GND*                         : J17       :        :                   :         : 4         :                
+de2_pio_hex_high28_external_connection_export[27] : J17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : J18       :        :                   :         : 4         :                
 VCCIO5                       : J19       : power  :                   : 3.3V    : 5         :                
 GND*                         : J20       :        :                   :         : 5         :                
@@ -454,10 +454,10 @@ GND*                         : J23       :        :                   :         
 GND*                         : J24       :        :                   :         : 5         :                
 GND*                         : J25       :        :                   :         : 5         :                
 GND*                         : J26       :        :                   :         : 5         :                
-GND*                         : K1        :        :                   :         : 2         :                
-GND*                         : K2        :        :                   :         : 2         :                
-GND*                         : K3        :        :                   :         : 2         :                
-GND*                         : K4        :        :                   :         : 2         :                
+de2_pio_hex_low28_external_connection_export[13] : K1        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_redled18_external_connection_export[1] : K2        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_high28_external_connection_export[12] : K3        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_low28_external_connection_export[4] : K4        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : K5        :        :                   :         : 2         :                
 GND*                         : K6        :        :                   :         : 2         :                
 GND*                         : K7        :        :                   :         : 2         :                
@@ -481,15 +481,15 @@ GND*                         : K24       :        :                   :         
 GND*                         : K25       :        :                   :         : 5         :                
 GND*                         : K26       :        :                   :         : 5         :                
 VCCIO2                       : L1        : power  :                   : 3.3V    : 2         :                
-GND*                         : L2        :        :                   :         : 2         :                
-GND*                         : L3        :        :                   :         : 2         :                
-GND*                         : L4        :        :                   :         : 2         :                
+de2_pio_hex_high28_external_connection_export[16] : L2        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_low28_external_connection_export[8] : L3        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_high28_external_connection_export[26] : L4        : output : 3.3-V LVTTL       :         : 2         : N              
 GND                          : L5        : gnd    :                   :         :           :                
-GND*                         : L6        :        :                   :         : 2         :                
-GND*                         : L7        :        :                   :         : 2         :                
+de2_pio_hex_high28_external_connection_export[13] : L6        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_high28_external_connection_export[8] : L7        : output : 3.3-V LVTTL       :         : 2         : N              
 altera_reserved_tms          : L8        : input  : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : L9        :        :                   :         : 2         :                
-GND*                         : L10       :        :                   :         : 2         :                
+de2_pio_hex_low28_external_connection_export[16] : L9        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_low28_external_connection_export[26] : L10       : output : 3.3-V LVTTL       :         : 2         : N              
 VCCINT                       : L11       : power  :                   : 1.2V    :           :                
 GND                          : L12       : gnd    :                   :         :           :                
 GND                          : L13       : gnd    :                   :         :           :                
@@ -498,19 +498,19 @@ GND                          : L15       : gnd    :                   :         
 VCCINT                       : L16       : power  :                   : 1.2V    :           :                
 VCCINT                       : L17       : power  :                   : 1.2V    :           :                
 VCCINT                       : L18       : power  :                   : 1.2V    :           :                
-GND*                         : L19       :        :                   :         : 5         :                
-GND*                         : L20       :        :                   :         : 5         :                
+de2_pio_hex_low28_external_connection_export[20] : L19       : output : 3.3-V LVTTL       :         : 5         : N              
+de2_pio_redled18_external_connection_export[10] : L20       : output : 3.3-V LVTTL       :         : 5         : N              
 GND*                         : L21       :        :                   :         : 5         :                
 GND                          : L22       : gnd    :                   :         :           :                
-GND*                         : L23       :        :                   :         : 5         :                
+sdram_cs_n                   : L23       : output : 3.3-V LVTTL       :         : 5         : N              
 GND*                         : L24       :        :                   :         : 5         :                
-GND*                         : L25       :        :                   :         : 5         :                
+sdram_cas_n                  : L25       : output : 3.3-V LVTTL       :         : 5         : N              
 VCCIO5                       : L26       : power  :                   : 3.3V    : 5         :                
 GND                          : M1        : gnd    :                   :         :           :                
-GND*                         : M2        :        :                   :         : 2         :                
-GND*                         : M3        :        :                   :         : 2         :                
-GND*                         : M4        :        :                   :         : 2         :                
-GND*                         : M5        :        :                   :         : 2         :                
+de2_pio_redled18_external_connection_export[16] : M2        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_greenled9_external_connection_export[8] : M3        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_hex_low28_external_connection_export[9] : M4        : output : 3.3-V LVTTL       :         : 2         : N              
+de2_pio_redled18_external_connection_export[17] : M5        : output : 3.3-V LVTTL       :         : 2         : N              
 altera_reserved_tck          : M6        : input  : 3.3-V LVTTL       :         : 2         : N              
 altera_reserved_tdo          : M7        : output : 3.3-V LVTTL       :         : 2         : N              
 altera_reserved_tdi          : M8        : input  : 3.3-V LVTTL       :         : 2         : N              
@@ -524,13 +524,13 @@ GND                          : M15       : gnd    :                   :         
 VCCINT                       : M16       : power  :                   : 1.2V    :           :                
 VCCINT                       : M17       : power  :                   : 1.2V    :           :                
 VCCIO5                       : M18       : power  :                   : 3.3V    : 5         :                
-GND*                         : M19       :        :                   :         : 5         :                
-GND*                         : M20       :        :                   :         : 5         :                
+de2_pio_hex_low28_external_connection_export[10] : M19       : output : 3.3-V LVTTL       :         : 5         : N              
+de2_pio_hex_low28_external_connection_export[14] : M20       : output : 3.3-V LVTTL       :         : 5         : N              
 GND*                         : M21       :        :                   :         : 5         :                
 GND*                         : M22       :        :                   :         : 5         :                
-GND*                         : M23       :        :                   :         : 5         :                
-GND*                         : M24       :        :                   :         : 5         :                
-GND*                         : M25       :        :                   :         : 5         :                
+de2_pio_hex_high28_external_connection_export[14] : M23       : output : 3.3-V LVTTL       :         : 5         : N              
+de2_pio_hex_high28_external_connection_export[11] : M24       : output : 3.3-V LVTTL       :         : 5         : N              
+de2_pio_redled18_external_connection_export[14] : M25       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : M26       : gnd    :                   :         :           :                
 GND+                         : N1        :        :                   :         : 2         :                
 GND+                         : N2        :        :                   :         : 2         :                
@@ -540,7 +540,7 @@ VCCIO2                       : N5        : power  :                   : 3.3V    
 DCLK                         : N6        :        :                   :         : 2         :                
 nCONFIG                      : N7        :        :                   :         : 2         :                
 GND                          : N8        : gnd    :                   :         :           :                
-GND*                         : N9        :        :                   :         : 2         :                
+de2_pio_hex_low28_external_connection_export[1] : N9        : output : 3.3-V LVTTL       :         : 2         : N              
 VCCINT                       : N10       : power  :                   : 1.2V    :           :                
 GND                          : N11       : gnd    :                   :         :           :                
 GND                          : N12       : gnd    :                   :         :           :                
@@ -551,22 +551,22 @@ GND                          : N16       : gnd    :                   :         
 VCCINT                       : N17       : power  :                   : 1.2V    :           :                
 GND*                         : N18       :        :                   :         : 5         :                
 GND                          : N19       : gnd    :                   :         :           :                
-GND*                         : N20       :        :                   :         : 5         :                
+de2_pio_hex_high28_external_connection_export[10] : N20       : output : 3.3-V LVTTL       :         : 5         : N              
 NC                           : N21       :        :                   :         :           :                
 VCCIO5                       : N22       : power  :                   : 3.3V    : 5         :                
 GND*                         : N23       :        :                   :         : 5         :                
-GND*                         : N24       :        :                   :         : 5         :                
+de2_pio_hex_high28_external_connection_export[20] : N24       : output : 3.3-V LVTTL       :         : 5         : N              
 GND+                         : N25       :        :                   :         : 5         :                
 GND+                         : N26       :        :                   :         : 5         :                
 GND+                         : P1        :        :                   :         : 1         :                
-clk_clk                      : P2        : input  : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : P3        :        :                   :         : 1         :                
-GND*                         : P4        :        :                   :         : 1         :                
+GND+                         : P2        :        :                   :         : 1         :                
+de2_pio_hex_low28_external_connection_export[19] : P3        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_redled18_external_connection_export[8] : P4        : output : 3.3-V LVTTL       :         : 1         : N              
 VCCIO1                       : P5        : power  :                   : 3.3V    : 1         :                
-GND*                         : P6        :        :                   :         : 1         :                
-GND*                         : P7        :        :                   :         : 1         :                
+de2_pio_redled18_external_connection_export[9] : P6        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_redled18_external_connection_export[4] : P7        : output : 3.3-V LVTTL       :         : 1         : N              
 GND                          : P8        : gnd    :                   :         :           :                
-GND*                         : P9        :        :                   :         : 2         :                
+de2_pio_hex_low28_external_connection_export[24] : P9        : output : 3.3-V LVTTL       :         : 2         : N              
 VCCINT                       : P10       : power  :                   : 1.2V    :           :                
 GND                          : P11       : gnd    :                   :         :           :                
 GND                          : P12       : gnd    :                   :         :           :                
@@ -574,7 +574,7 @@ GND                          : P13       : gnd    :                   :         
 GND                          : P14       : gnd    :                   :         :           :                
 GND                          : P15       : gnd    :                   :         :           :                
 GND                          : P16       : gnd    :                   :         :           :                
-GND*                         : P17       :        :                   :         : 6         :                
+de2_pio_hex_low28_external_connection_export[11] : P17       : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : P18       :        :                   :         : 5         :                
 GND                          : P19       : gnd    :                   :         :           :                
 MSEL0                        : P20       :        :                   :         : 6         :                
@@ -585,12 +585,12 @@ GND*                         : P24       :        :                   :         
 GND+                         : P25       :        :                   :         : 6         :                
 GND+                         : P26       :        :                   :         : 6         :                
 GND                          : R1        : gnd    :                   :         :           :                
-GND*                         : R2        :        :                   :         : 1         :                
-GND*                         : R3        :        :                   :         : 1         :                
-GND*                         : R4        :        :                   :         : 1         :                
-GND*                         : R5        :        :                   :         : 1         :                
-GND*                         : R6        :        :                   :         : 1         :                
-GND*                         : R7        :        :                   :         : 1         :                
+de2_pio_hex_low28_external_connection_export[17] : R2        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_hex_high28_external_connection_export[19] : R3        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_hex_high28_external_connection_export[9] : R4        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_redled18_external_connection_export[12] : R5        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_toggles18_external_connection_export[2] : R6        : input  : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_toggles18_external_connection_export[3] : R7        : input  : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : R8        :        :                   :         : 1         :                
 VCCIO1                       : R9        : power  :                   : 3.3V    : 1         :                
 VCCINT                       : R10       : power  :                   : 1.2V    :           :                
@@ -611,15 +611,15 @@ GND*                         : R24       :        :                   :         
 GND*                         : R25       :        :                   :         : 6         :                
 GND                          : R26       : gnd    :                   :         :           :                
 VCCIO1                       : T1        : power  :                   : 3.3V    : 1         :                
-GND*                         : T2        :        :                   :         : 1         :                
-GND*                         : T3        :        :                   :         : 1         :                
-GND*                         : T4        :        :                   :         : 1         :                
+de2_pio_hex_high28_external_connection_export[17] : T2        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_greenled9_external_connection_export[1] : T3        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_toggles18_external_connection_export[4] : T4        : input  : 3.3-V LVTTL       :         : 1         : N              
 GND                          : T5        : gnd    :                   :         :           :                
 GND*                         : T6        :        :                   :         : 1         :                
 GND*                         : T7        :        :                   :         : 1         :                
 GND*                         : T8        :        :                   :         : 1         :                
-GND*                         : T9        :        :                   :         : 1         :                
-GND*                         : T10       :        :                   :         : 1         :                
+de2_pio_hex_low28_external_connection_export[12] : T9        : output : 3.3-V LVTTL       :         : 1         : N              
+de2_pio_hex_high28_external_connection_export[24] : T10       : output : 3.3-V LVTTL       :         : 1         : N              
 VCCINT                       : T11       : power  :                   : 1.2V    :           :                
 GND                          : T12       : gnd    :                   :         :           :                
 GND                          : T13       : gnd    :                   :         :           :                
@@ -633,11 +633,11 @@ GND*                         : T20       :        :                   :         
 GND*                         : T21       :        :                   :         : 6         :                
 GND*                         : T22       :        :                   :         : 6         :                
 GND*                         : T23       :        :                   :         : 6         :                
-GND*                         : T24       :        :                   :         : 6         :                
+de2_pio_redled18_external_connection_export[11] : T24       : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : T25       :        :                   :         : 6         :                
 VCCIO6                       : T26       : power  :                   : 3.3V    : 6         :                
 GND*                         : U1        :        :                   :         : 1         :                
-GND*                         : U2        :        :                   :         : 1         :                
+de2_pio_hex_high28_external_connection_export[1] : U2        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : U3        :        :                   :         : 1         :                
 GND*                         : U4        :        :                   :         : 1         :                
 GND*                         : U5        :        :                   :         : 1         :                
@@ -645,9 +645,9 @@ GND*                         : U6        :        :                   :         
 GND*                         : U7        :        :                   :         : 1         :                
 GND                          : U8        : gnd    :                   :         :           :                
 GND*                         : U9        :        :                   :         : 1         :                
-GND*                         : U10       :        :                   :         : 1         :                
+de2_pio_toggles18_external_connection_export[9] : U10       : input  : 3.3-V LVTTL       :         : 1         : N              
 VCCINT                       : U11       : power  :                   : 1.2V    :           :                
-GND*                         : U12       :        :                   :         : 8         :                
+de2_pio_toggles18_external_connection_export[0] : U12       : input  : 3.3-V LVTTL       :         : 8         : N              
 VCCINT                       : U13       : power  :                   : 1.2V    :           :                
 VCCINT                       : U14       : power  :                   : 1.2V    :           :                
 VCCINT                       : U15       : power  :                   : 1.2V    :           :                
@@ -670,12 +670,12 @@ GND*                         : V5        :        :                   :         
 GND*                         : V6        :        :                   :         : 1         :                
 GND*                         : V7        :        :                   :         : 1         :                
 VCCIO1                       : V8        : power  :                   : 3.3V    : 1         :                
-GND*                         : V9        :        :                   :         : 8         :                
-GND*                         : V10       :        :                   :         : 8         :                
-GND*                         : V11       :        :                   :         : 8         :                
+sram_ADDR[11]                : V9        : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_ADDR[10]                : V10       : output : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[7] : V11       : input  : 3.3-V LVTTL       :         : 8         : N              
 VCCIO8                       : V12       : power  :                   : 3.3V    : 8         :                
-GND*                         : V13       :        :                   :         : 8         :                
-GND*                         : V14       :        :                   :         : 8         :                
+de2_pio_toggles18_external_connection_export[13] : V13       : input  : 3.3-V LVTTL       :         : 8         : N              
+de2_pio_toggles18_external_connection_export[11] : V14       : input  : 3.3-V LVTTL       :         : 8         : N              
 VCCIO7                       : V15       : power  :                   : 3.3V    : 7         :                
 VCCINT                       : V16       : power  :                   : 1.2V    :           :                
 GND*                         : V17       :        :                   :         : 7         :                
@@ -695,15 +695,15 @@ GND*                         : W4        :        :                   :         
 GND                          : W5        : gnd    :                   :         :           :                
 GND*                         : W6        :        :                   :         : 1         :                
 GND_PLL1                     : W7        : gnd    :                   :         :           :                
-GND*                         : W8        :        :                   :         : 8         :                
+sram_ADDR[13]                : W8        : output : 3.3-V LVTTL       :         : 8         : Y              
 VCCIO8                       : W9        : power  :                   : 3.3V    : 8         :                
-GND*                         : W10       :        :                   :         : 8         :                
-GND*                         : W11       :        :                   :         : 8         :                
-GND*                         : W12       :        :                   :         : 8         :                
+sram_ADDR[14]                : W10       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[12]                  : W11       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[13]                  : W12       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
 GND                          : W13       : gnd    :                   :         :           :                
 GND                          : W14       : gnd    :                   :         :           :                
-GND*                         : W15       :        :                   :         : 7         :                
-GND*                         : W16       :        :                   :         : 7         :                
+sdram_dq[6]                  : W15       : bidir  : 3.3-V LVTTL       :         : 7         : N              
+sdram_dq[4]                  : W16       : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : W17       :        :                   :         : 7         :                
 VCCIO7                       : W18       : power  :                   : 3.3V    : 7         :                
 GND*                         : W19       :        :                   :         : 7         :                
@@ -723,12 +723,12 @@ GND_PLL1                     : Y6        : gnd    :                   :         
 VCCD_PLL1                    : Y7        : power  :                   : 1.2V    :           :                
 GNDA_PLL1                    : Y8        : gnd    :                   :         :           :                
 GND                          : Y9        : gnd    :                   :         :           :                
-GND*                         : Y10       :        :                   :         : 8         :                
-GND*                         : Y11       :        :                   :         : 8         :                
-GND*                         : Y12       :        :                   :         : 8         :                
-GND*                         : Y13       :        :                   :         : 7         :                
+sram_ADDR[15]                : Y10       : output : 3.3-V LVTTL       :         : 8         : Y              
+sram_DQ[7]                   : Y11       : bidir  : 3.3-V LVTTL       :         : 8         : Y              
+de2_pio_toggles18_external_connection_export[1] : Y12       : input  : 3.3-V LVTTL       :         : 8         : N              
+sdram_dq[5]                  : Y13       : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : Y14       :        :                   :         : 7         :                
-GND*                         : Y15       :        :                   :         : 7         :                
+sdram_dq[7]                  : Y15       : bidir  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : Y16       :        :                   :         : 7         :                
 GND                          : Y17       : gnd    :                   :         :           :                
 GND*                         : Y18       :        :                   :         : 7         :                

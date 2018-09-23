@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Sep 22 17:18:11 2018
+Analysis & Synthesis Status : Successful - Sun Sep 23 14:11:37 2018
 Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : nios2_ht18_lemonde_streit
 Top-level Entity Name : nios2_ht18_lemonde_streit
 Family : Cyclone II
-Total logic elements : 1,733
-    Total combinational functions : 1,558
-    Dedicated logic registers : 896
-Total registers : 896
-Total pins : 2
+Total logic elements : 5,149
+    Total combinational functions : 4,399
+    Dedicated logic registers : 3,037
+Total registers : 3037
+Total pins : 183
 Total virtual pins : 0
 Total memory bits : 273,408
 Embedded Multiplier 9-bit elements : 0

@@ -20,9 +20,9 @@
 // Altera IRQ Mapper
 //
 // Parameters
-//   NUM_RCVRS        : 1
+//   NUM_RCVRS        : 5
 //   SENDER_IRW_WIDTH : 32
-//   IRQ_MAP          : 0:5
+//   IRQ_MAP          : 0:5,1:6,2:8,3:7,4:9
 //
 // -------------------------------------------------------
 
@@ -40,6 +40,10 @@ module nios2_ht18_lemonde_streit_irq_mapper
     // IRQ Receivers
     // -------------------
     input                receiver0_irq,
+    input                receiver1_irq,
+    input                receiver2_irq,
+    input                receiver3_irq,
+    input                receiver4_irq,
 
     // -------------------
     // Command Source (Output)
@@ -52,6 +56,10 @@ module nios2_ht18_lemonde_streit_irq_mapper
 	sender_irq = 0;
 
         sender_irq[5] = receiver0_irq;
+        sender_irq[6] = receiver1_irq;
+        sender_irq[8] = receiver2_irq;
+        sender_irq[7] = receiver3_irq;
+        sender_irq[9] = receiver4_irq;
     end
 
 endmodule

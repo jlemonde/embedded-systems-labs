@@ -19,7 +19,7 @@ extern int hexasc(int invalue);
 
 static void init_button_pio();
 
-static void handle_button_interrupts(void* context);
+static void key_InterruptHandler(void* context);
 
 
 int timeloc = 0x5957; // start value given in hexadecimal/BCD-code
@@ -90,18 +90,18 @@ static void init_button_pio()
 	#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
 		alt_ic_isr_register(D2_PIO_KEYS4_IRQ_INTERRUPT_CONTROLLER_ID,
 							D2_PIO_KEYS4_IRQ,
-							handle_button_interrupts,
+							key_InterruptHandler,
 							edge_capture_ptr, 0x0);
 	#else
 		alt_irq_register(D2_PIO_KEYS4_IRQ,
 						 edge_capture_ptr,
-						 handle_button_interrupts);
+						 key_InterruptHandler);
 	#endif
 }
 
 
 
-static void handle_button_interrupts(void* context)
+static void key_InterruptHandler(void* context)
 {
 	/* Cast context to edge_capture's type. It is important that this
 	be declared volatile to avoid unwanted compiler optimization. */
