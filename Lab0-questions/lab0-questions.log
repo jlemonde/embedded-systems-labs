@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.4.20)  24 SEP 2018 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.4.20)  24 SEP 2018 21:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -805,33 +805,33 @@ e base-addresses of the pe-riph-er-als (sym-bolic names), such as for in-stance
 <flow-diagram.pdf, id=17, 597.50786pt x 845.04686pt>
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf>
-Package pdftex.def Info: flow-diagram.pdf  used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf  used on input line 196.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf>
-Package pdftex.def Info: flow-diagram.pdf  used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf  used on input line 196.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 <flow-diagram.pdf, id=20, page=1, 597.50786pt x 845.04686pt>
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf, page 1>
-Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 196.
 (pdftex.def)             Requested size: 597.5064pt x 845.0448pt.
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf, page 1>
-Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 196.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 [2]
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf, page 1>
-Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 196.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf, page 1>
-Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 196.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
 File: flow-diagram.pdf Graphic file (type pdf)
 <use flow-diagram.pdf, page 1>
-Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 181.
+Package pdftex.def Info: flow-diagram.pdf , page1 used on input line 196.
 (pdftex.def)             Requested size: 597.53374pt x 845.08348pt.
  [3 <./flow-diagram.pdf>] (./lab0-questions.aux) ) 
 Here is how much of TeX's memory you used:
@@ -841,7 +841,7 @@ Here is how much of TeX's memory you used:
  8950 multiletter control sequences out of 15000+600000
  62924 words of font info for 70 fonts, out of 8000000 for 9000
  398 hyphenation exceptions out of 8191
- 41i,18n,43p,326b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,43p,326b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/d
 vips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/shar
 e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
@@ -853,7 +853,7 @@ share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 tt10.pfb>
-Output written on lab0-questions.pdf (3 pages, 215305 bytes).
+Output written on lab0-questions.pdf (3 pages, 216550 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream

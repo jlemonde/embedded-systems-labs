@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1537813946 "lab0-questions.tex" "lab0-questions.pdf" "lab0-questions" 1537813947
+["pdflatex"] 1537816098 "lab0-questions.tex" "lab0-questions.pdf" "lab0-questions" 1537816098
   "/etc/texmf/web2c/texmf.cnf" 1506499636 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1480098696 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -130,8 +130,8 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1524244986 130899 b1beea9e88287c6aa0da6e547e93d85f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1524244990 3411293 5098826d67fabfc330aaec659cbe13ad ""
   "flow-diagram.pdf" 1537695220 13262 51a67ed3abeb9d46b3431c043ede1ab5 ""
-  "lab0-questions.aux" 1537813947 2498 7e1bf5047fdcb0a23d1518943fb6cdff ""
-  "lab0-questions.tex" 1537813946 6864 9cf48d930b94c92280cc9a0dab0d18aa ""
+  "lab0-questions.aux" 1537816098 2575 0a0631bfebaeb818cc5e68b764e6cefe ""
+  "lab0-questions.tex" 1537816098 7134 7caeed399c194c0943d21c1bdb134cfc ""
   (generated)
   "lab0-questions.pdf"
   "lab0-questions.aux"
