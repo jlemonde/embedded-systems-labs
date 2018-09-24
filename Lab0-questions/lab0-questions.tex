@@ -119,6 +119,63 @@ The toggles (IRQ 6), the JTAG UART (IRQ 5), Timer 0 (IRQ 7), Timer 1 (IRQ 9).
 (found in \texttt{system.h}).
 
 
+\setcounter{section}{5}
+\setcounter{subsection}{1}
+\setcounter{subsubsection}{0}
+
+\subsubsection{How are the timestamp timer and the performance counter functioning? Describe the main steps.}
+
+The timestamp is basically a counter which gets incremented -- in this case -- at every tick of the clock.
+
+The performance counter is a peripheral containing several counters allowing to count the number of ticks within a section of code chosen for analysis, without 
+
+
+
+Results :
+
+\begin{tabular}{c||c|c}
+    & Time (ms) & Error (ms) \\
+    \hline
+    \hline
+    Timestamp timer & 54.222 & 0.273 \\
+    \hline
+    Performance counter & TBD & TBD
+\end{tabular}
+
+
+
+\begin{tabular}{c||c|c}
+    Flag & Time (ms) & Size (KB) (ELF ; .o) \\
+    \hline
+    \hline
+    -O0 & 54.259 & 899.726 ; 10.236 \\
+    \hline
+    -O2 & 54.223 & 899.726 ; 10.236\\
+    \hline
+    -Os & 54.170 & 899.726 ; 10.236
+\end{tabular}
+
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+
+\subsubsection{Why SDRAM rather than SRAM ?}
+
+SDRAM is cheaper than SRAM, even if it is slower. In many cases, this is a deciding point. Moreover, it is possible to have much bigger blocs of memory, so it is possible to optimise locally more data, which is used together, in order to reduce the access times using a cache. 
+
+\subsubsection{Typical access times:}
+
+\begin{tabular}{|c|c|}
+   \hline
+   SDRAM & \\
+   \hline
+   External SRAM & 0.5 - 5 ns\\
+   \hline
+   On-chip RAM & \\
+   \hline
+   Cache & \\
+   \hline
+\end{tabular}
+
 
 
     \includepdf[pages=-]{flow-diagram.pdf}
