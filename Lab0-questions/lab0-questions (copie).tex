@@ -1,0 +1,67 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+%\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+%\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+%maths :
+\usepackage{amssymb,amsmath,amsthm,bm}
+
+%Réduction des marges
+\usepackage[margin=0.5in]{geometry}
+
+%Supression des numéros de page
+\pagenumbering{gobble}
+
+\title{Titre}
+\author{Johannes Lemonde et Lucas Streit}
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+%\begin{abstract}
+%\end{abstract}
+
+\section{Questions to chapter 3}
+\subsection{Flow diagram for the \texttt{delay} subroutine}
+
+\subsection{Calculating \texttt{delaycount} in order to achieve \texttt{1 ms} in \texttt{delay}'s inner-loop}
+
+We have \( \frac{50~[MHz~op]}{4~[\frac{op}{loop}]~1000~[\frac{ms}{s}]} = 12'500 [\frac{loops}{ms}] \), so we would set \texttt{delaycount} to 12'500.
+
+Experimentally, we figured out that it should be set to 860 approx (why?)
+
+\subsection{What is BSP and what does it contain?}
+
+BSP means Board Support Package. It is the layer of software containing hardware-specific drivers and other routines that allow a particular operating system to function. It initialises the processor, bus, interrupts, clock, RAM, amongst others, and runs the boot loader.
+
+The BSP project in Eclipse contains amongst others all the files necessary to access the LEDs, switches, buttons, etc.
+
+\subsection{What is a soft-core processor? What type of processor is present? Features?}
+
+We talk about soft-core processors when we configure a reprogrammable logic, such as a FPGA, to function as a processor. \\
+For these laboratories, we use the NIOS II soft processor, which is a soft microprocessor core for Intel FPGAs.\\
+Clock frequency: 50 MHz; neither data nor instruction caches for NIOS  II/e; No pipeline nor branch prediction for NIOS II/e.
+
+\subsection{How does the processor access peripherals? What is the main mechanism and what main piece of hardware stands between the processor and a peripheral?} 
+
+Peripherals are accessed through the Avalon Switch Fabric, which lets several masters from the core to operate at the same time. In other words, in handles the requests from the masters to the slaves (peripherals).
+
+\subsection{What peripherals/IP cores are present in the provided architecture? Identify their symbolic names and base addresses.}
+
+Buttons, switches, green and red LEDs, seven segment displays, ...
+For the symbolic names and base addresses, see \texttt{system.h}.
+
+
+\end{document}

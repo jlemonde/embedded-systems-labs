@@ -16,13 +16,15 @@
 %maths :
 \usepackage{amssymb,amsmath,amsthm,bm}
 
+\usepackage{pdfpages}
+
 %Réduction des marges
 \usepackage[margin=0.5in]{geometry}
 
 %Supression des numéros de page
 \pagenumbering{gobble}
 
-\title{Titre}
+\title{Lab 0}
 \author{Johannes Lemonde et Lucas Streit}
 
 \begin{document}
@@ -33,35 +35,93 @@
 %\begin{abstract}
 %\end{abstract}
 
+\setcounter{section}{2}
 \section{Questions to chapter 3}
-\subsection{Flow diagram for the \texttt{delay} subroutine}
+\setcounter{subsection}{1}
+\subsubsection{Flow diagram for the \texttt{delay} subroutine}
 
-\subsection{Calculating \texttt{delaycount} in order to achieve \texttt{1 ms} in \texttt{delay}'s inner-loop}
+See at the end.
+
+\subsubsection{Calculating \texttt{delaycount} in order to achieve \texttt{1 ms} in \texttt{delay}'s inner-loop}
 
 We have \( \frac{50~[MHz~op]}{4~[\frac{op}{loop}]~1000~[\frac{ms}{s}]} = 12'500 [\frac{loops}{ms}] \), so we would set \texttt{delaycount} to 12'500.
 
 Experimentally, we figured out that it should be set to 860 approx (why?)
 
-\subsection{What is BSP and what does it contain?}
+
+
+\setcounter{subsection}{2}
+\setcounter{subsubsection}{0}
+
+
+
+\subsubsection{What is BSP and what does it contain?}
 
 BSP means Board Support Package. It is the layer of software containing hardware-specific drivers and other routines that allow a particular operating system to function. It initialises the processor, bus, interrupts, clock, RAM, amongst others, and runs the boot loader.
 
 The BSP project in Eclipse contains amongst others all the files necessary to access the LEDs, switches, buttons, etc.
 
-\subsection{What is a soft-core processor? What type of processor is present? Features?}
+\subsubsection{What is a soft-core processor? What type of processor is present? Features?}
 
 We talk about soft-core processors when we configure a reprogrammable logic, such as a FPGA, to function as a processor. \\
 For these laboratories, we use the NIOS II soft processor, which is a soft microprocessor core for Intel FPGAs.\\
 Clock frequency: 50 MHz; neither data nor instruction caches for NIOS  II/e; No pipeline nor branch prediction for NIOS II/e.
 
-\subsection{How does the processor access peripherals? What is the main mechanism and what main piece of hardware stands between the processor and a peripheral?} 
+\subsubsection{How does the processor access peripherals? What is the main mechanism and what main piece of hardware stands between the processor and a peripheral?} 
 
 Peripherals are accessed through the Avalon Switch Fabric, which lets several masters from the core to operate at the same time. In other words, in handles the requests from the masters to the slaves (peripherals).
 
-\subsection{What peripherals/IP cores are present in the provided architecture? Identify their symbolic names and base addresses.}
+\subsubsection{What peripherals/IP cores are present in the provided architecture? Identify their symbolic names and base addresses.}
 
 Buttons, switches, green and red LEDs, seven segment displays, ...
-For the symbolic names and base addresses, see \texttt{system.h}.
+For the symbolic names and base addresses, see \texttt{system.h} (within the BSP project in Eclipse).
+
+\subsubsection{What types of memory are present in the provided architecture? Identify their symbolic names, base addresses and sizes. What are the typical access time for each of these memories?}
+
+On chip memory : \texttt{ONCHIP\_MEMORY\_BASE}, address: \texttt{0x0}, size: \texttt{25600 words}, typical access time: \texttt{1 cycle at 50MHz}.\\
+%PERFORMANCE\_COUNTER\_BASE 0x9000 128\\
+\\
+SDRAM: \texttt{SDRAM\_BASE}, base-address: \texttt{0x1000000}, size: \texttt{8388608 words}, typical access time (CAS latency): \texttt{3 cycles at 50 MHz}.
+
+
+
+
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+
+
+\subsubsection{What macro is used to write to a parallel I/O port? How about to read from one?}
+
+We can use the macros \texttt{IOWR\_ALTERA\_AVALON\_PIO\_DATA(base, data)} and  \texttt{IORD\_ALTERA\_AVALON\_PIO\_DATA(base)}, defined in \texttt{\$BSP\_PROJECT/drivers/inc/altera\_avalon\_pio\_regs.h}, where \texttt{base} is the address of the port and \texttt{data} is the data to write.
+
+\subsubsection{What command will you use to turn on all red LEDs?}
+
+We have to run the previous command with \texttt{DE2\_PIO\_REDLED18\_BASE} as the \texttt{base} and $(2^{18}-1)$ as the \texttt{data}.
+It would look like that: \texttt{IOWR\_ALTERA\_AVALON\_PIO\_DATA(DE2\_PIO\_REDLED18\_BASE, 0x3FFFF);}
+
+\subsubsection{What command would you use to read the current status of all push-buttons?}
+
+\texttt{IORD\_ALTERA\_AVALON\_PIO\_DATA(D2\_PIO\_KEYS4\_BASE);}, where the function returns a 4 bit number, each bit corresponding to the status of one push-button, \texttt{0} meaning currently pushed and \texttt{1} meaning released. 
+
+\subsubsection{Which header file do you need to include in your program to access the symbolic names? What about the read/write macros?}
+
+Basically, \texttt{"system.h"} defines the base-addresses of the peripherals (symbolic names), such as for instance \texttt{D2\_PIO\_KEYS4\_BASE}, and \texttt{"altera\_avalon\_pio\_regs.h"} defines the macros to read/write.
+
+\setcounter{subsection}{6}
+\setcounter{subsubsection}{0}
+\subsubsection{What is the IRQ level for buttons?}
+
+\texttt{\#define D2\_PIO\_KEYS4\_IRQ 8} in the \texttt{system.h} file.
+
+\subsubsection{Which other peripherals support interrupts?}
+
+The toggles (IRQ 6), the JTAG UART (IRQ 5), Timer 0 (IRQ 7), Timer 1 (IRQ 9).
+(found in \texttt{system.h}).
+
+
+
+
+    \includepdf[pages=-]{flow-diagram.pdf}
 
 
 \end{document}
