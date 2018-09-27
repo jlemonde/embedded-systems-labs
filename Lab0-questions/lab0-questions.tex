@@ -139,20 +139,20 @@ Results :
     \hline
     Timestamp timer & 54.222 & 0.273 \\
     \hline
-    Performance counter & TBD & TBD
+    Performance counter & 54.202 & 0.258
 \end{tabular}
 
 
 
 \begin{tabular}{c||c|c}
-    Flag & Time (ms) & Size (KB) (ELF ; .o) \\
+    Flag & Time (ms) & Size (KB) (ELF file) \\
     \hline
     \hline
-    -O0 & 54.259 & 899.726 ; 10.236 \\
+    -O0 & 50.195 & 80.876 \\
     \hline
-    -O2 & 54.223 & 899.726 ; 10.236\\
+    -O2 & 10.898 & 80.356\\
     \hline
-    -Os & 54.170 & 899.726 ; 10.236
+    -Os & 10.950 & 80.308
 \end{tabular}
 
 \setcounter{subsection}{3}
@@ -162,24 +162,41 @@ Results :
 
 SDRAM is cheaper than SRAM, even if it is slower. In many cases, this is a deciding point. Moreover, it is possible to have much bigger blocs of memory, so it is possible to optimise locally more data, which is used together, in order to reduce the access times using a cache. 
 
-\subsubsection{Typical access times:}
+%\setcounter{subsubsection}{0}
+%\subsubsection{Typical access times:}
 
-\begin{tabular}{|c|c|}
+\begin{tabular}{|l|r|}
    \hline
-   SDRAM & (10ns) \\
+   SDRAM & about 10ns \\
    \hline
    External SRAM & 0.5 - 5 ns\\
    \hline
-   On-chip RAM & \\
+   On-chip RAM & 5 ns\\
    \hline
-   Cache & \\
+   Cache & 0.1 - 5 ns\\
    \hline
 \end{tabular}
+
+\subsubsection{How could cache memory enhance our main function?}
+
+If we used some cache so that we could fit the hole matrix inside (or a significant part of it, taking care to loop in a clever order during the sum), then it could be faster since cache has better access times than SDRAM. 
+
+But anyway, at 50~MHz, there would be no difference between both approaches because the CPU period would be 20~ns (greater than both typical access times).
+
+\subsection{Caches not used to their full advantage ?}
+
+If you loop through a too great amount of data to be stored inside the cache (too small cache) : if there are many cache misses. [On the other hand, cache is not used to its full advantage if the CPU clock frequency is low (as seen in previous question).]
+
+As for the software design, let's take an example : if we made the sum through the columns for each column (switch i and j) in the function of the sum of the matrix, there would be uselessly many cache misses.
+
+
 
 
 \section{Questions to ask}
 
 Optimisations : -O0, -O2, -Os
+
+C'est quoi SIZE ???
 
 Sur quelle mémoire on charge le programme ? (comment choisir)
 
