@@ -29,7 +29,9 @@ OS_STK stat_stk[TASK_STACKSIZE];
 INT8U state0 = 0;				// (initial) state of task 0
 INT8U state1 = 1;				// (initial) state of task 1
 INT16U j = 0;					// number of iterations of measure_cswitch that aren't aberrant
-int mean = 0;
+INT16U beforej = 1;
+INT8U aberrant = 0;
+long mean = 0;
 
 OS_MEM* Mem = NULL;				// Address of the shared memory
 INT16S MemBuffer[2];			// Buffer for the shared memory
@@ -62,24 +64,32 @@ void printStackSize(char* name, INT8U prio)
 void measure_cswitch(int start_stop) {
 	if(!start_stop) {
 		PERF_END(PERFORMANCE_COUNTER_BASE,0);
-		int tempo = (int)perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
-		if(tempo > 2*mean && j>1) {
+		long tempo = (long)perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
+		if(tempo > 1.75*mean && j > 0) {			// aberrant value is defined as a value that is bigger than twice the last mean
 			printf("Aberrant measured value\n");
-			j--;
+			beforej = 0;
+			aberrant++;
+			if(aberrant > 9) {					// if there are more than 9 aberrant values consecutively, the measurement is reset
+				aberrant = 0;
+				j = 0;
+				mean = 0;
+			}
 		}
-		else mean = (mean*(j-1) + tempo)/j;
+		else {
+			if(aberrant > 0) aberrant--;		// decrements the number of consecutive aberrant values
+			beforej = j++;
+			mean = (mean*(beforej) + tempo)/(j);
+		}
 
-		printf("Measure:%d ; Mean in ticks:%d ; Mean in ms:%f ; Number of iterations:%d\n",tempo,
-//				mean,(1000.0*(float)mean/(float)alt_get_cpu_freq()),j);
-//		if(j==100) {
-//			mean = 0;
-//			j = 0;
-//		}
+		printf("Measure:%d ; Measure in ms:%f ; Mean in ticks:%d ; Mean in ms:%f ; Number of iterations:%d\n",tempo,
+				(1000.0*(float)tempo/(float)alt_get_cpu_freq()),mean,(1000.0*(float)mean/(float)alt_get_cpu_freq()),j);
 	}
-	if(start_stop) {
-		PERF_RESET(PERFORMANCE_COUNTER_BASE);
+	else {
+		if(beforej != j) {						// there shouldn't be a reset if we didn't measure yet (start_stop == 0)
+			PERF_RESET(PERFORMANCE_COUNTER_BASE);
+			beforej = j;
+		}
 		PERF_BEGIN(PERFORMANCE_COUNTER_BASE, 0);
-		j++;
 	}
 }
 
@@ -111,7 +121,7 @@ void task0(void* pdata) {
 			}
 			OSSemPost(MemSem);
 			measure_cswitch(1);
-			OSTimeDlyHMSM(0,0,0,1);
+			OSTimeDlyHMSM(0,0,0,8);
 		}
 	}
 }
