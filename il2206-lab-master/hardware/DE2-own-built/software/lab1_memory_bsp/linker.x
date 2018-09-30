@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_ht18_lemonde_streit' in SOPC Builder design 'nios2_ht18_lemonde_streit'
  * SOPC Builder design path: ../../nios2_ht18_lemonde_streit.sopcinfo
  *
- * Generated: Tue Sep 25 09:01:15 CEST 2018
+ * Generated: Tue Sep 25 11:12:04 CEST 2018
  */
 
 /*

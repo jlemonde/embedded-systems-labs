@@ -33,8 +33,8 @@ void actualiseDisplay(){
 	puttime(&timeloc);
 	puthex(timeloc);
 
-	printf(" %d", next_prime);
-	curr_prime = next_prime;
+	//printf(" %d", next_prime);
+	//curr_prime = next_prime;
 }
 
 
@@ -65,7 +65,7 @@ int main() {
 
 	while(TRUE){
 		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE, ++count);
-		next_prime = nextPrime(curr_prime);
+		next_prime = nextPrime(next_prime);
 		//delay(1000);
 	}
 
@@ -159,5 +159,6 @@ int isPrime(int inval){
 int nextPrime(int inval){
 	int i = inval;
 	while(!isPrime(++i));
+	printf("%d\n", i);
 	return i;
 }

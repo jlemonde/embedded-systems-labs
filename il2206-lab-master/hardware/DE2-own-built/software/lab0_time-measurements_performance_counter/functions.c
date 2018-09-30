@@ -65,15 +65,11 @@ int main ()
   // Average of 10 measurements */
   int i;
   PERF_RESET(P_COUNTER_BASE);
-  PERF_START_MEASURING(P_COUNTER_BASE);
   for (i = 0; i < 100; i++) {
-	  PERF_BEGIN(P_COUNTER_BASE, 0);
+	  PERF_BEGIN(P_COUNTER_BASE, 0); 
 	  PERF_END(P_COUNTER_BASE, 0);
   }
-  PERF_STOP_MEASURING(P_COUNTER_BASE);
   timer_overhead = (int)perf_get_section_time(P_COUNTER_BASE, 0) / 100;
-
-return 0;
 
 
   printf("Timer overhead in ticks: %d\n", (int) timer_overhead);
@@ -91,11 +87,9 @@ return 0;
   for (j=0; j<measures_in_total; j++){
       initMatrix(matrix);
       PERF_RESET(P_COUNTER_BASE);
-      PERF_START_MEASURING(P_COUNTER_BASE);
 	  PERF_BEGIN(P_COUNTER_BASE, 0);
       a = sumMatrix (matrix, M);
 	  PERF_END(P_COUNTER_BASE, 0);
-      PERF_STOP_MEASURING(P_COUNTER_BASE);
       ticks = (int)perf_get_section_time(P_COUNTER_BASE, 0) / measures_in_total;
       measures[j] = ticks - timer_overhead;
       measures_mean += measures[j];

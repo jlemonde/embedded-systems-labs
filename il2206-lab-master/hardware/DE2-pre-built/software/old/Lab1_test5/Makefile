@@ -149,6 +149,8 @@ C_SRCS += tick.c
 CXX_SRCS :=
 ASM_SRCS += delay_asm.s
 ASM_SRCS += hexasc_asm.s
+ASM_SRCS += delay_asm.S
+ASM_SRCS += hexasc_asm.S
 
 
 # Path to root of object file tree.

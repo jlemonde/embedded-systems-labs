@@ -94,15 +94,17 @@ int main()
 	int i, j, k;
 
 	for(i=0;i<3;i++){
-		for(j=0;(j!=i && j<3);j++){
-			for(k=1;k<=MAX;k++){
-				PERF_RESET(P_COUNTER_BASE);
-				PERF_BEGIN(P_COUNTER_BASE, 0);
-				memcpy(memories[j], memories[i],k);
-				PERF_END(P_COUNTER_BASE, 0);
-				y[k] = (float)perf_get_section_time(P_COUNTER_BASE, 0);
-				alt_printf("%x,",y[k]);
+		for(j=0;j<3;j++){
+			if(j!=i){
+				for(k=1;k<=MAX;k++){
+					PERF_RESET(P_COUNTER_BASE);
+					PERF_BEGIN(P_COUNTER_BASE, 0);
+					memcpy(memories[j], memories[i],k);
+					PERF_END(P_COUNTER_BASE, 0);
+					y[k] = (long)perf_get_section_time(P_COUNTER_BASE, 0);
+					alt_printf("%x,",y[k]);
 
+				}
 			}
 			alt_printf("\n");
 		}

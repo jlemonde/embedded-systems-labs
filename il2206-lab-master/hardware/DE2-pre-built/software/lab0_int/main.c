@@ -90,9 +90,6 @@ static void key_InterruptHandler(void* context)
 	*edge_capture_ptr =
 	IORD_ALTERA_AVALON_PIO_EDGE_CAP(D2_PIO_KEYS4_BASE);
 
-
-	printf(" hello isr %d\n", *edge_capture_ptr);
-
 	/* Write to the edge capture register to reset it. */
 	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(D2_PIO_KEYS4_BASE, 0);
 

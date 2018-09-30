@@ -3,7 +3,7 @@
 #include "system.h"
 #include "altera_avalon_pio_regs.h"
 
-#define PROJECT_POLLING2
+#define PROJECT_POLLING1
 
 extern void puttime(int* timeloc);
 extern void puthex(int time);
