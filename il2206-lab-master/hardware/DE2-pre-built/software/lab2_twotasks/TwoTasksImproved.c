@@ -48,15 +48,15 @@ void printStackSize(char* name, INT8U prio)
 /* Prints a message and sleeps for given time interval */
 void task1(void* pdata) {
 
-	INT8U err1;
-	INT16U timeout = 0xffff;
+	INT8U err;
+	INT16U timeout = 0;
 
 	while (1) {
 		char text1[] = "Hello from Task1\n";
 		int i;
 
-		OSSemPend(PrintSem, timeout, &err1);
-		if (!err1) {
+		OSSemPend(PrintSem, timeout, &err);
+		if (!err) {
 			for (i = 0; i < strlen(text1); i++)
 				putchar(text1[i]);
 			OSSemPost(PrintSem);
@@ -72,15 +72,15 @@ void task1(void* pdata) {
 /* Prints a message and sleeps for given time interval */
 void task2(void* pdata) {
 
-	INT8U err2;
-	INT16U timeout = 0xffff;
+	INT8U err;
+	INT16U timeout = 0;
 
 	while (1) {
 		char text2[] = "Hello from Task2\n";
 		int i;
 
-		OSSemPend(PrintSem, timeout, &err2);
-		if (!err2) {
+		OSSemPend(PrintSem, timeout, &err);
+		if (!err) {
 			for (i = 0; i < strlen(text2); i++)
 				putchar(text2[i]);
 			OSSemPost(PrintSem);
@@ -95,12 +95,12 @@ void task2(void* pdata) {
 /* Printing Statistics */
 void statisticTask(void* pdata) {
 
-	INT8U errs;
-	INT16U timeout = 0xffff;
+	INT8U err;
+	INT16U timeout = 0;
 
 	while (1) {
-		OSSemPend(PrintSem, timeout, &errs);
-		if (errs == 0) {
+		OSSemPend(PrintSem, timeout, &err);
+		if (!err) {
 			printStackSize("Task1", TASK1_PRIORITY);
 			printStackSize("Task2", TASK2_PRIORITY);
 			printStackSize("StatisticTask", TASK_STAT_PRIORITY);
