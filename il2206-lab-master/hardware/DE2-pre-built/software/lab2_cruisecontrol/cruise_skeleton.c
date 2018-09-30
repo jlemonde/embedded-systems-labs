@@ -294,6 +294,8 @@ void ControlTask(void* pdata) {
 		msg = OSMboxPend(Mbox_Velocity, 0, &err);
 		current_velocity = (INT16S*) msg;
 
+		if(!current_velocity && switches_pressed)
+
 		err = OSMboxPost(Mbox_Throttle, (void *) &throttle);
 
 		// OSTimeDlyHMSM(0, 0, 0, CONTROL_PERIOD);
@@ -306,6 +308,30 @@ void ControlTask(void* pdata) {
 			}
 			OSSemPost(Sem_Timer);
 		}
+	}
+}
+
+/*
+ * The task 'SwitchIO' read the switches periodically
+ */
+
+void SwitchIO(void* pdata) {
+	while(1) {
+		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE,switches_pressed() &
+				(TOP_GEAR_FLAG | ENGINE_FLAG));
+		OSTimeDlyHMSM(0,0,0,10);
+	}
+}
+
+/*
+ * The task 'ButtonsIO' read the buttons periodically
+ */
+
+void ButtonsIO(void* pdata) {
+	while(1) {
+		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE,buttons_pressed() &
+				(GAS_PEDAL_FLAG | BRAKE_PEDAL_FLAG | CRUISE_CONTROL_FLAG));
+		OSTimeDlyHMSM(0,0,0,10);
 	}
 }
 
@@ -378,6 +404,24 @@ void StartTask(void* pdata) {
 			// of task stack
 			VEHICLETASK_PRIO, VEHICLETASK_PRIO, (void *) &VehicleTask_Stack[0],
 			TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+
+	err = OSTaskCreateExt(
+				ButtonsIO, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&ButtonsIO_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				BUTTONSIO_PRIO, BUTTONSIO_PRIO, (void *) &ButtonsIO_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+
+	err = OSTaskCreateExt(
+				SwitchIO, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&SwitchIO_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				SWITCHIO_PRIO, SWITCHIO_PRIO, (void *) &SwitchIO_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
 
 	printf("All Tasks and Kernel Objects generated!\n");
 
