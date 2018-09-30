@@ -60,7 +60,7 @@ void task0(void* pdata) {
 
 	while (1) {
 		OSSemPend(MemSem, timeout, &err0);
-		if(err0 == 0) {
+		if(!err0) {
 			while(state1) {
 				if(!state0) {
 					if(i==1) buffer = OSMemGet(Mem,&err0);
@@ -129,7 +129,7 @@ void statisticTask(void* pdata) {
 
 /* The main function creates two task and starts multi-tasking */
 int main(void) {
-	printf("Lab 2 - Handshake\n");
+	printf("Lab 2 - SharedMemory\n");
 
 	INT8U err;
 
@@ -174,7 +174,7 @@ int main(void) {
 	}
 
 	Mem = OSMemCreate(MemBuffer,2,
-			sizeof(INT16U),&err);
+			sizeof(INT16S),&err);
 
 	MemSem = OSSemCreate(1);						// Create Memory related semaphore
 

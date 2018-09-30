@@ -35,11 +35,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_pubnames 0000224e  00000000  00000000  00019c50  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_info   0003062f  00000000  00000000  0001be9e  2**0
+  9 .debug_info   00030630  00000000  00000000  0001be9e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00009371  00000000  00000000  0004c4cd  2**0
+ 10 .debug_abbrev 00009371  00000000  00000000  0004c4ce  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_line   0001b884  00000000  00000000  0005583e  2**0
+ 11 .debug_line   0001b885  00000000  00000000  0005583f  2**0
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_frame  00002660  00000000  00000000  000710c4  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -51,27 +51,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_ranges 000009f8  00000000  00000000  00082e88  2**3
                   CONTENTS, READONLY, DEBUGGING
- 17 .thread_model 00000006  00000000  00000000  000882a6  2**0
+ 17 .thread_model 00000006  00000000  00000000  000882a7  2**0
                   CONTENTS, READONLY
- 18 .cpu          00000005  00000000  00000000  000882ac  2**0
+ 18 .cpu          00000005  00000000  00000000  000882ad  2**0
                   CONTENTS, READONLY
- 19 .qsys         00000001  00000000  00000000  000882b1  2**0
+ 19 .qsys         00000001  00000000  00000000  000882b2  2**0
                   CONTENTS, READONLY
- 20 .simulation_enabled 00000001  00000000  00000000  000882b2  2**0
+ 20 .simulation_enabled 00000001  00000000  00000000  000882b3  2**0
                   CONTENTS, READONLY
- 21 .stderr_dev   0000000b  00000000  00000000  000882b3  2**0
+ 21 .stderr_dev   0000000b  00000000  00000000  000882b4  2**0
                   CONTENTS, READONLY
- 22 .stdin_dev    0000000b  00000000  00000000  000882be  2**0
+ 22 .stdin_dev    0000000b  00000000  00000000  000882bf  2**0
                   CONTENTS, READONLY
- 23 .stdout_dev   0000000b  00000000  00000000  000882c9  2**0
+ 23 .stdout_dev   0000000b  00000000  00000000  000882ca  2**0
                   CONTENTS, READONLY
- 24 .sopc_system_name 0000000f  00000000  00000000  000882d4  2**0
+ 24 .sopc_system_name 0000000f  00000000  00000000  000882d5  2**0
                   CONTENTS, READONLY
- 25 .quartus_project_dir 00000051  00000000  00000000  000882e3  2**0
+ 25 .quartus_project_dir 00000051  00000000  00000000  000882e4  2**0
                   CONTENTS, READONLY
- 26 .jdi          0000509f  00000000  00000000  00088334  2**0
+ 26 .jdi          0000509f  00000000  00000000  00088335  2**0
                   CONTENTS, READONLY
- 27 .sopcinfo     0007119e  00000000  00000000  0008d3d3  2**0
+ 27 .sopcinfo     0007119e  00000000  00000000  0008d3d4  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 01000000 l    d  .entry	00000000 .entry
@@ -93,7 +93,7 @@ SYMBOL TABLE:
 00000000 l    d  .debug_ranges	00000000 .debug_ranges
 010001f4 l       .text	00000000 alt_after_alt_main
 00000000 l    df *ABS*	00000000 alt_irq_handler.c
-00000000 l    df *ABS*	00000000 TwoTasks.c
+00000000 l    df *ABS*	00000000 Handshake.c
 00000000 l    df *ABS*	00000000 printf.c
 00000000 l    df *ABS*	00000000 puts.c
 00000000 l    df *ABS*	00000000 strlen.c
@@ -1178,11 +1178,11 @@ void task0(void* pdata) {
 			OSSemPost(PrintSem);
  10002d0:	d126f517 	ldw	r4,-25644(gp)
  10002d4:	1010d0c0 	call	1010d0c <OSSemPost>
-			OSTimeDlyHMSM(0,0,0,4);
+			OSTimeDlyHMSM(0,0,0,1);
  10002d8:	0009883a 	mov	r4,zero
  10002dc:	000b883a 	mov	r5,zero
  10002e0:	000d883a 	mov	r6,zero
- 10002e4:	01c00104 	movi	r7,4
+ 10002e4:	01c00044 	movi	r7,1
  10002e8:	1012bf40 	call	1012bf4 <OSTimeDlyHMSM>
 		}
 	}
@@ -1261,11 +1261,11 @@ void task1(void* pdata) {
 			OSSemPost(PrintSem);
  100038c:	d126f517 	ldw	r4,-25644(gp)
  1000390:	1010d0c0 	call	1010d0c <OSSemPost>
-			OSTimeDlyHMSM(0,0,0,4);
+			OSTimeDlyHMSM(0,0,0,1);
  1000394:	0009883a 	mov	r4,zero
  1000398:	000b883a 	mov	r5,zero
  100039c:	000d883a 	mov	r6,zero
- 10003a0:	01c00104 	movi	r7,4
+ 10003a0:	01c00044 	movi	r7,1
  10003a4:	1012bf40 	call	1012bf4 <OSTimeDlyHMSM>
 		}
 	}
@@ -1332,7 +1332,7 @@ int main(void) {
  100042c:	dfc00615 	stw	ra,24(sp)
  1000430:	df000515 	stw	fp,20(sp)
  1000434:	df000504 	addi	fp,sp,20
-	printf("Lab 3 - Two Tasks\n");
+	printf("Lab 2 - Handshake\n");
  1000438:	01004074 	movhi	r4,257
  100043c:	21179b04 	addi	r4,r4,24172
  1000440:	10006100 	call	1000610 <puts>

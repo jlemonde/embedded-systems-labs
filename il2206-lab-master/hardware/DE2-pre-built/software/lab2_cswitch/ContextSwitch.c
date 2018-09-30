@@ -28,7 +28,7 @@ OS_STK stat_stk[TASK_STACKSIZE];
 
 INT8U state0 = 0;				// (initial) state of task 0
 INT8U state1 = 1;				// (initial) state of task 1
-INT16S j = -1;					// number of iterations of measure_cswitch that aren't aberrant
+INT16U j = 0;					// number of iterations of measure_cswitch that aren't aberrant
 int mean = 0;
 
 OS_MEM* Mem = NULL;				// Address of the shared memory
@@ -59,8 +59,8 @@ void printStackSize(char* name, INT8U prio)
 
 
 /* Called by Task0 */
-void measure_cswitch(void* p) {
-	if(j>0) {
+void measure_cswitch(int start_stop) {
+	if(!start_stop) {
 		PERF_END(PERFORMANCE_COUNTER_BASE,0);
 		int tempo = (int)perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
 		if(tempo > 2*mean && j>1) {
@@ -70,15 +70,17 @@ void measure_cswitch(void* p) {
 		else mean = (mean*(j-1) + tempo)/j;
 
 		printf("Measure:%d ; Mean in ticks:%d ; Mean in ms:%f ; Number of iterations:%d\n",tempo,
-				mean,(1000.0*(float)mean/(float)alt_get_cpu_freq()),j);
-		if(j==100) {
-			mean = 0;
-			j = 0;
-		}
+//				mean,(1000.0*(float)mean/(float)alt_get_cpu_freq()),j);
+//		if(j==100) {
+//			mean = 0;
+//			j = 0;
+//		}
 	}
-	PERF_RESET(PERFORMANCE_COUNTER_BASE);
-	PERF_BEGIN(PERFORMANCE_COUNTER_BASE, 0);
-	j++;
+	if(start_stop) {
+		PERF_RESET(PERFORMANCE_COUNTER_BASE);
+		PERF_BEGIN(PERFORMANCE_COUNTER_BASE, 0);
+		j++;
+	}
 }
 
 
@@ -97,7 +99,6 @@ void task0(void* pdata) {
 				if(!state0) {
 					if(i==1) buffer = OSMemGet(Mem,&err0);
 
-					measure_cswitch(NULL);
 					printf("Sending : %d\n", i);
 					*buffer = i++;
 					OSMemPut(Mem,buffer);
@@ -109,6 +110,7 @@ void task0(void* pdata) {
 				state0 = !state0;
 			}
 			OSSemPost(MemSem);
+			measure_cswitch(1);
 			OSTimeDlyHMSM(0,0,0,1);
 		}
 	}
@@ -124,6 +126,7 @@ void task1(void* pdata) {
 
 	while (1) {
 		OSSemPend(MemSem, timeout, &err1);
+		measure_cswitch(0);
 		if(err1 == 0) {
 			while(!state0) {
 				if(state1) {
@@ -162,7 +165,7 @@ void statisticTask(void* pdata) {
 
 /* The main function creates two task and starts multi-tasking */
 int main(void) {
-	printf("Lab 2 - Handshake\n");
+	printf("Lab 2 - ContextSwitch\n");
 
 	INT8U err;
 
