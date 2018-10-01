@@ -7,7 +7,7 @@
 
 #define DEBUG 1
 
-#define HW_TIMER_PERIOD 100 /* 100ms */
+#define HW_TIMER_PERIOD 20 /* 100ms */
 
 /* Button Patterns */
 
@@ -59,7 +59,6 @@ OS_STK OverloadDetection_Stack[TASK_STACKSIZE];
 
 #define CONTROL_PERIOD  300
 #define VEHICLE_PERIOD  300
-#define BS_PERIOD		100
 
 /*
  * Definition of Kernel Objects 
@@ -71,18 +70,12 @@ OS_EVENT *Mbox_Velocity;
 
 // Semaphores
 
-OS_EVENT *SemVehicle;
-OS_EVENT *SemControl;
-OS_EVENT *SemButtons;
-OS_EVENT *SemSwitches;
+OS_EVENT *Sem_Timer;
 OS_EVENT *Sem_Watchdog;
 
 // SW-Timer
 
-OS_TMR *TimerVehicle;
-OS_TMR *TimerControl;
-OS_TMR* TimerButtons;
-OS_TMR *TimerSwitches;
+OS_TMR *TimerMain;
 OS_TMR *TimerWatchdog;
 
 /*
@@ -130,26 +123,10 @@ alt_u32 alarm_handler(void* context) {
 }
 
 /*
- * Callbacks resumes the suspended task
+ * tmr_callback resumes the suspended task
  */
-void CallbackVehicle(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
-	OSSemPost(SemVehicle);
-	return;
-}
-void CallbackControl(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
-	OSSemPost(SemControl);
-	return;
-}
-void CallbackButtons(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
-	OSSemPost(SemButtons);
-	return;
-}
-void CallbackSwitches(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
-	OSSemPost(SemSwitches);
+void TmrCallback(void *ptmr, void *callback_arg) {
+	OSTaskResume(task_prio);
 	return;
 }
 
@@ -304,7 +281,16 @@ void VehicleTask(void* pdata) {
 	while (1) {
 		err = OSMboxPost(Mbox_Velocity, (void *) &velocity);
 
-		OSSemPend(SemVehicle,0,&err);
+		// OSTimeDlyHMSM(0, 0, 0, VEHICLE_PERIOD);
+
+		OSSemPend(Sem_Timer,0,&err);
+		if(!err) {
+			task_prio = VEHICLETASK_PRIO;
+			OSTmrStart(TimerMain,&err);
+			OSTaskSuspend(task_prio);
+			OSSemPost(Sem_Timer);
+		}
+
 
 		/* Non-blocking read of mailbox:
 		 - message in mailbox: update throttle
@@ -397,7 +383,6 @@ void ControlTask(void* pdata) {
 			if(cruise_control == on) {
 
 				printf("Target Velocity: %4.1f\n", target_velocity / 10.0);
-				show_target_velocity((INT8U)target_velocity/10);
 				tempo = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE);
 				tempo = tempo & ~(0x1fd);
 				IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE,tempo | 1);	// writes 1 to the "cruise control" led w/o overwriting the others
@@ -430,7 +415,15 @@ void ControlTask(void* pdata) {
 
 		err = OSMboxPost(Mbox_Throttle, (void *) &throttle);
 
-		OSSemPend(SemControl,0,&err);
+		// OSTimeDlyHMSM(0, 0, 0, CONTROL_PERIOD);
+
+		OSSemPend(Sem_Timer,0,&err);
+		if(!err) {
+			task_prio = CONTROLTASK_PRIO;
+			OSTmrStart(TimerMain,&err);
+			OSTaskSuspend(task_prio);
+			OSSemPost(Sem_Timer);
+		}
 	}
 }
 
@@ -439,7 +432,6 @@ void ControlTask(void* pdata) {
  */
 
 void SwitchIO(void* pdata) {
-	INT8U err;
 	INT32U current_led;
 	while(1) {
 		led_red = 0;
@@ -460,8 +452,7 @@ void SwitchIO(void* pdata) {
 		current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
 		current_led = current_led & ~(0xfff);
 		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE,led_red | current_led);
-
-		OSSemPend(SemSwitches,0,&err);
+		OSTimeDlyHMSM(0,0,0,50);
 	}
 }
 
@@ -470,7 +461,6 @@ void SwitchIO(void* pdata) {
  */
 
 void ButtonsIO(void* pdata) {
-	INT8U err;
 	INT16U current_led;
 	while(1) {
 		led_green = 0;
@@ -498,8 +488,7 @@ void ButtonsIO(void* pdata) {
 		current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE);
 		current_led = current_led & 0x01;
 		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE,led_green | current_led);
-
-		OSSemPend(SemButtons,0,&err);
+		OSTimeDlyHMSM(0,0,0,50);
 	}
 }
 
@@ -511,6 +500,18 @@ void Watchdog(void* pdata) {
 	while(1) {
 		OSTmrStart(TimerWatchdog,&err);
 		OSTaskSuspend(WATCHDOG_PRIO);
+//		OSSemPend(Sem_Watchdog,1,&err);
+//		if(err == OS_ERR_NONE) {
+//			printf("Watchdog started\n");
+//			OSTmrStart(TimerWatchdog, &err);
+//		}
+//		else {
+//			if(OSTmrStateGet(TimerWatchdog, &err) == OS_TMR_STATE_COMPLETED) {
+//				printf("CPU is at 100 percent usage!\n");
+//				OSTmrStart(TimerWatchdog, &err);
+//			}
+//		}
+//		OSTimeDlyHMSM(0,0,0,50);
 	}
 }
 
@@ -548,39 +549,17 @@ void StartTask(void* pdata) {
 	/*
 	 * Create and start Software Timer
 	 */
-	TimerVehicle = OSTmrCreate(0,VEHICLE_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackVehicle,NULL,NULL,&err);
+	TimerMain = OSTmrCreate(15,0,
+			OS_TMR_OPT_ONE_SHOT,TmrCallback,NULL,NULL,&err);
 	if(err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerVehicle,&err);
 
-	TimerControl = OSTmrCreate(0,CONTROL_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackControl,NULL,NULL,&err);
+	TimerWatchdog = OSTmrCreate(50,0,
+			OS_TMR_OPT_ONE_SHOT,WatchdogCallback,NULL,NULL,&err);
 	if(err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerControl,&err);
-
-	TimerSwitches = OSTmrCreate(0,BS_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackSwitches,NULL,NULL,&err);
-	if(err) {
-		printf("Error occurred while creating soft timer!\n");
-	}
-	OSTmrStart(TimerSwitches,&err);
-
-	TimerButtons = OSTmrCreate(0,BS_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackButtons,NULL,NULL,&err);
-	if(err) {
-		printf("Error occurred while creating soft timer!\n");
-	}
-	OSTmrStart(TimerButtons,&err);
-
-//	TimerWatchdog = OSTmrCreate(50,0,
-//			OS_TMR_OPT_ONE_SHOT,WatchdogCallback,NULL,NULL,&err);
-//	if(err) {
-//		printf("Error occurred while creating soft timer!\n");
-//	}
 	/*
 	 * Creation of Kernel Objects
 	 */
@@ -590,11 +569,8 @@ void StartTask(void* pdata) {
 	Mbox_Velocity = OSMboxCreate((void*) 0); /* Empty Mailbox - Velocity */
 
 	// Semaphores
-	SemVehicle = OSSemCreate(1);
-	SemControl = OSSemCreate(1);
-	SemButtons = OSSemCreate(1);
-	SemSwitches = OSSemCreate(1);
-//	Sem_Watchdog = OSSemCreate(1);
+	Sem_Timer = OSSemCreate(1);
+	Sem_Watchdog = OSSemCreate(1);
 
 	/*
 	 * Create statistics task
@@ -642,23 +618,23 @@ void StartTask(void* pdata) {
 				SWITCHIO_PRIO, SWITCHIO_PRIO, (void *) &SwitchIO_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
 
-//	err = OSTaskCreateExt(
-//				Watchdog, // Pointer to task code
-//				NULL, // Pointer to argument that is
-//				// passed to task
-//				&Watchdog_Stack[TASK_STACKSIZE - 1], // Pointer to top
-//				// of task stack
-//				WATCHDOG_PRIO, WATCHDOG_PRIO, (void *) &Watchdog_Stack[0],
-//				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-//
-//	err = OSTaskCreateExt(
-//				OverloadDetection, // Pointer to task code
-//				NULL, // Pointer to argument that is
-//				// passed to task
-//				&OverloadDetection_Stack[TASK_STACKSIZE - 1], // Pointer to top
-//				// of task stack
-//				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
-//				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	err = OSTaskCreateExt(
+				Watchdog, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&Watchdog_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				WATCHDOG_PRIO, WATCHDOG_PRIO, (void *) &Watchdog_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+
+	err = OSTaskCreateExt(
+				OverloadDetection, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&OverloadDetection_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
 
 	printf("All Tasks and Kernel Objects generated!\n");
 

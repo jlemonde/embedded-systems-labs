@@ -1123,11 +1123,8 @@ void task0(void* pdata) {
  1000248:	e03ffd8d 	sth	zero,-10(fp)
 	INT8U state = 0;
  100024c:	e03ffd05 	stb	zero,-12(fp)
-				state0 = !state0;
-			}
-			OSSemPost(PrintSem);
-			OSTimeDlyHMSM(0,0,0,1);
-		}*/
+
+	while (1) {
 		OSSemPend(SemT0S0, timeout, &err);
  1000250:	d126f517 	ldw	r4,-25644(gp)
  1000254:	e17ffd8b 	ldhu	r5,-10(fp)
@@ -1200,11 +1197,8 @@ void task1(void* pdata) {
  10002f0:	e03ffd8d 	sth	zero,-10(fp)
 	INT8U state = 0;
  10002f4:	e03ffd05 	stb	zero,-12(fp)
-				state1 = !state1;
-			}
-			OSSemPost(PrintSem);
-			OSTimeDlyHMSM(0,0,0,1);
-		}*/
+
+	while (1) {
 		OSSemPend(SemT1S0, timeout, &err);
  10002f8:	d126f617 	ldw	r4,-25640(gp)
  10002fc:	e17ffd8b 	ldhu	r5,-10(fp)
@@ -1390,7 +1384,6 @@ int main(void) {
  10004c8:	0009883a 	mov	r4,zero
  10004cc:	10105580 	call	1010558 <OSSemCreate>
  10004d0:	d0a6f315 	stw	r2,-25652(gp)
-
 
 	OSStart();
  10004d4:	100b9d00 	call	100b9d0 <OSStart>
