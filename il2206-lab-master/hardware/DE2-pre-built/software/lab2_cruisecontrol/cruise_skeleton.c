@@ -33,26 +33,25 @@
 
 #define TASK_STACKSIZE 2048
 
+
 OS_STK StartTask_Stack[TASK_STACKSIZE];
 OS_STK ControlTask_Stack[TASK_STACKSIZE];
 OS_STK VehicleTask_Stack[TASK_STACKSIZE];
 OS_STK ButtonsIO_Stack[TASK_STACKSIZE];
 OS_STK SwitchIO_Stack[TASK_STACKSIZE];
-OS_STK Watchdog_Stack[TASK_STACKSIZE];
 OS_STK OverloadDetection_Stack[TASK_STACKSIZE];
-//OS_STK ExtraLoad_Stack[TASK_STACKSIZE];
+OS_STK Extraload_Stack[TASK_STACKSIZE];
 
 
 // Task Priorities
 
 #define STARTTASK_PRIO     		5
-#define VEHICLETASK_PRIO  		10
-#define CONTROLTASK_PRIO	 	12
-#define BUTTONSIO_PRIO			15
-#define SWITCHIO_PRIO			17
-#define WATCHDOG_PRIO			6
-#define OVERLOADDETECTION_PRIO	31
-//#define EXTRALOAD_PRIO			31
+#define VEHICLETASK_PRIO  		8
+#define CONTROLTASK_PRIO	 	10
+#define BUTTONSIO_PRIO			12
+#define SWITCHIO_PRIO			14
+#define EXTRALOAD_PRIO			16
+#define OVERLOADDETECTION_PRIO	18
 
 
 // Task Periods
@@ -60,6 +59,8 @@ OS_STK OverloadDetection_Stack[TASK_STACKSIZE];
 #define CONTROL_PERIOD  300
 #define VEHICLE_PERIOD  300
 #define BS_PERIOD		100
+#define HYPER_PERIOD	300
+#define OVERLOAD_PERIOD	100
 
 /*
  * Definition of Kernel Objects 
@@ -75,15 +76,26 @@ OS_EVENT *SemVehicle;
 OS_EVENT *SemControl;
 OS_EVENT *SemButtons;
 OS_EVENT *SemSwitches;
-OS_EVENT *Sem_Watchdog;
+OS_EVENT *SemOverload;
+OS_EVENT *SemExtraload;
+
+// Data of semaphores
+
+OS_SEM_DATA *p_sem_data_vehicle;
+OS_SEM_DATA *p_sem_data_control;
+OS_SEM_DATA *p_sem_data_buttons;
+OS_SEM_DATA *p_sem_data_switches;
+OS_SEM_DATA *p_sem_data_overload;
 
 // SW-Timer
 
 OS_TMR *TimerVehicle;
 OS_TMR *TimerControl;
-OS_TMR* TimerButtons;
+OS_TMR *TimerButtons;
 OS_TMR *TimerSwitches;
+OS_TMR *TimerOverload;
 OS_TMR *TimerWatchdog;
+OS_TMR *TimerExtraload;
 
 /*
  * Types
@@ -101,7 +113,7 @@ enum active cruise_control = off;
 /*
  * Global variables
  */
-int delay; // Delay of HW-timer 
+int delay; // Delay of HW-timer
 INT16U led_green = 0; // Green LEDs
 INT32U led_red = 0; // Red LEDs
 INT8U ENGINE = 0;
@@ -109,8 +121,6 @@ INT8U TOP_GEAR = 0;
 INT8U GAS_PEDAL = 0;
 INT8U BRAKE_PEDAL = 0;
 INT8U CRUISE_CONTROL = 0;
-INT8U task_prio;
-INT8U reset = 0;
 
 int buttons_pressed(void) {
 	return ~IORD_ALTERA_AVALON_PIO_DATA(D2_PIO_KEYS4_BASE);
@@ -133,35 +143,27 @@ alt_u32 alarm_handler(void* context) {
  * Callbacks resumes the suspended task
  */
 void CallbackVehicle(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
 	OSSemPost(SemVehicle);
-	return;
 }
 void CallbackControl(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
 	OSSemPost(SemControl);
-	return;
 }
 void CallbackButtons(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
 	OSSemPost(SemButtons);
-	return;
 }
 void CallbackSwitches(void *ptmr,void *callback_arg) {
-//	printf("TmrCallback\n");
 	OSSemPost(SemSwitches);
-	return;
+}
+void CallbackOverload(void *ptmr,void *callback_arg) {
+	OSSemPost(SemOverload);
 }
 
-/*
- * tmr_callback resumes the suspended task
- */
-void WatchdogCallback(void *ptmr, void *callback_arg) {
-	INT8U err;
+void CallbackExtraload(void *ptmr, void *callback_arg) {
+	OSSemPost(SemExtraload);
+}
+
+void CallbackWatchdog(void *ptmr, void *callback_arg) {
 	printf("CPU is at 100 percent usage!\n");
-	OSTmrStart(TimerWatchdog,&err);
-//	OSTaskResume(WATCHDOG_PRIO);
-	return;
 }
 
 
@@ -214,15 +216,13 @@ void show_velocity_on_sevenseg(INT8S velocity) {
  * when the cruise control is activated (0 otherwise)
  */
 void show_target_velocity(INT8U target_vel) {
-	int targetVelocityHex = (int2seven(0) << 7) + (int2seven(0)),
-        targetDecimalHigh, targetDecimalLow;
+	INT16U targetVelocityHex;
+	INT8U targetDecimalHigh, targetDecimalLow;
 
-	if (cruise_control == on) {
-		targetDecimalHigh = target_vel / 10;
-		targetDecimalLow = target_vel - 10 * targetDecimalHigh;
-		targetVelocityHex = (int2seven(targetDecimalHigh) << 7)
-				+ (int2seven(targetDecimalLow));
-	}
+	targetDecimalHigh = target_vel / 10;
+	targetDecimalLow = target_vel - 10 * targetDecimalHigh;
+	targetVelocityHex = (int2seven(targetDecimalHigh) << 7)
+			+ (int2seven(targetDecimalLow));
 
 	IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_HEX_HIGH28_BASE, targetVelocityHex);
 }
@@ -353,7 +353,7 @@ void ControlTask(void* pdata) {
 	INT8U throttle = 0; /* Value between 0 and 80, which is interpreted as between 0.0V and 8.0V */
 	void* msg;
 	INT16S* current_velocity;
-	INT16S target_velocity;
+	INT8U target_velocity;
 	INT16U tempo;
 
 	printf("Control Task created!\n");
@@ -375,16 +375,18 @@ void ControlTask(void* pdata) {
 			else gas_pedal = off;
 
 			if(gas_pedal == on) {
-				if(throttle >= 76) throttle = 80;
-				else throttle += 4;
+				if(throttle >= 75) throttle = 80;
+				else throttle += 5;
 			}
 			if(brake_pedal == on) {
-				throttle = 0;
+				if(throttle <= 5 || ((INT8U) *current_velocity) == 0) throttle = 0;
+				else throttle -= 5;
 			}
 
 			if((*current_velocity) >= 200 && CRUISE_CONTROL) {
-				if(cruise_control == off) target_velocity = *current_velocity;
+				if(cruise_control == off) target_velocity = (INT8U) (*current_velocity / 10);
 				cruise_control = on;
+				show_target_velocity(target_velocity);
 			}
 
 			if(gas_pedal == on || brake_pedal == on || top_gear == off) {
@@ -392,17 +394,17 @@ void ControlTask(void* pdata) {
 				tempo = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE);
 				IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE,tempo & ~1);
 				target_velocity = 0;
+				show_target_velocity(target_velocity);
 			}
 
 			if(cruise_control == on) {
 
-				printf("Target Velocity: %4.1f\n", target_velocity / 10.0);
-				show_target_velocity((INT8U)target_velocity/10);
+				printf("Target Velocity: %d\n",(int) (target_velocity));
 				tempo = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE);
-				tempo = tempo & ~(0x1fd);
+				tempo = tempo & ~1;
 				IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE,tempo | 1);	// writes 1 to the "cruise control" led w/o overwriting the others
 
-				int delta = (*current_velocity)-target_velocity;
+				int delta = (*current_velocity)-10* ((int)target_velocity);
 				if(delta >= 20){
 					if(throttle <= 10) throttle = 0;
 					else throttle -= 10;
@@ -503,31 +505,42 @@ void ButtonsIO(void* pdata) {
 	}
 }
 
-/*
- * Watchdog print an error message if the timer doesn't get reset by the signal modified by OverloadDetection
- */
-void Watchdog(void* pdata) {
+void OverloadDetection(void* pdata) {
 	INT8U err;
 	while(1) {
+		OSSemPend(SemOverload,0,&err);
 		OSTmrStart(TimerWatchdog,&err);
-		OSTaskSuspend(WATCHDOG_PRIO);
 	}
 }
 
-/*
- * Reset = 1 if CPU works at 100%
- */
-void OverloadDetection(void* pdata) {
+void Extraload(void* pdata) {
+	INT32U current_led;
+	INT8U err;
+	INT8U OSCPUUsage = 0;
+	INT8U extra = 0;
+	long int j;
 	while(1) {
-		printf("Hello OverloadDetection\n");
-		OSTaskResume(WATCHDOG_PRIO);
+		extra = ((switches_pressed()>>4) & 0x3f);
+		current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
+		current_led = current_led & 0x3fc0f;
+		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE, (extra<<4) | current_led);
+
+		if (extra > 50) extra = 50;
+		j = 0;
+		do {
+			OSCPUUsage = 100 - (OSIdleCtr/(OSIdleCtrMax/100));
+			j++;
+		} while(2*extra-1 > OSCPUUsage && j < 30000);
+		printf("CPU Usage : %d, there were %ld loops executed and extra equals %d.\n", (int) OSCPUUsage, j, (int) extra);
+
+		OSSemPend(SemExtraload,0,&err);
 	}
 }
+
 /* 
  * The task 'StartTask' creates all other tasks kernel objects and
  * deletes itself afterwards.
  */
-
 void StartTask(void* pdata) {
 	INT8U err;
 	void* context;
@@ -576,11 +589,27 @@ void StartTask(void* pdata) {
 	}
 	OSTmrStart(TimerButtons,&err);
 
-//	TimerWatchdog = OSTmrCreate(50,0,
-//			OS_TMR_OPT_ONE_SHOT,WatchdogCallback,NULL,NULL,&err);
-//	if(err) {
-//		printf("Error occurred while creating soft timer!\n");
-//	}
+	TimerOverload = OSTmrCreate(0,OVERLOAD_PERIOD/HW_TIMER_PERIOD,
+				OS_TMR_OPT_PERIODIC,CallbackOverload,NULL,NULL,&err);
+	if(err) {
+		printf("Error occurred while creating soft timer!\n");
+	}
+	OSTmrStart(TimerOverload,&err);
+
+	TimerWatchdog = OSTmrCreate(0,HYPER_PERIOD/HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC,CallbackWatchdog,NULL,NULL,&err);
+	if(err) {
+		printf("Error occurred while creating soft timer!\n");
+	}
+	OSTmrStart(TimerWatchdog,&err);
+
+	TimerExtraload = OSTmrCreate(0,HYPER_PERIOD/HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC,CallbackExtraload,NULL,NULL,&err);
+	if(err) {
+		printf("Error occurred while creating soft timer!\n");
+	}
+	OSTmrStart(TimerExtraload,&err);
+
 	/*
 	 * Creation of Kernel Objects
 	 */
@@ -590,17 +619,20 @@ void StartTask(void* pdata) {
 	Mbox_Velocity = OSMboxCreate((void*) 0); /* Empty Mailbox - Velocity */
 
 	// Semaphores
-	SemVehicle = OSSemCreate(1);
-	SemControl = OSSemCreate(1);
-	SemButtons = OSSemCreate(1);
-	SemSwitches = OSSemCreate(1);
-//	Sem_Watchdog = OSSemCreate(1);
+	SemVehicle = OSSemCreate(0);
+	SemControl = OSSemCreate(0);
+	SemButtons = OSSemCreate(0);
+	SemSwitches = OSSemCreate(0);
+	SemOverload = OSSemCreate(0);
+	SemExtraload = OSSemCreate(1);
 
 	/*
 	 * Create statistics task
 	 */
 
 	OSStatInit();
+
+	printf("OSIdleCtrMax : %d\n", (unsigned int)OSIdleCtrMax);
 
 	/*
 	 * Creating Tasks in the system
@@ -614,6 +646,7 @@ void StartTask(void* pdata) {
 			// of task stack
 			CONTROLTASK_PRIO, CONTROLTASK_PRIO, (void *) &ControlTask_Stack[0],
 			TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : Control\n");
 
 	err = OSTaskCreateExt(
 			VehicleTask, // Pointer to task code
@@ -623,6 +656,7 @@ void StartTask(void* pdata) {
 			// of task stack
 			VEHICLETASK_PRIO, VEHICLETASK_PRIO, (void *) &VehicleTask_Stack[0],
 			TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : Vehicle\n");
 
 	err = OSTaskCreateExt(
 				ButtonsIO, // Pointer to task code
@@ -632,6 +666,17 @@ void StartTask(void* pdata) {
 				// of task stack
 				BUTTONSIO_PRIO, BUTTONSIO_PRIO, (void *) &ButtonsIO_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : ButtonsIO\n");
+
+	err = OSTaskCreateExt(
+				OverloadDetection, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&OverloadDetection_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : Overload : Erreur %d\n", (unsigned int) err);
 
 	err = OSTaskCreateExt(
 				SwitchIO, // Pointer to task code
@@ -641,24 +686,17 @@ void StartTask(void* pdata) {
 				// of task stack
 				SWITCHIO_PRIO, SWITCHIO_PRIO, (void *) &SwitchIO_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : SwitchIO\n");
 
-//	err = OSTaskCreateExt(
-//				Watchdog, // Pointer to task code
-//				NULL, // Pointer to argument that is
-//				// passed to task
-//				&Watchdog_Stack[TASK_STACKSIZE - 1], // Pointer to top
-//				// of task stack
-//				WATCHDOG_PRIO, WATCHDOG_PRIO, (void *) &Watchdog_Stack[0],
-//				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-//
-//	err = OSTaskCreateExt(
-//				OverloadDetection, // Pointer to task code
-//				NULL, // Pointer to argument that is
-//				// passed to task
-//				&OverloadDetection_Stack[TASK_STACKSIZE - 1], // Pointer to top
-//				// of task stack
-//				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
-//				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	err = OSTaskCreateExt(
+				Extraload, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&Extraload_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				EXTRALOAD_PRIO, EXTRALOAD_PRIO, (void *) &Extraload_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : Extraload : error %d\n", (unsigned) err);
 
 	printf("All Tasks and Kernel Objects generated!\n");
 
