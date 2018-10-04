@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 30, 2018 11:13:02 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1538341982489</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/software/lab2_cruisecontrol_bsp</BspGeneratedLocation>
-        <BspSettingsFile>./settings.bsp</BspSettingsFile>
+        <BspGeneratedTimeStamp>Oct 4, 2018 2:44:43 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1538657083524</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>/home/student/Projets/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/software/lab2_cruisecontrol_bsp</BspGeneratedLocation>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../DE2_Nios2System.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2</Cpu>
@@ -1598,7 +1598,7 @@
                 <SettingName>ucosii.os_tmr_en</SettingName>
                 <Identifier>OS_TMR_EN</Identifier>
                 <Type>Boolean</Type>
-                <Value>0</Value>
+                <Value>1</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>system_h_define</DestinationFile>
                 <Description>Enable code for timers</Description>

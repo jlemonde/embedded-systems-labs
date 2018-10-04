@@ -516,7 +516,7 @@ void OverloadDetection(void* pdata) {
 void Extraload(void* pdata) {
 	INT32U current_led;
 	INT8U err;
-	INT8U OSCPUUsage = 0;
+	unsigned int OSCPUUsage = 0;
 	INT8U extra = 0;
 	long int j;
 	while(1) {
@@ -528,10 +528,11 @@ void Extraload(void* pdata) {
 		if (extra > 50) extra = 50;
 		j = 0;
 		do {
-			OSCPUUsage = 100 - (OSIdleCtr/(OSIdleCtrMax/100));
+			OSCPUUsage = 100 - (int)((float)OSIdleCtr/((float)OSIdleCtrMax/100.));
 			j++;
-		} while(2*extra-1 > OSCPUUsage && j < 30000);
-		printf("CPU Usage : %d, there were %ld loops executed and extra equals %d.\n", (int) OSCPUUsage, j, (int) extra);
+		} while((int) (2*extra-1) > (unsigned int)OSCPUUsage && j < 30);
+
+		printf("CPU Usage : %u, there were %ld loops executed and extra equals %d. Moreover we have %d and %d.\n", OSCPUUsage, j, (int) extra, (unsigned) OSIdleCtr, (unsigned) OSIdleCtrMax);
 
 		OSSemPend(SemExtraload,0,&err);
 	}
@@ -561,54 +562,54 @@ void StartTask(void* pdata) {
 	/*
 	 * Create and start Software Timer
 	 */
-	TimerVehicle = OSTmrCreate(0,VEHICLE_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackVehicle,NULL,NULL,&err);
-	if(err) {
+	TimerVehicle = OSTmrCreate(0, VEHICLE_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackVehicle, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerVehicle,&err);
+	OSTmrStart(TimerVehicle, &err);
 
-	TimerControl = OSTmrCreate(0,CONTROL_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackControl,NULL,NULL,&err);
-	if(err) {
+	TimerControl = OSTmrCreate(0, CONTROL_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackControl, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerControl,&err);
+	OSTmrStart(TimerControl, &err);
 
-	TimerSwitches = OSTmrCreate(0,BS_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackSwitches,NULL,NULL,&err);
-	if(err) {
+	TimerButtons = OSTmrCreate(0, BS_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackButtons, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerSwitches,&err);
+	OSTmrStart(TimerButtons, &err);
 
-	TimerButtons = OSTmrCreate(0,BS_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackButtons,NULL,NULL,&err);
-	if(err) {
+	TimerSwitches = OSTmrCreate(0, BS_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackSwitches, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerButtons,&err);
+	OSTmrStart(TimerSwitches, &err);
 
-	TimerOverload = OSTmrCreate(0,OVERLOAD_PERIOD/HW_TIMER_PERIOD,
-				OS_TMR_OPT_PERIODIC,CallbackOverload,NULL,NULL,&err);
-	if(err) {
+	TimerExtraload = OSTmrCreate(0, HYPER_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackExtraload, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerOverload,&err);
+	OSTmrStart(TimerExtraload, &err);
 
-	TimerWatchdog = OSTmrCreate(0,HYPER_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackWatchdog,NULL,NULL,&err);
-	if(err) {
+	TimerOverload = OSTmrCreate(0, OVERLOAD_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackOverload, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerWatchdog,&err);
+	OSTmrStart(TimerOverload, &err);
 
-	TimerExtraload = OSTmrCreate(0,HYPER_PERIOD/HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC,CallbackExtraload,NULL,NULL,&err);
-	if(err) {
+	TimerWatchdog = OSTmrCreate(0, HYPER_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackWatchdog, NULL, NULL, &err);
+	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerExtraload,&err);
+	OSTmrStart(TimerWatchdog, &err);
 
 	/*
 	 * Creation of Kernel Objects
@@ -669,16 +670,6 @@ void StartTask(void* pdata) {
 	if(err != 0) printf("Problem creating task : ButtonsIO\n");
 
 	err = OSTaskCreateExt(
-				OverloadDetection, // Pointer to task code
-				NULL, // Pointer to argument that is
-				// passed to task
-				&OverloadDetection_Stack[TASK_STACKSIZE - 1], // Pointer to top
-				// of task stack
-				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
-				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-	if(err != 0) printf("Problem creating task : Overload : Erreur %d\n", (unsigned int) err);
-
-	err = OSTaskCreateExt(
 				SwitchIO, // Pointer to task code
 				NULL, // Pointer to argument that is
 				// passed to task
@@ -687,6 +678,7 @@ void StartTask(void* pdata) {
 				SWITCHIO_PRIO, SWITCHIO_PRIO, (void *) &SwitchIO_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
 	if(err != 0) printf("Problem creating task : SwitchIO\n");
+
 
 	err = OSTaskCreateExt(
 				Extraload, // Pointer to task code
@@ -697,6 +689,18 @@ void StartTask(void* pdata) {
 				EXTRALOAD_PRIO, EXTRALOAD_PRIO, (void *) &Extraload_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
 	if(err != 0) printf("Problem creating task : Extraload : error %d\n", (unsigned) err);
+
+	err = OSTaskCreateExt(
+				OverloadDetection, // Pointer to task code
+				NULL, // Pointer to argument that is
+				// passed to task
+				&OverloadDetection_Stack[TASK_STACKSIZE - 1], // Pointer to top
+				// of task stack
+				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
+				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
+	if(err != 0) printf("Problem creating task : Overload : Erreur %d\n", (unsigned int) err);
+
+
 
 	printf("All Tasks and Kernel Objects generated!\n");
 
