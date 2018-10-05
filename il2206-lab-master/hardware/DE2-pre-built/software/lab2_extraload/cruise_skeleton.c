@@ -7,7 +7,7 @@
 
 #define DEBUG 1
 
-#define HW_TIMER_PERIOD 100 /* 100ms */
+#define HW_TIMER_PERIOD 2 /* 2ms */
 
 /* Button Patterns */
 
@@ -95,7 +95,8 @@ OS_TMR *TimerButtons;
 OS_TMR *TimerSwitches;
 OS_TMR *TimerOverload;
 OS_TMR *TimerWatchdog;
-OS_TMR *TimerExtraload;
+OS_TMR *TimerExtraloadTask;
+OS_TMR *TimerExtraload = NULL;
 
 /*
  * Types
@@ -121,6 +122,7 @@ INT8U TOP_GEAR = 0;
 INT8U GAS_PEDAL = 0;
 INT8U BRAKE_PEDAL = 0;
 INT8U CRUISE_CONTROL = 0;
+INT8U FLAG = 0;
 
 int buttons_pressed(void) {
 	return ~IORD_ALTERA_AVALON_PIO_DATA(D2_PIO_KEYS4_BASE);
@@ -158,8 +160,12 @@ void CallbackOverload(void *ptmr,void *callback_arg) {
 	OSSemPost(SemOverload);
 }
 
-void CallbackExtraload(void *ptmr, void *callback_arg) {
+void CallbackExtraloadTask(void *ptmr, void *callback_arg) {
 	OSSemPost(SemExtraload);
+}
+
+void CallbackExtraload(void *ptmr, void *callback_arg) {
+	FLAG = 1;
 }
 
 void CallbackWatchdog(void *ptmr, void *callback_arg) {
@@ -516,23 +522,35 @@ void OverloadDetection(void* pdata) {
 void Extraload(void* pdata) {
 	INT32U current_led;
 	INT8U err;
-	unsigned int OSCPUUsage = 0;
-	INT8U extra = 0;
-	long int j;
+	INT8U next_load = 0;
+	INT8U load = 0;
+	INT8U t = 0;
 	while(1) {
-		extra = ((switches_pressed()>>4) & 0x3f);
-		current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
-		current_led = current_led & 0x3fc0f;
-		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE, (extra<<4) | current_led);
+		next_load = ((switches_pressed()>>4) & 0x3f);
+		if (next_load > 50) next_load = 50;
+		if(load != next_load){
+			load = next_load;
+			current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
+			current_led = current_led & 0x3fc0f;
+			IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE, (load<<4) | current_led);
+			if(t){
+				OSTmrDel(TimerExtraload,&err);
+				t = 0;
+			}
+			if(load){
+				TimerExtraload = OSTmrCreate((2*load*HYPER_PERIOD) / (100*HW_TIMER_PERIOD), 0,
+						OS_TMR_OPT_ONE_SHOT, CallbackExtraload, NULL, NULL, &err);
+				if(!err) t = 1;
+			}
+		}
 
-		if (extra > 50) extra = 50;
-		j = 0;
-		do {
-			OSCPUUsage = 100 - (int)((float)OSIdleCtr/((float)OSIdleCtrMax/100.));
-			j++;
-		} while((int) (2*extra-1) > (unsigned int)OSCPUUsage && j < 30);
-
-		printf("CPU Usage : %u, there were %ld loops executed and extra equals %d. Moreover we have %d and %d.\n", OSCPUUsage, j, (int) extra, (unsigned) OSIdleCtr, (unsigned) OSIdleCtrMax);
+		if(load && t) {
+			OSTmrStart(TimerExtraload, &err);
+			FLAG = 0;
+			while(FLAG == 0) {
+				;
+			}
+		}
 
 		OSSemPend(SemExtraload,0,&err);
 	}
@@ -590,12 +608,12 @@ void StartTask(void* pdata) {
 	}
 	OSTmrStart(TimerSwitches, &err);
 
-	TimerExtraload = OSTmrCreate(0, HYPER_PERIOD / HW_TIMER_PERIOD,
-			OS_TMR_OPT_PERIODIC, CallbackExtraload, NULL, NULL, &err);
+	TimerExtraloadTask = OSTmrCreate(0, HYPER_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackExtraloadTask, NULL, NULL, &err);
 	if (err) {
 		printf("Error occurred while creating soft timer!\n");
 	}
-	OSTmrStart(TimerExtraload, &err);
+	OSTmrStart(TimerExtraloadTask, &err);
 
 	TimerOverload = OSTmrCreate(0, OVERLOAD_PERIOD / HW_TIMER_PERIOD,
 			OS_TMR_OPT_PERIODIC, CallbackOverload, NULL, NULL, &err);
@@ -688,7 +706,7 @@ void StartTask(void* pdata) {
 				// of task stack
 				EXTRALOAD_PRIO, EXTRALOAD_PRIO, (void *) &Extraload_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-	if(err != 0) printf("Problem creating task : Extraload\n", (unsigned) err);
+	if(err != 0) printf("Problem creating task : Extraload\n");
 
 	err = OSTaskCreateExt(
 				OverloadDetection, // Pointer to task code
@@ -698,7 +716,7 @@ void StartTask(void* pdata) {
 				// of task stack
 				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-	if(err != 0) printf("Problem creating task : Overload\n", (unsigned int) err);
+	if(err != 0) printf("Problem creating task : Overload\n");
 
 
 
