@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Oct 4, 2018 2:44:43 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1538657083524</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/home/student/Projets/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/software/lab2_cruisecontrol_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Oct 7, 2018 4:18:03 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1538921883703</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/DE2-pre-built/software/lab2_cruisecontrol_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../DE2_Nios2System.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>

@@ -63,7 +63,7 @@ OS_STK Extraload_Stack[TASK_STACKSIZE];
 #define OVERLOAD_PERIOD	100
 
 /*
- * Definition of Kernel Objects 
+ * Definition of Kernel Objects
  */
 
 // Mailboxes
@@ -538,7 +538,7 @@ void Extraload(void* pdata) {
 	}
 }
 
-/* 
+/*
  * The task 'StartTask' creates all other tasks kernel objects and
  * deletes itself afterwards.
  */
@@ -688,7 +688,7 @@ void StartTask(void* pdata) {
 				// of task stack
 				EXTRALOAD_PRIO, EXTRALOAD_PRIO, (void *) &Extraload_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-	if(err != 0) printf("Problem creating task : Extraload\n", (unsigned) err);
+	if(err != 0) printf("Problem creating task : Extraload\n");
 
 	err = OSTaskCreateExt(
 				OverloadDetection, // Pointer to task code
@@ -698,7 +698,7 @@ void StartTask(void* pdata) {
 				// of task stack
 				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
-	if(err != 0) printf("Problem creating task : Overload\n", (unsigned int) err);
+	if(err != 0) printf("Problem creating task : Overload\n");
 
 
 
