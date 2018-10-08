@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_ht18_lemonde_streit' in SOPC Builder design 'nios2_ht18_lemonde_streit'
  * SOPC Builder design path: ../../nios2_ht18_lemonde_streit.sopcinfo
  *
- * Generated: Sun Oct 07 16:54:01 CEST 2018
+ * Generated: Mon Oct 08 10:01:08 CEST 2018
  */
 
 /*
@@ -583,7 +583,7 @@
 #define OS_TASK_PROFILE_EN 0
 #define OS_TASK_QUERY_EN 0
 #define OS_TASK_STAT_EN 1
-#define OS_TASK_STAT_STK_CHK_EN 0
+#define OS_TASK_STAT_STK_CHK_EN 1
 #define OS_TASK_STAT_STK_SIZE 512
 #define OS_TASK_SUSPEND_EN 1
 #define OS_TASK_SW_HOOK_EN 1

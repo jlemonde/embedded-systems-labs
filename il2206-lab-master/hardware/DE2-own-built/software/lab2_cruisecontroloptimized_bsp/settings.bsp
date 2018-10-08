@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Oct 7, 2018 5:00:49 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1538924449869</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Oct 8, 2018 10:01:07 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1538985667329</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/DE2-own-built/software/lab2_cruisecontroloptimized_bsp</BspGeneratedLocation>
         <BspSettingsFile>/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/DE2-own-built/software/lab2_cruisecontroloptimized_bsp/settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2_ht18_lemonde_streit.sopcinfo</SopcDesignFile>
@@ -938,7 +938,7 @@
                 <SettingName>ucosii.miscellaneous.os_task_stat_stk_chk_en</SettingName>
                 <Identifier>OS_TASK_STAT_STK_CHK_EN</Identifier>
                 <Type>Boolean</Type>
-                <Value>0</Value>
+                <Value>1</Value>
                 <DefaultValue>1</DefaultValue>
                 <DestinationFile>system_h_define</DestinationFile>
                 <Description>Check task stacks from statistics task</Description>
@@ -1788,7 +1788,7 @@
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>
-                <regionName>onchip_memory</regionName>
+                <regionName>sdram</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.rodata</sectionName>

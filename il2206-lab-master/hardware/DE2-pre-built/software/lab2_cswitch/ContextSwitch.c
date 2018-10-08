@@ -31,7 +31,6 @@ OS_STK stat_stk[TASK_STACKSIZE];
 
 OS_MEM* Mem = NULL;				// Address of the shared memory
 INT16S MemBuffer[2];			// Buffer for the shared memory
-INT16U global_tempo[3] = {0,0,0};
 
 
 /* ----------------------------------------------- */
@@ -80,31 +79,31 @@ void task0(void* pdata) {
 		OSSemPost(SemT1S0);
 
 
-		PERF_RESET(PERFORMANCE_COUNTER_BASE);
-		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,0);
+//		PERF_RESET(PERFORMANCE_COUNTER_BASE);
+//		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,0);
 
 		OSSemPend(SemT0S1, timeout, &err); // Context Switch calculated here
 
-		PERF_END(PERFORMANCE_COUNTER_BASE,0);
-		tempo = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
-		tempo -= global_tempo[0]+global_tempo[1]+global_tempo[2];
-		if(tempo > 2*mean && j > 0) {			// aberrant value is defined as a value that is bigger than 1.75 times the last mean
-			printf("Aberrant measured value\n");
-			aberrant++;
-			if(aberrant > 9) {					// if there are more than 9 aberrant values consecutively, the measurement is reset
-				aberrant = 0;
-				j = 0;
-				mean = 0;
-			}
-		}
-		else {
-			j++;
-			mean = (mean*(j-1) + tempo)/(j);
-			printf("Measure: %d; Measure in us: %d; Mean: %d; Mean in us: %d; Iterations: %d\n", (int) tempo,
-						(int) (1000000* (float) tempo / (float) alt_get_cpu_freq()), (int) mean,
-						(int) (1000000* (float) mean / (float) alt_get_cpu_freq()), (int) j);
-			if(aberrant > 0) aberrant--;
-		}
+//		PERF_END(PERFORMANCE_COUNTER_BASE,0);
+//		tempo = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
+//		tempo -= global_tempo[0]+global_tempo[1]+global_tempo[2];
+//		if(tempo > 2*mean && j > 0) {			// aberrant value is defined as a value that is bigger than 1.75 times the last mean
+//			printf("Aberrant measured value\n");
+//			aberrant++;
+//			if(aberrant > 9) {					// if there are more than 9 aberrant values consecutively, the measurement is reset
+//				aberrant = 0;
+//				j = 0;
+//				mean = 0;
+//			}
+//		}
+//		else {
+//			j++;
+//			mean = (mean*(j-1) + tempo)/(j);
+//			printf("Measure: %d; Measure in us: %d; Mean: %d; Mean in us: %d; Iterations: %d\n", (int) tempo,
+//						(int) (1000000* (float) tempo / (float) alt_get_cpu_freq()), (int) mean,
+//						(int) (1000000* (float) mean / (float) alt_get_cpu_freq()), (int) j);
+//			if(aberrant > 0) aberrant--;
+//		}
 
 
 		if(!err) {
@@ -129,14 +128,7 @@ void task1(void* pdata) {
 	INT16S* tempo_buffer;
 
 	while (1) {
-
-		IOWR(PERFORMANCE_COUNTER_BASE,4,1);
-		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,1);
-
 		OSSemPend(SemT1S0, timeout, &err);
-
-		PERF_END(PERFORMANCE_COUNTER_BASE,1);
-		global_tempo[0] = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 1);
 		if(!err) {
 		tempo_buffer = OSMemGet(Mem,&err);
 		}
@@ -144,27 +136,15 @@ void task1(void* pdata) {
 		if(DEBUG)
 			OSTimeDlyHMSM(0,0,0,4);
 
-		IOWR(PERFORMANCE_COUNTER_BASE,8,1);
-		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,2);
-
 		OSSemPost(SemT1S1);
 
 		OSSemPend(SemT1S1, timeout, &err);
-
-		PERF_END(PERFORMANCE_COUNTER_BASE,2);
-		global_tempo[1] = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 2);
 		if(!err) {
 		*tempo_buffer *= (-1);
 		OSMemPut(Mem,tempo_buffer);
 		}
 
-		IOWR(PERFORMANCE_COUNTER_BASE,12,1);
-		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,3);
-
 		OSSemPost(SemT0S1);
-
-		PERF_END(PERFORMANCE_COUNTER_BASE,3);
-		global_tempo[3] = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 3);
 	}
 }
 

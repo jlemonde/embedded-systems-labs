@@ -79,14 +79,6 @@ OS_EVENT *SemSwitches;
 OS_EVENT *SemOverload;
 OS_EVENT *SemExtraload;
 
-// Data of semaphores
-
-OS_SEM_DATA *p_sem_data_vehicle;
-OS_SEM_DATA *p_sem_data_control;
-OS_SEM_DATA *p_sem_data_buttons;
-OS_SEM_DATA *p_sem_data_switches;
-OS_SEM_DATA *p_sem_data_overload;
-
 // SW-Timer
 
 OS_TMR *TimerVehicle;
@@ -245,7 +237,7 @@ void show_target_velocity(INT8U target_vel) {
 void show_position(INT16U position) {
 	int positionLEDs = 1 << (17 - (position / 4000));
 	int currentLEDs = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
-	currentLEDs = currentLEDs & ~(0x3F << 12); 					//do not overwrite the other switches' LEDs
+	currentLEDs = currentLEDs & ~(0x3f << 12); 					//do not overwrite the other switches' LEDs
 	IOWR_ALTERA_AVALON_PIO_DATA( DE2_PIO_REDLED18_BASE,
 			currentLEDs | positionLEDs);
 }
@@ -466,7 +458,7 @@ void SwitchIO(void* pdata) {
 			ENGINE = 0;
 		}
 		current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
-		current_led = current_led & ~(0xfff);
+		current_led = current_led & ~(0x3);
 		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE,led_red | current_led);
 
 		OSSemPend(SemSwitches,0,&err);

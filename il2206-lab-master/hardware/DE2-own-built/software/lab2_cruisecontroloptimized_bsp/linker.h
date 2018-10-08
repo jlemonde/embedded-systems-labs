@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_ht18_lemonde_streit' in SOPC Builder design 'nios2_ht18_lemonde_streit'
  * SOPC Builder design path: ../../nios2_ht18_lemonde_streit.sopcinfo
  *
- * Generated: Sun Oct 07 17:00:50 CEST 2018
+ * Generated: Mon Oct 08 10:01:08 CEST 2018
  */
 
 /*
@@ -84,7 +84,7 @@
 #define ALT_RESET_DEVICE SDRAM
 #define ALT_RODATA_DEVICE SDRAM
 #define ALT_RWDATA_DEVICE SDRAM
-#define ALT_TEXT_DEVICE ONCHIP_MEMORY
+#define ALT_TEXT_DEVICE SDRAM
 
 
 /*

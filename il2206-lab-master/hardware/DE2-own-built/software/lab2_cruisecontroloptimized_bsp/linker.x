@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_ht18_lemonde_streit' in SOPC Builder design 'nios2_ht18_lemonde_streit'
  * SOPC Builder design path: ../../nios2_ht18_lemonde_streit.sopcinfo
  *
- * Generated: Sun Oct 07 17:00:50 CEST 2018
+ * Generated: Mon Oct 08 10:01:08 CEST 2018
  */
 
 /*
@@ -210,7 +210,7 @@ SECTIONS
         PROVIDE (__DTOR_END__ = ABSOLUTE(.));
         KEEP (*(.jcr))
         . = ALIGN(4);
-    } > onchip_memory = 0x3a880100 /* Nios II NOP instruction */
+    } > sdram = 0x3a880100 /* Nios II NOP instruction */
 
     .rodata :
     {
@@ -229,9 +229,13 @@ SECTIONS
      * This section's LMA is set to the .text region.
      * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
      *
+     * .rwdata region equals the .text region, and is set to be loaded into .text region.
+     * This requires two copies of .rwdata in the .text region. One read writable at VMA.
+     * and one read-only at LMA. crt0 will copy from LMA to VMA on reset
+     *
      */
 
-    .rwdata : AT ( LOADADDR (.text) + SIZEOF (.text) )
+    .rwdata LOADADDR (.rodata) + SIZEOF (.rodata) : AT ( LOADADDR (.rodata) + SIZEOF (.rodata)+ SIZEOF (.rwdata) )
     {
         PROVIDE (__ram_rwdata_start = ABSOLUTE(.));
         . = ALIGN(4);
@@ -254,7 +258,14 @@ SECTIONS
 
     PROVIDE (__flash_rwdata_start = LOADADDR(.rwdata));
 
-    .bss :
+    /*
+     *
+     * This section's LMA is set to the .text region.
+     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
+     *
+     */
+
+    .bss LOADADDR (.rwdata) + SIZEOF (.rwdata) : AT ( LOADADDR (.rwdata) + SIZEOF (.rwdata) )
     {
         __bss_start = ABSOLUTE(.);
         PROVIDE (__sbss_start = ABSOLUTE(.));
@@ -299,7 +310,7 @@ SECTIONS
      *
      */
 
-    .sram : AT ( LOADADDR (.rwdata) + SIZEOF (.rwdata) )
+    .sram : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
     {
         PROVIDE (_alt_partition_sram_start = ABSOLUTE(.));
         *(.sram. sram.*)
@@ -316,7 +327,7 @@ SECTIONS
      *
      */
 
-    .sdram : AT ( LOADADDR (.sram) + SIZEOF (.sram) )
+    .sdram LOADADDR (.sram) + SIZEOF (.sram) : AT ( LOADADDR (.sram) + SIZEOF (.sram) )
     {
         PROVIDE (_alt_partition_sdram_start = ABSOLUTE(.));
         *(.sdram. sdram.*)
@@ -336,7 +347,7 @@ SECTIONS
      *
      */
 
-    .onchip_memory LOADADDR (.sdram) + SIZEOF (.sdram) : AT ( LOADADDR (.sdram) + SIZEOF (.sdram) )
+    .onchip_memory : AT ( LOADADDR (.sdram) + SIZEOF (.sdram) )
     {
         PROVIDE (_alt_partition_onchip_memory_start = ABSOLUTE(.));
         *(.onchip_memory. onchip_memory.*)

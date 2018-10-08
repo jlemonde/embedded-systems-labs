@@ -1,5 +1,5 @@
-//#include <stdio.h>
-#define NULL 0
+#include <stdio.h>
+// #define NULL 0
 #include "sys/alt_stdio.h"
 #include "system.h"
 #include "includes.h"
@@ -33,9 +33,9 @@
  * Definition of Tasks
  */
 
-#define TASK_STACKSIZE 2048
+#define TASK_STACKSIZE 256 // A TESTER, CHANGER LES PRINT DE TARGET VELOCITY ET LES LEDS DE L'EXTRALOAD QUI SE FONT RESET PAR LES AUTRES TACHES
 
-
+OS_STK statisticTask_Stack[TASK_STACKSIZE];
 OS_STK StartTask_Stack[TASK_STACKSIZE];
 OS_STK ControlTask_Stack[TASK_STACKSIZE];
 OS_STK VehicleTask_Stack[TASK_STACKSIZE];
@@ -47,6 +47,7 @@ OS_STK Extraload_Stack[TASK_STACKSIZE];
 
 // Task Priorities
 
+#define STAT_TASK_PRIO			2
 #define STARTTASK_PRIO     		5
 #define VEHICLETASK_PRIO  		8
 #define CONTROLTASK_PRIO	 	10
@@ -80,14 +81,6 @@ OS_EVENT *SemButtons;
 OS_EVENT *SemSwitches;
 OS_EVENT *SemOverload;
 OS_EVENT *SemExtraload;
-
-// Data of semaphores
-
-OS_SEM_DATA *p_sem_data_vehicle;
-OS_SEM_DATA *p_sem_data_control;
-OS_SEM_DATA *p_sem_data_buttons;
-OS_SEM_DATA *p_sem_data_switches;
-OS_SEM_DATA *p_sem_data_overload;
 
 // SW-Timer
 
@@ -133,6 +126,57 @@ int buttons_pressed(void) {
 int switches_pressed(void) {
 	return IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_TOGGLES18_BASE);
 }
+
+/*
+ * DEBUG FUNCTIONS AND VARAIBLES USED TO PRINT STACK USED AND FREE OF TASKS
+ */
+#ifdef DEBUG
+
+OS_EVENT *SemStat;
+OS_TMR *TimerStat;
+
+void CallbackStat(void *ptmr, void *callback_arg) {
+	OSSemPost(SemStat);
+}
+
+/* Called by StatisticTask */
+void printStackSize(char* name, INT8U prio)
+{
+  INT8U err;
+  OS_STK_DATA stk_data;
+
+  err = OSTaskStkChk(prio, &stk_data);
+  if (err == OS_NO_ERR) {
+    if (DEBUG == 1)
+      printf("%s (priority %d) - Used: %d; Free: %d\n",
+	     name, prio, (int) stk_data.OSUsed, (int) stk_data.OSFree);
+  }
+  else
+    {
+      if (DEBUG == 1)
+	alt_printf("Stack Check Error!\n");
+    }
+}
+
+/* Printing Statistics */
+void statisticTask(void* pdata) {
+
+	INT8U err;
+	INT16U timeout = 0;
+
+	while (1) {
+		printStackSize("VehicleTask", VEHICLETASK_PRIO);
+		printStackSize("ControlTask", CONTROLTASK_PRIO);
+		printStackSize("ButtonsIOTask", BUTTONSIO_PRIO);
+		printStackSize("SwitchesIOTask", SWITCHIO_PRIO);
+		printStackSize("OverloadDetectionTask", OVERLOADDETECTION_PRIO);
+		printStackSize("ExtraloadTask", EXTRALOAD_PRIO);
+
+		OSSemPend(SemStat,timeout,&err);
+	}
+}
+
+#endif
 
 /*
  * ISR for HW Timer
@@ -247,7 +291,7 @@ void show_target_velocity(INT8U target_vel) {
 void show_position(INT16U position) {
 	int positionLEDs = 1 << (17 - (position / 4000));
 	int currentLEDs = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
-	currentLEDs = currentLEDs & ~(0x3F << 12); 					//do not overwrite the other switches' LEDs
+	currentLEDs = currentLEDs & ~(0x3f << 12); 					//do not overwrite the other switches' LEDs
 	IOWR_ALTERA_AVALON_PIO_DATA( DE2_PIO_REDLED18_BASE,
 			currentLEDs | positionLEDs);
 }
@@ -344,8 +388,33 @@ void VehicleTask(void* pdata) {
 		acceleration = *throttle / 2 - retardation;
 		position = adjust_position(position, velocity, acceleration, 300);
 		velocity = adjust_velocity(velocity, acceleration, brake_pedal, 300);
-		alt_printf("Position: %x m\n", position / 10);
-		alt_printf("Velocity: %x m/s\n", velocity / 10.0);
+
+		/*decades, units and tenth parts of the hexadecimal number (we want to convert to decimal)*/
+		int m, c, d, u, t;
+
+		t =  position         % 10,
+		u = (position / 10)   % 10,
+		d = (position / 100)  % 10,
+		c = (position / 1000) % 10,
+		m = (position / 10000)% 10;
+		alt_printf("Position: %x%x%x%x.%x m\n", m, c, d, u, t);
+
+		if(velocity < 0) {
+			velocity *= -1;
+			t = (int) velocity           %10,
+			u = (int)(velocity / 10.0)   %10,
+			d = (int)(velocity / 100.0)  %10,
+			c = (int)(velocity / 1000.0) %10;
+			alt_printf("Velocity: -%x%x%x.%x m/s\n", c, d, u, t);
+		}
+		else {
+			t = (int) velocity           %10,
+			u = (int)(velocity / 10.0)   %10,
+			d = (int)(velocity / 100.0)  %10,
+			c = (int)(velocity / 1000.0) %10;
+			alt_printf("Velocity: %x%x%x.%x m/s\n", c, d, u, t);
+		}
+
 		alt_printf("Throttle: %x V\n", *throttle / 10);
 		show_velocity_on_sevenseg((INT8S) (velocity / 10));
 	}
@@ -406,8 +475,13 @@ void ControlTask(void* pdata) {
 			}
 
 			if(cruise_control == on) {
+				/*decades, units of the hexadecimal number (we want to convert to decimal)*/
+				int d, u;
 
-				alt_printf("Target Velocity: %x\n",(int) (target_velocity));
+				u = (int) target_velocity % 10;
+				d = (int) (target_velocity / 10) % 10;
+
+				alt_printf("Target Velocity: %x%x\n",d,u);
 				tempo = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE);
 				tempo = tempo & ~1;
 				IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_GREENLED9_BASE,tempo | 1);	// writes 1 to the "cruise control" led w/o overwriting the others
@@ -468,7 +542,7 @@ void SwitchIO(void* pdata) {
 			ENGINE = 0;
 		}
 		current_led = IORD_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE);
-		current_led = current_led & ~(0xfff);
+		current_led = current_led & ~(0x3);
 		IOWR_ALTERA_AVALON_PIO_DATA(DE2_PIO_REDLED18_BASE,led_red | current_led);
 
 		OSSemPend(SemSwitches,0,&err);
@@ -631,6 +705,17 @@ void StartTask(void* pdata) {
 	}
 	OSTmrStart(TimerWatchdog, &err);
 
+	#ifdef DEBUG
+
+	TimerStat = OSTmrCreate(0, HYPER_PERIOD / HW_TIMER_PERIOD,
+			OS_TMR_OPT_PERIODIC, CallbackStat, NULL, NULL, &err);
+	if (err) {
+		alt_printf("Error occurred while creating soft timer!\n");
+	}
+	OSTmrStart(TimerStat, &err);
+
+	#endif
+
 	/*
 	 * Creation of Kernel Objects
 	 */
@@ -646,6 +731,12 @@ void StartTask(void* pdata) {
 	SemSwitches = OSSemCreate(0);
 	SemOverload = OSSemCreate(0);
 	SemExtraload = OSSemCreate(1);
+
+	#ifdef DEBUG
+
+	SemStat = OSSemCreate(1);
+
+	#endif
 
 	/*
 	 * Create statistics task
@@ -717,6 +808,25 @@ void StartTask(void* pdata) {
 				OVERLOADDETECTION_PRIO, OVERLOADDETECTION_PRIO, (void *) &OverloadDetection_Stack[0],
 				TASK_STACKSIZE, (void *) 0, OS_TASK_OPT_STK_CHK);
 //	if(err != 0) alt_printf("Problem creating task : Overload\n");
+
+#ifdef DEBUG
+
+	if (DEBUG == 1) {
+		OSTaskCreateExt(statisticTask, 				// Pointer to task code
+				NULL, 								// Pointer to argument passed to task
+				&statisticTask_Stack[TASK_STACKSIZE - 1], 		// Pointer to top of task stack
+				STAT_TASK_PRIO,	 				// Desired Task priority
+				STAT_TASK_PRIO, 				// Task ID
+				&statisticTask_Stack[0], 						// Pointer to bottom of task stack
+				TASK_STACKSIZE, 					// Stacksize
+				NULL,								// Pointer to user supplied memory (not needed)
+				OS_TASK_OPT_STK_CHK | 				// Stack Checking enabled
+					OS_TASK_OPT_STK_CLR 			// Stack Cleared
+				);
+//		if(err != 0) alt_printf("Problem creating task : statisticTask\n");
+	}
+
+#endif
 
 
 
