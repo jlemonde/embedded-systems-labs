@@ -7,7 +7,7 @@
 #include "sys/alt_irq.h"
 #include "sys/alt_alarm.h"
 
-#define DEBUG 1
+//#define DEBUG 1
 
 #define HW_TIMER_PERIOD 2 /* 2ms */
 

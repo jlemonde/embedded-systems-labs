@@ -103,8 +103,8 @@ int main()
 
 	for(i=0;i<3;i++){
 		for(j=0;j<3;j++){
-			alt_printf("[");
 			if(j!=i){
+				alt_printf("[");
 				for(k=1;k<=MAX;k++){
 					PERF_RESET(P_COUNTER_BASE);
 					PERF_BEGIN(P_COUNTER_BASE, 0);
@@ -124,10 +124,10 @@ int main()
 						hexstr[h] = hextmp[hexlen-h-1];
 					}
 					hexstr[hexlen] = 0;
-					alt_printf("%s, ",hexstr);
+					if(k==MAX) alt_printf("%s];\n", hexstr);
+					else alt_printf("%s, ",hexstr);
 				}
 			}
-			alt_printf("];\n");
 		}
 	}
 

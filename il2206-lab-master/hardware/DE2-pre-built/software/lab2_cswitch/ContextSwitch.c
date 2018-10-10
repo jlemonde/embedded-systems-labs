@@ -16,21 +16,26 @@ OS_EVENT* SemT0S0;
 OS_EVENT* SemT0S1;
 OS_EVENT* SemT1S0;
 OS_EVENT* SemT1S1;
+OS_EVENT* Semarde;
 
 /* Definition of Task Stacks */
 /* Stack grows from HIGH to LOW memory */
 #define   TASK_STACKSIZE       2048
+OS_STK measure_stk[TASK_STACKSIZE];
 OS_STK task0_stk[TASK_STACKSIZE];
 OS_STK task1_stk[TASK_STACKSIZE];
 OS_STK stat_stk[TASK_STACKSIZE];
 
 /* Definition of Task Priorities */
+#define MEASURE_PRIO		4
 #define TASK0_PRIORITY      6  // highest priority
 #define TASK1_PRIORITY      7
 #define TASK_STAT_PRIORITY 12  // lowest priority
 
 OS_MEM* Mem = NULL;				// Address of the shared memory
 INT16S MemBuffer[2];			// Buffer for the shared memory
+INT16U mean_pend = 0;
+INT16U mean_post = 0;
 
 
 /* ----------------------------------------------- */
@@ -55,16 +60,36 @@ void printStackSize(char* name, INT8U prio)
     }
 }
 
+/*
+ * Measure ten times it takes to Pend and Post the semaphore
+ */
+void measure(void* pdata) {
+	INT8U err;
+	INT8U j = 0;
+	int tempo = 0;
+	while(1) {
+		while(j++ < 10) {
+			PERF_RESET(PERFORMANCE_COUNTER_BASE);
+			PERF_BEGIN(PERFORMANCE_COUNTER_BASE,0);
+
+			OSSemPend(Semarde,0,&err);
+
+			PERF_END(PERFORMANCE_COUNTER_BASE,0);
+			tempo = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
+			mean_pend = (mean_pend*(j-1) + tempo)/(j);
+
+			OSSemPost(Semarde);
+		}
+		OSTaskDel(MEASURE_PRIO);
+	}
+}
+
 /* Prints a message and sleeps for given time interval */
 void task0(void* pdata) {
 
 	INT8U err;
 	INT16U timeout = 0;
 	INT16S* tempo_buffer;
-	INT8U aberrant = 0;
-	INT16U j = 0;					// number of iterations of measure_cswitch that aren't aberrant
-	INT16U mean = 0;
-	INT16U tempo = 0;
 
 	tempo_buffer = OSMemGet(Mem, &err);
 	*tempo_buffer = 1;
@@ -79,32 +104,10 @@ void task0(void* pdata) {
 		OSSemPost(SemT1S0);
 
 
-//		PERF_RESET(PERFORMANCE_COUNTER_BASE);
-//		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,0);
+		PERF_RESET(PERFORMANCE_COUNTER_BASE);
+		PERF_BEGIN(PERFORMANCE_COUNTER_BASE,0);
 
 		OSSemPend(SemT0S1, timeout, &err); // Context Switch calculated here
-
-//		PERF_END(PERFORMANCE_COUNTER_BASE,0);
-//		tempo = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0);
-//		tempo -= global_tempo[0]+global_tempo[1]+global_tempo[2];
-//		if(tempo > 2*mean && j > 0) {			// aberrant value is defined as a value that is bigger than 1.75 times the last mean
-//			printf("Aberrant measured value\n");
-//			aberrant++;
-//			if(aberrant > 9) {					// if there are more than 9 aberrant values consecutively, the measurement is reset
-//				aberrant = 0;
-//				j = 0;
-//				mean = 0;
-//			}
-//		}
-//		else {
-//			j++;
-//			mean = (mean*(j-1) + tempo)/(j);
-//			printf("Measure: %d; Measure in us: %d; Mean: %d; Mean in us: %d; Iterations: %d\n", (int) tempo,
-//						(int) (1000000* (float) tempo / (float) alt_get_cpu_freq()), (int) mean,
-//						(int) (1000000* (float) mean / (float) alt_get_cpu_freq()), (int) j);
-//			if(aberrant > 0) aberrant--;
-//		}
-
 
 		if(!err) {
 			OSMemPut(Mem,tempo_buffer);
@@ -126,8 +129,33 @@ void task1(void* pdata) {
 	INT8U err;
 	INT16U timeout = 0;
 	INT16S* tempo_buffer;
+	INT8U aberrant = 0;
+	INT16U j = 0;					// number of iterations of measure_cswitch that aren't aberrant
+	INT16U mean = 0;
+	INT16U tempo = 0;
 
 	while (1) {
+
+		PERF_END(PERFORMANCE_COUNTER_BASE,0);
+		tempo = (int) perf_get_section_time(PERFORMANCE_COUNTER_BASE, 0) - mean_pend;
+		if(tempo > 2*mean && j > 0) {			// aberrant value is defined as a value that is bigger than 1.75 times the last mean
+			printf("Aberrant measured value\n");
+			aberrant++;
+			if(aberrant > 9) {					// if there are more than 9 aberrant values consecutively, the measurement is reset
+				aberrant = 0;
+				j = 0;
+				mean = 0;
+			}
+		}
+		else {
+			j++;
+			mean = (mean*(j-1) + tempo)/(j);
+			printf("Measure: %d; Measure in us: %d; Mean: %d; Mean in us: %d; Iterations: %d\n", (int) tempo,
+						(int) (1000000* (float) tempo / (float) alt_get_cpu_freq()), (int) mean,
+						(int) (1000000* (float) mean / (float) alt_get_cpu_freq()), (int) j);
+			if(aberrant > 0) aberrant--;
+		}
+
 		OSSemPend(SemT1S0, timeout, &err);
 		if(!err) {
 		tempo_buffer = OSMemGet(Mem,&err);
@@ -173,9 +201,22 @@ int main(void) {
 
 	INT8U err;
 
-	OSInit();
+//	OSInit();
 
-	OSTaskCreateExt(task0, 							// Pointer to task code
+	err = OSTaskCreateExt(measure, 							// Pointer to task code
+			NULL, 									// Pointer to argument passed to task
+			&measure_stk[TASK_STACKSIZE - 1], 		// Pointer to top of task stack
+			MEASURE_PRIO, 						// Desired Task priority
+			MEASURE_PRIO, 						// Task ID
+			&measure_stk[0], 							// Pointer to bottom of task stack
+			TASK_STACKSIZE, 						// Stacksize
+			NULL, 									// Pointer to user supplied memory (not needed)
+			OS_TASK_OPT_STK_CHK | 					// Stack Checking enabled
+				OS_TASK_OPT_STK_CLR 				// Stack Cleared
+			);
+	if(err) printf("measure : %d\n", err);
+
+	err = OSTaskCreateExt(task0, 							// Pointer to task code
 			NULL, 									// Pointer to argument passed to task
 			&task0_stk[TASK_STACKSIZE - 1], 		// Pointer to top of task stack
 			TASK0_PRIORITY, 						// Desired Task priority
@@ -186,8 +227,9 @@ int main(void) {
 			OS_TASK_OPT_STK_CHK | 					// Stack Checking enabled
 				OS_TASK_OPT_STK_CLR 				// Stack Cleared
 			);
+	if(err) printf("task1 : %d\n", err);
 
-	OSTaskCreateExt(task1, 							// Pointer to task code
+	err = OSTaskCreateExt(task1, 							// Pointer to task code
 			NULL, 									// Pointer to argument passed to task
 			&task1_stk[TASK_STACKSIZE - 1], 		// Pointer to top of task stack
 			TASK1_PRIORITY, 						// Desired Task priority
@@ -198,6 +240,7 @@ int main(void) {
 			OS_TASK_OPT_STK_CHK | 					// Stack Checking enabled
 				OS_TASK_OPT_STK_CLR 				// Stack Cleared
 			);
+	if(err) printf("task2 : %d\n", err);
 
 	if (DEBUG == 1) {
 		OSTaskCreateExt(statisticTask, 				// Pointer to task code
@@ -216,6 +259,7 @@ int main(void) {
 	Mem = OSMemCreate(MemBuffer,2,
 			sizeof(INT16U),&err);
 
+	Semarde = OSSemCreate(1);
 	SemT0S0 = OSSemCreate(1);
 	SemT0S1 = OSSemCreate(0);
 	SemT1S0 = OSSemCreate(0);

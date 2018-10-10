@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Sep 24, 2018 5:21:54 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1537802514476</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/home/student/Projets/embedded-systems-labs/il2206-lab-master/hardware/DE2-own-built/software/lab0_time-measurements_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Oct 10, 2018 9:54:03 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1539158043020</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>/home/student/Labs/embedded-systems-labs/il2206-lab-master/hardware/DE2-own-built/software/lab0_time-measurements_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../nios2_ht18_lemonde_streit.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>

@@ -315,7 +315,7 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
                 0x00800144                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
                 0x00800020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x00800144     0x82f8
+.text           0x00800144     0x8330
                 0x00800144                PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -362,7 +362,7 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x00800144       0x3c ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
                 0x00800144                _start
- .text          0x00800180     0x1b38 obj/default/cruise_opti.o
+ .text          0x00800180     0x1b70 obj/default/cruise_opti.o
                 0x00800180                buttons_pressed
                 0x008001ac                switches_pressed
                 0x008001d4                CallbackStat
@@ -385,695 +385,695 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
                 0x0080082c                adjust_velocity
                 0x0080096c                VehicleTask
                 0x00800f5c                ControlTask
-                0x00801350                SwitchIO
-                0x00801414                ButtonsIO
-                0x008014fc                OverloadDetection
-                0x00801530                Extraload
-                0x00801698                StartTask
-                0x00801c3c                main
- .text          0x00801cb8       0x98 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
-                0x00801cb8                __floatsisf
- .text          0x00801d50       0x54 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
-                0x00801d50                __extendsfdf2
- .text          0x00801da4      0x504 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
-                0x008021b4                __subdf3
-                0x00802234                __adddf3
- .text          0x008022a8      0x258 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
-                0x008022a8                __divdf3
- .text          0x00802500       0xf8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
-                0x00802500                __floatsidf
- .text          0x008025f8       0xd8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
-                0x008025f8                __fixdfsi
- .text          0x008026d0       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
-                0x008026d0                __make_dp
- .text          0x00802708        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
- .text          0x00802708      0x14c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
-                0x00802784                __divsi3
-                0x008027e4                __modsi3
-                0x00802844                __udivsi3
-                0x0080284c                __umodsi3
- .text          0x00802854       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
-                0x00802854                __mulsi3
- .text          0x0080288c       0x80 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
-                0x0080288c                __clzsi2
- .text          0x0080290c      0x160 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
-                0x0080290c                __pack_f
- .text          0x00802a6c       0xc8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
-                0x00802a6c                __unpack_f
- .text          0x00802b34      0x314 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
-                0x00802b34                __pack_d
- .text          0x00802e48      0x138 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
-                0x00802e48                __unpack_d
- .text          0x00802f80        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
- .text          0x00802f80       0x98 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
-                0x00802f80                printf
-                0x00802fd4                _printf_r
- .text          0x00803018      0x740 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
-                0x00803098                ___vfprintf_internal_r
-                0x00803734                __vfprintf_internal
- .text          0x00803758       0xbc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
-                0x00803758                __sfvwrite_small_dev
- .text          0x00803814        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .text          0x00803814       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
-                0x00803814                strlen
- .text          0x00803834       0x78 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
-                0x00803834                _write_r
- .text          0x008038ac        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .text          0x008038ac       0x90 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
-                0x008038ac                alt_alarm_start
- .text          0x0080393c       0x8c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
-                0x0080395c                alt_load
- .text          0x008039c8       0xa8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
-                0x008039c8                alt_main
- .text          0x00803a70      0x144 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
-                0x00803a70                alt_printf
- .text          0x00803bb4       0x14 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
-                0x00803bb4                alt_putchar
- .text          0x00803bc8       0xe0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
-                0x00803bc8                alt_alarm_stop
-                0x00803bfc                alt_tick
- .text          0x00803ca8       0xd4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
-                0x00803cc8                write
- .text          0x00803d7c        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
-                0x00803d7c                __env_lock
-                0x00803d80                __env_unlock
- .text          0x00803d84        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
-                0x00803d84                __malloc_lock
-                0x00803d88                __malloc_unlock
- .text          0x00803d8c      0xefc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
-                0x00803d8c                OSVersion
-                0x00803d94                OS_Dummy
-                0x00803d98                OS_EventTaskWait
-                0x00803e1c                OS_EventTaskWaitMulti
-                0x00803ebc                OS_EventTaskRemove
-                0x00803f08                OS_EventTaskRemoveMulti
-                0x00803f64                OS_EventTaskRdy
-                0x00804058                OS_EventWaitListInit
-                0x00804074                OS_MemClr
-                0x00804090                OS_MemCopy
-                0x008040b4                OS_StrCopy
-                0x008040e0                OS_StrLen
-                0x00804100                OS_TaskStatStkChk
-                0x00804138                OS_Sched
-                0x008041e4                OSStart
-                0x00804250                OSInit
-                0x00804424                OSEventNameGet
-                0x008044b0                OSEventPendMulti
-                0x00804784                OSIntEnter
-                0x008047c0                OSStatInit
-                0x00804824                OSTimeTick
-                0x008048fc                OS_TaskIdle
-                0x0080492c                OS_TaskStat
-                0x008049b0                OS_TCBInit
-                0x00804b20                OSIntExit
-                0x00804be8                OSEventNameSet
- .text          0x00804c88        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
-                0x00804c88                OSDebugInit
- .text          0x00804c8c      0xb8c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
-                0x00804d44                OS_FlagUnlink
-                0x00804e10                OS_FlagInit
-                0x00804e80                OSFlagQuery
-                0x00804ec4                OSFlagAccept
-                0x00805018                OSFlagCreate
-                0x00805098                OSFlagDel
-                0x008051e4                OSFlagNameGet
-                0x00805278                OSFlagNameSet
-                0x00805330                OSFlagPend
-                0x00805614                OSFlagPendGetFlagsRdy
-                0x00805640                OSFlagPost
- .text          0x00805818      0x420 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
-                0x00805818                OSMboxPostOpt
-                0x008058e4                OSMboxCreate
-                0x00805970                OSMboxPend
-                0x00805ae4                OSMboxPendAbort
-                0x00805bb4                OSMboxPost
- .text          0x00805c38      0x350 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
-                0x00805c38                OSSemPost
-                0x00805ccc                OSSemCreate
-                0x00805d58                OSSemPend
-                0x00805eb0                OSSemPendAbort
- .text          0x00805f88      0x8e8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
-                0x00805f88                OS_TaskStkClr
-                0x00805fb8                OSTaskSuspend
-                0x008060c0                OSTaskCreateExt
-                0x00806228                OSTaskDel
-                0x00806454                OSTaskDelReq
-                0x008064fc                OSTaskNameGet
-                0x008065c8                OSTaskNameSet
-                0x008066b4                OSTaskResume
-                0x008067a8                OSTaskStkChk
- .text          0x00806870       0x98 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
-                0x00806870                OSTimeDly
- .text          0x00806908      0xac8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
-                0x00806a74                OSTmr_Init
-                0x00806cd0                OSTmrStop
-                0x00806e18                OSTmrStart
-                0x00806f08                OSTmrStateGet
-                0x00806fa0                OSTmrRemainGet
-                0x008070a8                OSTmrDel
-                0x00807190                OSTmrSignal
-                0x008071b8                OSTmrNameGet
-                0x00807280                OSTmrCreate
- .text          0x008073d0       0x70 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
-                0x008073d0                alt_sys_init
-                0x00807420                alt_irq_init
- .text          0x00807440       0x20 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
-                0x00807440                altera_avalon_jtag_uart_write_fd
-                0x00807450                altera_avalon_jtag_uart_read_fd
- .text          0x00807460       0x60 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
-                0x00807460                altera_avalon_jtag_uart_read
- .text          0x008074c0       0x34 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x008074c0                altera_avalon_jtag_uart_write
- .text          0x008074f4       0x8c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
-                0x008074f4                alt_avalon_timer_sc_init
- .text          0x00807580       0xbc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
-                0x008075a0                close
- .text          0x0080763c        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
-                0x0080763c                alt_dcache_flush_all
- .text          0x00807640        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
- .text          0x00807648       0x70 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
-                0x00807648                alt_dev_llist_insert
- .text          0x008076b8       0x40 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
-                0x008076b8                _do_ctors
- .text          0x008076f8       0x40 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
-                0x008076f8                _do_dtors
- .text          0x00807738        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
- .text          0x00807738        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
-                0x00807738                alt_icache_flush_all
- .text          0x0080773c       0x9c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
-                0x0080773c                alt_ic_irq_enabled
-                0x00807754                alt_ic_irq_enable
-                0x00807794                alt_ic_irq_disable
-                0x008077d4                alt_ic_isr_register
- .text          0x008077d8       0x6c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
-                0x008077d8                alt_iic_isr_register
- .text          0x00807844      0x114 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
-                0x008078cc                alt_io_redirect
- .text          0x00807958        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
- .text          0x00807958        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
- .text          0x00807958        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
- .text          0x00807958      0x17c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
-                0x00807958                open
- .text          0x00807ad4       0x5c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
-                0x00807ad4                alt_release_fd
- .text          0x00807b30        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
-                0x00807b30                altera_nios2_qsys_irq_init
- .text          0x00807b38       0xc0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
-                0x00807b38                OSCtxSw
-                0x00807b38                OSIntCtxSw
-                0x00807bb4                OSStartHighRdy
-                0x00807bd4                OSStartTsk
- .text          0x00807bf8       0xa0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
-                0x00807bf8                OSTaskStkInit
-                0x00807c1c                OSTaskCreateHook
-                0x00807c20                OSTaskDelHook
-                0x00807c24                OSTaskSwHook
-                0x00807c28                OSTaskStatHook
-                0x00807c2c                OSInitHookBegin
-                0x00807c34                OSInitHookEnd
-                0x00807c38                OSTaskIdleHook
-                0x00807c3c                OSTCBInitHook
-                0x00807c40                OSTimeTickHook
- .text          0x00807c98        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
- .text          0x00807c98       0x70 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
-                0x00807c98                alt_find_dev
- .text          0x00807d08       0x9c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
-                0x00807d08                alt_find_file
- .text          0x00807da4       0xa4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
-                0x00807da4                alt_get_fd
- .text          0x00807e48       0x14 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
-                0x00807e48                atexit
- .text          0x00807e5c       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
-                0x00807e5c                exit
- .text          0x00807e7c       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
-                0x00807e7c                memcmp
- .text          0x00807eb8       0xe4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
-                0x00807eb8                putc
-                0x00807f28                _putc_r
- .text          0x00807f9c      0x16c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
-                0x00807f9c                __register_exitproc
- .text          0x00808108      0x1c0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                0x0080810c                __call_exitprocs
- .text          0x008082c8       0x88 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
-                0x008082c8                __gedf2
- .text          0x00808350       0xc8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
-                0x00808350                __fpcmp_parts_d
- .text          0x00808418       0x20 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
-                0x00808418                _exit
+                0x00801388                SwitchIO
+                0x0080144c                ButtonsIO
+                0x00801534                OverloadDetection
+                0x00801568                Extraload
+                0x008016d0                StartTask
+                0x00801c74                main
+ .text          0x00801cf0       0x98 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
+                0x00801cf0                __floatsisf
+ .text          0x00801d88       0x54 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+                0x00801d88                __extendsfdf2
+ .text          0x00801ddc      0x504 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
+                0x008021ec                __subdf3
+                0x0080226c                __adddf3
+ .text          0x008022e0      0x258 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
+                0x008022e0                __divdf3
+ .text          0x00802538       0xf8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
+                0x00802538                __floatsidf
+ .text          0x00802630       0xd8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
+                0x00802630                __fixdfsi
+ .text          0x00802708       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+                0x00802708                __make_dp
+ .text          0x00802740        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
+ .text          0x00802740      0x14c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+                0x008027bc                __divsi3
+                0x0080281c                __modsi3
+                0x0080287c                __udivsi3
+                0x00802884                __umodsi3
+ .text          0x0080288c       0x38 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+                0x0080288c                __mulsi3
+ .text          0x008028c4       0x80 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
+                0x008028c4                __clzsi2
+ .text          0x00802944      0x160 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
+                0x00802944                __pack_f
+ .text          0x00802aa4       0xc8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+                0x00802aa4                __unpack_f
+ .text          0x00802b6c      0x314 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+                0x00802b6c                __pack_d
+ .text          0x00802e80      0x138 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
+                0x00802e80                __unpack_d
+ .text          0x00802fb8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
+ .text          0x00802fb8       0x98 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+                0x00802fb8                printf
+                0x0080300c                _printf_r
+ .text          0x00803050      0x740 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+                0x008030d0                ___vfprintf_internal_r
+                0x0080376c                __vfprintf_internal
+ .text          0x00803790       0xbc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+                0x00803790                __sfvwrite_small_dev
+ .text          0x0080384c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .text          0x0080384c       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+                0x0080384c                strlen
+ .text          0x0080386c       0x78 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+                0x0080386c                _write_r
+ .text          0x008038e4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .text          0x008038e4       0x90 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
+                0x008038e4                alt_alarm_start
+ .text          0x00803974       0x8c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
+                0x00803994                alt_load
+ .text          0x00803a00       0xa8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+                0x00803a00                alt_main
+ .text          0x00803aa8      0x144 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
+                0x00803aa8                alt_printf
+ .text          0x00803bec       0x14 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
+                0x00803bec                alt_putchar
+ .text          0x00803c00       0xe0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+                0x00803c00                alt_alarm_stop
+                0x00803c34                alt_tick
+ .text          0x00803ce0       0xd4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
+                0x00803d00                write
+ .text          0x00803db4        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
+                0x00803db4                __env_lock
+                0x00803db8                __env_unlock
+ .text          0x00803dbc        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+                0x00803dbc                __malloc_lock
+                0x00803dc0                __malloc_unlock
+ .text          0x00803dc4      0xefc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+                0x00803dc4                OSVersion
+                0x00803dcc                OS_Dummy
+                0x00803dd0                OS_EventTaskWait
+                0x00803e54                OS_EventTaskWaitMulti
+                0x00803ef4                OS_EventTaskRemove
+                0x00803f40                OS_EventTaskRemoveMulti
+                0x00803f9c                OS_EventTaskRdy
+                0x00804090                OS_EventWaitListInit
+                0x008040ac                OS_MemClr
+                0x008040c8                OS_MemCopy
+                0x008040ec                OS_StrCopy
+                0x00804118                OS_StrLen
+                0x00804138                OS_TaskStatStkChk
+                0x00804170                OS_Sched
+                0x0080421c                OSStart
+                0x00804288                OSInit
+                0x0080445c                OSEventNameGet
+                0x008044e8                OSEventPendMulti
+                0x008047bc                OSIntEnter
+                0x008047f8                OSStatInit
+                0x0080485c                OSTimeTick
+                0x00804934                OS_TaskIdle
+                0x00804964                OS_TaskStat
+                0x008049e8                OS_TCBInit
+                0x00804b58                OSIntExit
+                0x00804c20                OSEventNameSet
+ .text          0x00804cc0        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
+                0x00804cc0                OSDebugInit
+ .text          0x00804cc4      0xb8c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
+                0x00804d7c                OS_FlagUnlink
+                0x00804e48                OS_FlagInit
+                0x00804eb8                OSFlagQuery
+                0x00804efc                OSFlagAccept
+                0x00805050                OSFlagCreate
+                0x008050d0                OSFlagDel
+                0x0080521c                OSFlagNameGet
+                0x008052b0                OSFlagNameSet
+                0x00805368                OSFlagPend
+                0x0080564c                OSFlagPendGetFlagsRdy
+                0x00805678                OSFlagPost
+ .text          0x00805850      0x420 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
+                0x00805850                OSMboxPostOpt
+                0x0080591c                OSMboxCreate
+                0x008059a8                OSMboxPend
+                0x00805b1c                OSMboxPendAbort
+                0x00805bec                OSMboxPost
+ .text          0x00805c70      0x350 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
+                0x00805c70                OSSemPost
+                0x00805d04                OSSemCreate
+                0x00805d90                OSSemPend
+                0x00805ee8                OSSemPendAbort
+ .text          0x00805fc0      0x8e8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
+                0x00805fc0                OS_TaskStkClr
+                0x00805ff0                OSTaskSuspend
+                0x008060f8                OSTaskCreateExt
+                0x00806260                OSTaskDel
+                0x0080648c                OSTaskDelReq
+                0x00806534                OSTaskNameGet
+                0x00806600                OSTaskNameSet
+                0x008066ec                OSTaskResume
+                0x008067e0                OSTaskStkChk
+ .text          0x008068a8       0x98 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
+                0x008068a8                OSTimeDly
+ .text          0x00806940      0xac8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
+                0x00806aac                OSTmr_Init
+                0x00806d08                OSTmrStop
+                0x00806e50                OSTmrStart
+                0x00806f40                OSTmrStateGet
+                0x00806fd8                OSTmrRemainGet
+                0x008070e0                OSTmrDel
+                0x008071c8                OSTmrSignal
+                0x008071f0                OSTmrNameGet
+                0x008072b8                OSTmrCreate
+ .text          0x00807408       0x70 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
+                0x00807408                alt_sys_init
+                0x00807458                alt_irq_init
+ .text          0x00807478       0x20 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x00807478                altera_avalon_jtag_uart_write_fd
+                0x00807488                altera_avalon_jtag_uart_read_fd
+ .text          0x00807498       0x60 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x00807498                altera_avalon_jtag_uart_read
+ .text          0x008074f8       0x34 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x008074f8                altera_avalon_jtag_uart_write
+ .text          0x0080752c       0x8c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+                0x0080752c                alt_avalon_timer_sc_init
+ .text          0x008075b8       0xbc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
+                0x008075d8                close
+ .text          0x00807674        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+                0x00807674                alt_dcache_flush_all
+ .text          0x00807678        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+ .text          0x00807680       0x70 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+                0x00807680                alt_dev_llist_insert
+ .text          0x008076f0       0x40 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
+                0x008076f0                _do_ctors
+ .text          0x00807730       0x40 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
+                0x00807730                _do_dtors
+ .text          0x00807770        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
+ .text          0x00807770        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+                0x00807770                alt_icache_flush_all
+ .text          0x00807774       0x9c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
+                0x00807774                alt_ic_irq_enabled
+                0x0080778c                alt_ic_irq_enable
+                0x008077cc                alt_ic_irq_disable
+                0x0080780c                alt_ic_isr_register
+ .text          0x00807810       0x6c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
+                0x00807810                alt_iic_isr_register
+ .text          0x0080787c      0x114 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
+                0x00807904                alt_io_redirect
+ .text          0x00807990        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .text          0x00807990        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .text          0x00807990        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .text          0x00807990      0x17c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
+                0x00807990                open
+ .text          0x00807b0c       0x5c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
+                0x00807b0c                alt_release_fd
+ .text          0x00807b68        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+                0x00807b68                altera_nios2_qsys_irq_init
+ .text          0x00807b70       0xc0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
+                0x00807b70                OSCtxSw
+                0x00807b70                OSIntCtxSw
+                0x00807bec                OSStartHighRdy
+                0x00807c0c                OSStartTsk
+ .text          0x00807c30       0xa0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
+                0x00807c30                OSTaskStkInit
+                0x00807c54                OSTaskCreateHook
+                0x00807c58                OSTaskDelHook
+                0x00807c5c                OSTaskSwHook
+                0x00807c60                OSTaskStatHook
+                0x00807c64                OSInitHookBegin
+                0x00807c6c                OSInitHookEnd
+                0x00807c70                OSTaskIdleHook
+                0x00807c74                OSTCBInitHook
+                0x00807c78                OSTimeTickHook
+ .text          0x00807cd0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .text          0x00807cd0       0x70 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
+                0x00807cd0                alt_find_dev
+ .text          0x00807d40       0x9c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
+                0x00807d40                alt_find_file
+ .text          0x00807ddc       0xa4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
+                0x00807ddc                alt_get_fd
+ .text          0x00807e80       0x14 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
+                0x00807e80                atexit
+ .text          0x00807e94       0x20 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+                0x00807e94                exit
+ .text          0x00807eb4       0x3c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+                0x00807eb4                memcmp
+ .text          0x00807ef0       0xe4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
+                0x00807ef0                putc
+                0x00807f60                _putc_r
+ .text          0x00807fd4      0x16c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
+                0x00807fd4                __register_exitproc
+ .text          0x00808140      0x1c0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x00808144                __call_exitprocs
+ .text          0x00808300       0x88 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
+                0x00808300                __gedf2
+ .text          0x00808388       0xc8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
+                0x00808388                __fpcmp_parts_d
+ .text          0x00808450       0x20 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
+                0x00808450                _exit
  *(.gnu.warning.*)
  *(.fini)
-                0x00808438                PROVIDE (__etext, ABSOLUTE (.))
-                0x00808438                PROVIDE (_etext, ABSOLUTE (.))
-                0x00808438                PROVIDE (etext, ABSOLUTE (.))
+                0x00808470                PROVIDE (__etext, ABSOLUTE (.))
+                0x00808470                PROVIDE (_etext, ABSOLUTE (.))
+                0x00808470                PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00808438                . = ALIGN (0x4)
-                0x00808438                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+                0x00808470                . = ALIGN (0x4)
+                0x00808470                PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
-                0x00808438                PROVIDE (__preinit_array_end, ABSOLUTE (.))
-                0x00808438                PROVIDE (__init_array_start, ABSOLUTE (.))
+                0x00808470                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x00808470                PROVIDE (__init_array_start, ABSOLUTE (.))
  *(.init_array)
-                0x00808438                PROVIDE (__init_array_end, ABSOLUTE (.))
-                0x00808438                PROVIDE (__fini_array_start, ABSOLUTE (.))
+                0x00808470                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x00808470                PROVIDE (__fini_array_start, ABSOLUTE (.))
  *(.fini_array)
-                0x00808438                PROVIDE (__fini_array_end, ABSOLUTE (.))
+                0x00808470                PROVIDE (__fini_array_end, ABSOLUTE (.))
  *(.eh_frame)
  *(.gcc_except_table)
  *(.dynamic)
-                0x00808438                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x00808470                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
- .ctors.65535   0x00808438        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
-                0x0080843c                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x0080843c                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ .ctors.65535   0x00808470        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+                0x00808474                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x00808474                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x0080843c                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x00808474                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x0080843c                . = ALIGN (0x4)
+                0x00808474                . = ALIGN (0x4)
 
-.rodata         0x0080843c      0x494
-                0x0080843c                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x0080843c                . = ALIGN (0x4)
+.rodata         0x00808474      0x494
+                0x00808474                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x00808474                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x0080843c      0x208 obj/default/cruise_opti.o
- .rodata        0x00808644       0x14 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
-                0x00808644                __thenan_df
- .rodata        0x00808658      0x100 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
-                0x00808658                __clz_tab
+ .rodata        0x00808474      0x208 obj/default/cruise_opti.o
+ .rodata        0x0080867c       0x14 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
+                0x0080867c                __thenan_df
+ .rodata        0x00808690      0x100 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
+                0x00808690                __clz_tab
  .rodata.str1.4
-                0x00808758       0x11 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+                0x00808790       0x11 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
                                  0x14 (size before relaxing)
- *fill*         0x00808769        0x3 00
+ *fill*         0x008087a1        0x3 00
  .rodata.str1.4
-                0x0080876c       0x1e ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+                0x008087a4       0x1e ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
                                  0x20 (size before relaxing)
- .rodata        0x0080878a      0x100 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
-                0x0080878a                OSUnMapTbl
- *fill*         0x0080888a        0x2 00
+ .rodata        0x008087c2      0x100 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+                0x008087c2                OSUnMapTbl
+ *fill*         0x008088c2        0x2 00
  .rodata.str1.4
-                0x0080888c       0x35 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
+                0x008088c4       0x35 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
                                  0x38 (size before relaxing)
  .rodata.str1.4
                 0x00000000       0x14 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
- *fill*         0x008088c1        0x3 00
+ *fill*         0x008088f9        0x3 00
  .rodata.str1.4
-                0x008088c4        0xc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+                0x008088fc        0xc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
  *(.rodata1)
-                0x008088d0                . = ALIGN (0x4)
-                0x008088d0                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x0080843c                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x00808908                . = ALIGN (0x4)
+                0x00808908                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x00808474                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x008088d0      0x394 load address 0x00808c64
-                0x008088d0                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x008088d0                . = ALIGN (0x4)
+.rwdata         0x00808908      0x394 load address 0x00808c9c
+                0x00808908                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x00808908                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x008088d0        0x0 ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
- .data          0x008088d0       0x2c obj/default/cruise_opti.o
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .data          0x008088fc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .data          0x008088fc       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .data          0x008089dc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .data          0x008089dc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .data          0x008089dc        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
- .data          0x008089dc        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
- .data          0x008089dc       0x2c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
- .data          0x00808a08        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
- .data          0x00808a08        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
- .data          0x00808a08        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x00808a08        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
- .data          0x00808a08        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
- .data          0x00808a08        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
- .data          0x00808a08      0x1a8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
-                0x00808a08                alt_dev_null
-                0x00808a30                alt_fd_list
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
- .data          0x00808bb0        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
- .data          0x00808bb0        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
-                0x00810bb0                _gp = ABSOLUTE ((. + 0x8000))
-                0x00810bb0                PROVIDE (gp, _gp)
+ .data          0x00808908        0x0 ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
+ .data          0x00808908       0x2c obj/default/cruise_opti.o
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .data          0x00808934        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .data          0x00808934       0xe0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .data          0x00808a14        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .data          0x00808a14        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .data          0x00808a14        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
+ .data          0x00808a14        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
+ .data          0x00808a14       0x2c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .data          0x00808a40        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x00808a40        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x00808a40        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x00808a40        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .data          0x00808a40        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
+ .data          0x00808a40        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .data          0x00808a40      0x1a8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+                0x00808a40                alt_dev_null
+                0x00808a68                alt_fd_list
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
+ .data          0x00808be8        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
+ .data          0x00808be8        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
+                0x00810be8                _gp = ABSOLUTE ((. + 0x8000))
+                0x00810be8                PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00808bb0       0x14 obj/default/cruise_opti.o
-                0x00808bb0                gas_pedal
-                0x00808bb4                brake_pedal
-                0x00808bb8                top_gear
-                0x00808bbc                engine
-                0x00808bc0                cruise_control
- .sdata         0x00808bc4        0x8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
-                0x00808bc4                _impure_ptr
-                0x00808bc8                _global_impure_ptr
- .sdata         0x00808bcc        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
-                0x00808bcc                alt_alarm_list
- .sdata         0x00808bd4       0x74 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
-                0x00808bd4                OSDebugEn
-                0x00808bd8                OSEndiannessTest
-                0x00808bdc                OSEventEn
-                0x00808bde                OSEventMax
-                0x00808be0                OSEventNameSize
-                0x00808be2                OSEventSize
-                0x00808be4                OSEventTblSize
-                0x00808be6                OSEventMultiEn
-                0x00808be8                OSFlagEn
-                0x00808bea                OSFlagGrpSize
-                0x00808bec                OSFlagNodeSize
-                0x00808bee                OSFlagWidth
-                0x00808bf0                OSFlagMax
-                0x00808bf2                OSFlagNameSize
-                0x00808bf4                OSLowestPrio
-                0x00808bf6                OSMboxEn
-                0x00808bf8                OSMemEn
-                0x00808bfa                OSMemMax
-                0x00808bfc                OSMemNameSize
-                0x00808bfe                OSMemSize
-                0x00808c00                OSMemTblSize
-                0x00808c02                OSMutexEn
-                0x00808c04                OSPtrSize
-                0x00808c06                OSQEn
-                0x00808c08                OSQMax
-                0x00808c0a                OSQSize
-                0x00808c0c                OSRdyTblSize
-                0x00808c0e                OSSemEn
-                0x00808c10                OSStkWidth
-                0x00808c12                OSTaskCreateEn
-                0x00808c14                OSTaskCreateExtEn
-                0x00808c16                OSTaskDelEn
-                0x00808c18                OSTaskIdleStkSize
-                0x00808c1a                OSTaskProfileEn
-                0x00808c1c                OSTaskMax
-                0x00808c1e                OSTaskNameSize
-                0x00808c20                OSTaskStatEn
-                0x00808c22                OSTaskStatStkSize
-                0x00808c24                OSTaskStatStkChkEn
-                0x00808c26                OSTaskSwHookEn
-                0x00808c28                OSTCBPrioTblMax
-                0x00808c2a                OSTCBSize
-                0x00808c2c                OSTicksPerSec
-                0x00808c2e                OSTimeTickHookEn
-                0x00808c30                OSVersionNbr
-                0x00808c32                OSTmrEn
-                0x00808c34                OSTmrCfgMax
-                0x00808c36                OSTmrCfgNameSize
-                0x00808c38                OSTmrCfgWheelSize
-                0x00808c3a                OSTmrCfgTicksPerSec
-                0x00808c3c                OSTmrSize
-                0x00808c3e                OSTmrTblSize
-                0x00808c40                OSTmrWheelSize
-                0x00808c42                OSTmrWheelTblSize
-                0x00808c44                OSDataSize
- .sdata         0x00808c48       0x14 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
-                0x00808c48                alt_fs_list
-                0x00808c50                alt_dev_list
-                0x00808c58                alt_max_fd
- .sdata         0x00808c5c        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
-                0x00808c5c                alt_errno
- .sdata         0x00808c60        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
-                0x00808c60                alt_priority_mask
+ .sdata         0x00808be8       0x14 obj/default/cruise_opti.o
+                0x00808be8                gas_pedal
+                0x00808bec                brake_pedal
+                0x00808bf0                top_gear
+                0x00808bf4                engine
+                0x00808bf8                cruise_control
+ .sdata         0x00808bfc        0x8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+                0x00808bfc                _impure_ptr
+                0x00808c00                _global_impure_ptr
+ .sdata         0x00808c04        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+                0x00808c04                alt_alarm_list
+ .sdata         0x00808c0c       0x74 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
+                0x00808c0c                OSDebugEn
+                0x00808c10                OSEndiannessTest
+                0x00808c14                OSEventEn
+                0x00808c16                OSEventMax
+                0x00808c18                OSEventNameSize
+                0x00808c1a                OSEventSize
+                0x00808c1c                OSEventTblSize
+                0x00808c1e                OSEventMultiEn
+                0x00808c20                OSFlagEn
+                0x00808c22                OSFlagGrpSize
+                0x00808c24                OSFlagNodeSize
+                0x00808c26                OSFlagWidth
+                0x00808c28                OSFlagMax
+                0x00808c2a                OSFlagNameSize
+                0x00808c2c                OSLowestPrio
+                0x00808c2e                OSMboxEn
+                0x00808c30                OSMemEn
+                0x00808c32                OSMemMax
+                0x00808c34                OSMemNameSize
+                0x00808c36                OSMemSize
+                0x00808c38                OSMemTblSize
+                0x00808c3a                OSMutexEn
+                0x00808c3c                OSPtrSize
+                0x00808c3e                OSQEn
+                0x00808c40                OSQMax
+                0x00808c42                OSQSize
+                0x00808c44                OSRdyTblSize
+                0x00808c46                OSSemEn
+                0x00808c48                OSStkWidth
+                0x00808c4a                OSTaskCreateEn
+                0x00808c4c                OSTaskCreateExtEn
+                0x00808c4e                OSTaskDelEn
+                0x00808c50                OSTaskIdleStkSize
+                0x00808c52                OSTaskProfileEn
+                0x00808c54                OSTaskMax
+                0x00808c56                OSTaskNameSize
+                0x00808c58                OSTaskStatEn
+                0x00808c5a                OSTaskStatStkSize
+                0x00808c5c                OSTaskStatStkChkEn
+                0x00808c5e                OSTaskSwHookEn
+                0x00808c60                OSTCBPrioTblMax
+                0x00808c62                OSTCBSize
+                0x00808c64                OSTicksPerSec
+                0x00808c66                OSTimeTickHookEn
+                0x00808c68                OSVersionNbr
+                0x00808c6a                OSTmrEn
+                0x00808c6c                OSTmrCfgMax
+                0x00808c6e                OSTmrCfgNameSize
+                0x00808c70                OSTmrCfgWheelSize
+                0x00808c72                OSTmrCfgTicksPerSec
+                0x00808c74                OSTmrSize
+                0x00808c76                OSTmrTblSize
+                0x00808c78                OSTmrWheelSize
+                0x00808c7a                OSTmrWheelTblSize
+                0x00808c7c                OSDataSize
+ .sdata         0x00808c80       0x14 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+                0x00808c80                alt_fs_list
+                0x00808c88                alt_dev_list
+                0x00808c90                alt_max_fd
+ .sdata         0x00808c94        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
+                0x00808c94                alt_errno
+ .sdata         0x00808c98        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+                0x00808c98                alt_priority_mask
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x00808c64                . = ALIGN (0x4)
-                0x00808c64                _edata = ABSOLUTE (.)
-                0x00808c64                PROVIDE (edata, ABSOLUTE (.))
-                0x00808c64                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x00808c64                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x00808c9c                . = ALIGN (0x4)
+                0x00808c9c                _edata = ABSOLUTE (.)
+                0x00808c9c                PROVIDE (edata, ABSOLUTE (.))
+                0x00808c9c                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x00808c9c                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x00808ff8     0x50fc
-                0x00808ff8                __bss_start = ABSOLUTE (.)
-                0x00808ff8                PROVIDE (__sbss_start, ABSOLUTE (.))
-                0x00808ff8                PROVIDE (___sbss_start, ABSOLUTE (.))
+.bss            0x00809030     0x50fc
+                0x00809030                __bss_start = ABSOLUTE (.)
+                0x00809030                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x00809030                PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x00808ff8       0x14 obj/default/cruise_opti.o
-                0x00808ff8                TimerExtraload
-                0x00808ffc                led_green
-                0x00809000                led_red
-                0x00809004                ENGINE
-                0x00809005                TOP_GEAR
-                0x00809006                GAS_PEDAL
-                0x00809007                BRAKE_PEDAL
-                0x00809008                CRUISE_CONTROL
-                0x00809009                FLAG
- .sbss          0x0080900c       0x48 obj/default/cruise_opti.o
-                0x0080900c                SemSwitches
-                0x00809010                Mbox_Throttle
-                0x00809014                SemExtraload
-                0x00809018                Mbox_Velocity
-                0x0080901c                TimerVehicle
-                0x00809020                SemControl
-                0x00809024                TimerWatchdog
-                0x00809028                TimerStat
-                0x0080902c                TimerOverload
-                0x00809030                SemVehicle
-                0x00809034                SemOverload
-                0x00809038                SemButtons
-                0x0080903c                SemStat
-                0x00809040                TimerExtraloadTask
-                0x00809044                delay
-                0x00809048                TimerButtons
-                0x0080904c                TimerControl
-                0x00809050                TimerSwitches
- .sbss          0x00809054        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
-                0x00809054                errno
- .sbss          0x00809058        0xc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
-                0x00809058                alt_argc
-                0x0080905c                alt_argv
-                0x00809060                alt_envp
- .sbss          0x00809064        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
-                0x00809064                _alt_tick_rate
-                0x00809068                _alt_nticks
- .sbss          0x0080906c        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
-                0x0080906c                alt_envsem
- .sbss          0x00809070        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
-                0x00809070                alt_heapsem
- .sbss          0x00809074       0x5c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
-                0x00809074                OSTmrFreeList
-                0x00809078                OSLockNesting
-                0x0080907c                OSTmrSemSignal
-                0x00809080                OSRunning
-                0x00809084                OSIdleCtr
-                0x00809088                OSTmrUsed
-                0x0080908a                OSPrioHighRdy
-                0x0080908b                OSPrioCur
-                0x0080908c                OSTCBList
-                0x00809090                OSTickStepState
-                0x00809094                OSCtxSwCtr
-                0x00809098                OSTmrFree
-                0x0080909c                OSIdleCtrMax
-                0x008090a0                OSTCBFreeList
-                0x008090a4                OSCPUUsage
-                0x008090a5                OSTaskCtr
-                0x008090a8                OSTCBHighRdy
-                0x008090ac                OSRdyGrp
-                0x008090ad                OSRdyTbl
-                0x008090b0                OSEventFreeList
-                0x008090b4                OSIntNesting
-                0x008090b8                OSTCBCur
-                0x008090bc                OSTmrTime
-                0x008090c0                OSTmrSem
-                0x008090c4                OSFlagFreeList
-                0x008090c8                OSStatRdy
-                0x008090cc                OSIdleCtrRun
- .sbss          0x008090d0        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
-                0x008090d0                alt_fd_list_lock
- .sbss          0x008090d4        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
-                0x008090d4                alt_irq_active
- .sbss          0x008090d8        0x2 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .sbss          0x00809030       0x14 obj/default/cruise_opti.o
+                0x00809030                TimerExtraload
+                0x00809034                led_green
+                0x00809038                led_red
+                0x0080903c                ENGINE
+                0x0080903d                TOP_GEAR
+                0x0080903e                GAS_PEDAL
+                0x0080903f                BRAKE_PEDAL
+                0x00809040                CRUISE_CONTROL
+                0x00809041                FLAG
+ .sbss          0x00809044       0x48 obj/default/cruise_opti.o
+                0x00809044                SemSwitches
+                0x00809048                Mbox_Throttle
+                0x0080904c                SemExtraload
+                0x00809050                Mbox_Velocity
+                0x00809054                TimerVehicle
+                0x00809058                SemControl
+                0x0080905c                TimerWatchdog
+                0x00809060                TimerStat
+                0x00809064                TimerOverload
+                0x00809068                SemVehicle
+                0x0080906c                SemOverload
+                0x00809070                SemButtons
+                0x00809074                SemStat
+                0x00809078                TimerExtraloadTask
+                0x0080907c                delay
+                0x00809080                TimerButtons
+                0x00809084                TimerControl
+                0x00809088                TimerSwitches
+ .sbss          0x0080908c        0x4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+                0x0080908c                errno
+ .sbss          0x00809090        0xc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+                0x00809090                alt_argc
+                0x00809094                alt_argv
+                0x00809098                alt_envp
+ .sbss          0x0080909c        0x8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+                0x0080909c                _alt_tick_rate
+                0x008090a0                _alt_nticks
+ .sbss          0x008090a4        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
+                0x008090a4                alt_envsem
+ .sbss          0x008090a8        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+                0x008090a8                alt_heapsem
+ .sbss          0x008090ac       0x5c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+                0x008090ac                OSTmrFreeList
+                0x008090b0                OSLockNesting
+                0x008090b4                OSTmrSemSignal
+                0x008090b8                OSRunning
+                0x008090bc                OSIdleCtr
+                0x008090c0                OSTmrUsed
+                0x008090c2                OSPrioHighRdy
+                0x008090c3                OSPrioCur
+                0x008090c4                OSTCBList
+                0x008090c8                OSTickStepState
+                0x008090cc                OSCtxSwCtr
+                0x008090d0                OSTmrFree
+                0x008090d4                OSIdleCtrMax
+                0x008090d8                OSTCBFreeList
+                0x008090dc                OSCPUUsage
+                0x008090dd                OSTaskCtr
+                0x008090e0                OSTCBHighRdy
+                0x008090e4                OSRdyGrp
+                0x008090e5                OSRdyTbl
+                0x008090e8                OSEventFreeList
+                0x008090ec                OSIntNesting
+                0x008090f0                OSTCBCur
+                0x008090f4                OSTmrTime
+                0x008090f8                OSTmrSem
+                0x008090fc                OSFlagFreeList
+                0x00809100                OSStatRdy
+                0x00809104                OSIdleCtrRun
+ .sbss          0x00809108        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+                0x00809108                alt_fd_list_lock
+ .sbss          0x0080910c        0x4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+                0x0080910c                alt_irq_active
+ .sbss          0x00809110        0x2 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
-                0x008090da                PROVIDE (__sbss_end, ABSOLUTE (.))
-                0x008090da                PROVIDE (___sbss_end, ABSOLUTE (.))
+                0x00809112                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x00809112                PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x008090da        0x0 ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
- *fill*         0x008090da        0x2 00
- .bss           0x008090dc       0x18 obj/default/cruise_opti.o
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
- .bss           0x008090f4        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
- .bss           0x008090f4        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
+ .bss           0x00809112        0x0 ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
+ *fill*         0x00809112        0x2 00
+ .bss           0x00809114       0x18 obj/default/cruise_opti.o
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
+ .bss           0x0080912c        0x0 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
+ .bss           0x0080912c        0x0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
  *(COMMON)
- COMMON         0x008090f4     0x2000 obj/default/cruise_opti.o
-                0x008090f4                SwitchIO_Stack
-                0x008094f4                ControlTask_Stack
-                0x008098f4                OverloadDetection_Stack
-                0x00809cf4                VehicleTask_Stack
-                0x0080a0f4                ButtonsIO_Stack
-                0x0080a4f4                StartTask_Stack
-                0x0080a8f4                statisticTask_Stack
-                0x0080acf4                Extraload_Stack
- COMMON         0x0080b0f4     0x2e74 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
-                0x0080b0f4                OSTmrWheelTbl
-                0x0080b104                OSFlagTbl
-                0x0080b474                OSTmrTbl
-                0x0080b7b4                OSTaskStatStk
-                0x0080bfb4                OSTmrTaskStk
-                0x0080c7b4                OSTaskIdleStk
-                0x0080cfb4                OSEventTbl
-                0x0080daf4                OSTCBTbl
-                0x0080df14                OSTCBPrioTbl
- COMMON         0x0080df68      0x100 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
-                0x0080df68                alt_irq
- COMMON         0x0080e068       0x8c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
-                0x0080e068                _atexit0
-                0x0080e0f4                . = ALIGN (0x4)
-                0x0080e0f4                __bss_end = ABSOLUTE (.)
+ COMMON         0x0080912c     0x2000 obj/default/cruise_opti.o
+                0x0080912c                SwitchIO_Stack
+                0x0080952c                ControlTask_Stack
+                0x0080992c                OverloadDetection_Stack
+                0x00809d2c                VehicleTask_Stack
+                0x0080a12c                ButtonsIO_Stack
+                0x0080a52c                StartTask_Stack
+                0x0080a92c                statisticTask_Stack
+                0x0080ad2c                Extraload_Stack
+ COMMON         0x0080b12c     0x2e74 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+                0x0080b12c                OSTmrWheelTbl
+                0x0080b13c                OSFlagTbl
+                0x0080b4ac                OSTmrTbl
+                0x0080b7ec                OSTaskStatStk
+                0x0080bfec                OSTmrTaskStk
+                0x0080c7ec                OSTaskIdleStk
+                0x0080cfec                OSEventTbl
+                0x0080db2c                OSTCBTbl
+                0x0080df4c                OSTCBPrioTbl
+ COMMON         0x0080dfa0      0x100 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
+                0x0080dfa0                alt_irq
+ COMMON         0x0080e0a0       0x8c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
+                0x0080e0a0                _atexit0
+                0x0080e12c                . = ALIGN (0x4)
+                0x0080e12c                __bss_end = ABSOLUTE (.)
 
-.sram           0x00000000        0x0 load address 0x0080e0f4
+.sram           0x00000000        0x0 load address 0x0080e12c
                 0x00000000                PROVIDE (_alt_partition_sram_start, ABSOLUTE (.))
  *(.sram. sram.*)
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                PROVIDE (_alt_partition_sram_end, ABSOLUTE (.))
-                0x0080e0f4                PROVIDE (_alt_partition_sram_load_addr, LOADADDR (.sram))
+                0x0080e12c                PROVIDE (_alt_partition_sram_load_addr, LOADADDR (.sram))
 
-.sdram          0x0080e0f4        0x0
-                0x0080e0f4                PROVIDE (_alt_partition_sdram_start, ABSOLUTE (.))
+.sdram          0x0080e12c        0x0
+                0x0080e12c                PROVIDE (_alt_partition_sdram_start, ABSOLUTE (.))
  *(.sdram. sdram.*)
-                0x0080e0f4                . = ALIGN (0x4)
-                0x0080e0f4                PROVIDE (_alt_partition_sdram_end, ABSOLUTE (.))
-                0x0080e0f4                _end = ABSOLUTE (.)
-                0x0080e0f4                end = ABSOLUTE (.)
-                0x0080e0f4                __alt_stack_base = ABSOLUTE (.)
-                0x0080e0f4                PROVIDE (_alt_partition_sdram_load_addr, LOADADDR (.sdram))
+                0x0080e12c                . = ALIGN (0x4)
+                0x0080e12c                PROVIDE (_alt_partition_sdram_end, ABSOLUTE (.))
+                0x0080e12c                _end = ABSOLUTE (.)
+                0x0080e12c                end = ABSOLUTE (.)
+                0x0080e12c                __alt_stack_base = ABSOLUTE (.)
+                0x0080e12c                PROVIDE (_alt_partition_sdram_load_addr, LOADADDR (.sdram))
 
-.onchip_memory  0x01008000        0x0 load address 0x0080e0f4
+.onchip_memory  0x01008000        0x0 load address 0x0080e12c
                 0x01008000                PROVIDE (_alt_partition_onchip_memory_start, ABSOLUTE (.))
  *(.onchip_memory. onchip_memory.*)
                 0x01008000                . = ALIGN (0x4)
                 0x01008000                PROVIDE (_alt_partition_onchip_memory_end, ABSOLUTE (.))
-                0x0080e0f4                PROVIDE (_alt_partition_onchip_memory_load_addr, LOADADDR (.onchip_memory))
+                0x0080e12c                PROVIDE (_alt_partition_onchip_memory_load_addr, LOADADDR (.onchip_memory))
 
 .stab
  *(.stab)
@@ -1487,87 +1487,87 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  .debug_pubnames
                 0x00001b66       0x1c ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
 
-.debug_info     0x00000000    0x14489
+.debug_info     0x00000000    0x144a3
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xac ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
- .debug_info    0x000000ac     0x1423 obj/default/cruise_opti.o
- .debug_info    0x000014cf      0x214 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
- .debug_info    0x000016e3      0x245 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .debug_info    0x00001928      0x493 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
- .debug_info    0x00001dbb      0x39b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
- .debug_info    0x00002156      0x218 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
- .debug_info    0x0000236e      0x2cd /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
- .debug_info    0x0000263b      0x1d6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .debug_info    0x00002811      0x164 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
- .debug_info    0x00002975      0x21c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_info    0x00002b91       0xf3 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_info    0x00002c84      0x130 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
- .debug_info    0x00002db4      0x2f2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
- .debug_info    0x000030a6      0x25a /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .debug_info    0x00003300      0x2fc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .debug_info    0x000035fc      0x268 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
- .debug_info    0x00003864       0xc9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
- .debug_info    0x0000392d      0x6c8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .debug_info    0x00003ff5      0x9b6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .debug_info    0x000049ab      0x68e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .debug_info    0x00005039      0x636 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .debug_info    0x0000566f       0xc2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_info    0x00005731      0x68c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .debug_info    0x00005dbd       0x8c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_info    0x00005e49      0x2c4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
- .debug_info    0x0000610d      0x12e ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
- .debug_info    0x0000623b      0x27f ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
- .debug_info    0x000064ba      0x11d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
- .debug_info    0x000065d7      0x93a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
- .debug_info    0x00006f11      0x2af ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
- .debug_info    0x000071c0      0x540 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
- .debug_info    0x00007700      0xa45 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
- .debug_info    0x00008145      0xa45 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
- .debug_info    0x00008b8a     0x165f ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
- .debug_info    0x0000a1e9      0xb9b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
- .debug_info    0x0000ad84      0xe75 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
- .debug_info    0x0000bbf9      0x7d7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
- .debug_info    0x0000c3d0      0x6e6 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
- .debug_info    0x0000cab6      0xd37 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
- .debug_info    0x0000d7ed      0x47b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
- .debug_info    0x0000dc68      0x894 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
- .debug_info    0x0000e4fc      0x414 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
- .debug_info    0x0000e910      0x402 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_info    0x0000ed12      0x1d3 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_info    0x0000eee5      0x1b6 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_info    0x0000f09b      0x221 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
- .debug_info    0x0000f2bc      0x387 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
- .debug_info    0x0000f643       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
- .debug_info    0x0000f6d0      0x5d7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
- .debug_info    0x0000fca7      0x1b7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
- .debug_info    0x0000fe5e       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
- .debug_info    0x0000feeb       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
- .debug_info    0x0000ff78       0xab ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
- .debug_info    0x00010023       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
- .debug_info    0x000100b0      0x341 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
- .debug_info    0x000103f1      0x1f2 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
- .debug_info    0x000105e3      0x52e ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
- .debug_info    0x00010b11       0xb5 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
- .debug_info    0x00010bc6      0x1a8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
- .debug_info    0x00010d6e       0x92 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
- .debug_info    0x00010e00      0x439 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
- .debug_info    0x00011239      0x323 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
- .debug_info    0x0001155c       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
- .debug_info    0x000115e9       0xb4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
- .debug_info    0x0001169d      0x50a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
- .debug_info    0x00011ba7       0xbb ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
- .debug_info    0x00011c62      0x348 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
- .debug_info    0x00011faa      0x346 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
- .debug_info    0x000122f0      0x47a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
- .debug_info    0x0001276a      0x186 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
- .debug_info    0x000128f0       0x9f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_info    0x0001298f       0xef /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_info    0x00012a7e      0x6b8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
- .debug_info    0x00013136      0x68f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
- .debug_info    0x000137c5      0x6d5 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_info    0x00013e9a      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
- .debug_info    0x00014137      0x21b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
- .debug_info    0x00014352      0x137 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
+ .debug_info    0x000000ac     0x143d obj/default/cruise_opti.o
+ .debug_info    0x000014e9      0x214 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
+ .debug_info    0x000016fd      0x245 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .debug_info    0x00001942      0x493 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
+ .debug_info    0x00001dd5      0x39b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
+ .debug_info    0x00002170      0x218 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
+ .debug_info    0x00002388      0x2cd /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
+ .debug_info    0x00002655      0x1d6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .debug_info    0x0000282b      0x164 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
+ .debug_info    0x0000298f      0x21c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_info    0x00002bab       0xf3 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_info    0x00002c9e      0x130 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
+ .debug_info    0x00002dce      0x2f2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
+ .debug_info    0x000030c0      0x25a /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .debug_info    0x0000331a      0x2fc /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .debug_info    0x00003616      0x268 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
+ .debug_info    0x0000387e       0xc9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
+ .debug_info    0x00003947      0x6c8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .debug_info    0x0000400f      0x9b6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .debug_info    0x000049c5      0x68e /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_info    0x00005053      0x636 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_info    0x00005689       0xc2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_info    0x0000574b      0x68c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_info    0x00005dd7       0x8c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x00005e63      0x2c4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_info    0x00006127      0x12e ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_info    0x00006255      0x27f ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_info    0x000064d4      0x11d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
+ .debug_info    0x000065f1      0x93a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
+ .debug_info    0x00006f2b      0x2af ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_info    0x000071da      0x540 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_info    0x0000771a      0xa45 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_info    0x0000815f      0xa45 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_info    0x00008ba4     0x165f ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+ .debug_info    0x0000a203      0xb9b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_info    0x0000ad9e      0xe75 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_info    0x0000bc13      0x7d7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
+ .debug_info    0x0000c3ea      0x6e6 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_info    0x0000cad0      0xd37 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
+ .debug_info    0x0000d807      0x47b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
+ .debug_info    0x0000dc82      0x894 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
+ .debug_info    0x0000e516      0x414 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000e92a      0x402 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_info    0x0000ed2c      0x1d3 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_info    0x0000eeff      0x1b6 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x0000f0b5      0x221 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_info    0x0000f2d6      0x387 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_info    0x0000f65d       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000f6ea      0x5d7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_info    0x0000fcc1      0x1b7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_info    0x0000fe78       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_info    0x0000ff05       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_info    0x0000ff92       0xab ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_info    0x0001003d       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x000100ca      0x341 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
+ .debug_info    0x0001040b      0x1f2 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
+ .debug_info    0x000105fd      0x52e ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_info    0x00010b2b       0xb5 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_info    0x00010be0      0x1a8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_info    0x00010d88       0x92 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .debug_info    0x00010e1a      0x439 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_info    0x00011253      0x323 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_info    0x00011576       0x8d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_info    0x00011603       0xb4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .debug_info    0x000116b7      0x50a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_info    0x00011bc1       0xbb ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_info    0x00011c7c      0x348 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_info    0x00011fc4      0x346 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_info    0x0001230a      0x47a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_info    0x00012784      0x186 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
+ .debug_info    0x0001290a       0x9f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_info    0x000129a9       0xef /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_info    0x00012a98      0x6b8 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
+ .debug_info    0x00013150      0x68f /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
+ .debug_info    0x000137df      0x6d5 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_info    0x00013eb4      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
+ .debug_info    0x00014151      0x21b /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
+ .debug_info    0x0001436c      0x137 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
 
 .debug_abbrev   0x00000000     0x5b24
  *(.debug_abbrev)
@@ -1651,87 +1651,87 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
  .debug_abbrev  0x0000591b      0x132 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
  .debug_abbrev  0x00005a4d       0xd7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
 
-.debug_line     0x00000000     0xf3c7
+.debug_line     0x00000000     0xf3d7
  *(.debug_line)
  .debug_line    0x00000000       0x66 ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
- .debug_line    0x00000066      0xc91 obj/default/cruise_opti.o
- .debug_line    0x00000cf7      0x187 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
- .debug_line    0x00000e7e       0xd1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
- .debug_line    0x00000f4f      0x430 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
- .debug_line    0x0000137f      0x301 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
- .debug_line    0x00001680      0x175 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
- .debug_line    0x000017f5      0x149 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
- .debug_line    0x0000193e       0xe9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
- .debug_line    0x00001a27       0x94 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
- .debug_line    0x00001abb      0x2c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
- .debug_line    0x00001d81      0x191 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
- .debug_line    0x00001f12      0x17c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
- .debug_line    0x0000208e      0x1ca /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
- .debug_line    0x00002258      0x197 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
- .debug_line    0x000023ef      0x222 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
- .debug_line    0x00002611      0x1e4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
- .debug_line    0x000027f5      0x121 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
- .debug_line    0x00002916      0x2be /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
- .debug_line    0x00002bd4      0x666 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
- .debug_line    0x0000323a      0x2a9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
- .debug_line    0x000034e3      0x230 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
- .debug_line    0x00003713      0x250 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
- .debug_line    0x00003963      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
- .debug_line    0x00003c00      0x1e2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
- .debug_line    0x00003de2      0x2b0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
- .debug_line    0x00004092      0x225 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
- .debug_line    0x000042b7      0x385 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
- .debug_line    0x0000463c      0x1f9 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
- .debug_line    0x00004835      0x1e0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
- .debug_line    0x00004a15      0x33a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
- .debug_line    0x00004d4f      0x367 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
- .debug_line    0x000050b6      0x25d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
- .debug_line    0x00005313      0x260 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
- .debug_line    0x00005573     0x146f ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
- .debug_line    0x000069e2      0x226 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
- .debug_line    0x00006c08      0xe71 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
- .debug_line    0x00007a79      0x662 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
- .debug_line    0x000080db      0x56b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
- .debug_line    0x00008646      0xa34 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
- .debug_line    0x0000907a      0x2c4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
- .debug_line    0x0000933e      0xbd4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
- .debug_line    0x00009f12      0x30b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
- .debug_line    0x0000a21d      0x2e9 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
- .debug_line    0x0000a506      0x363 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
- .debug_line    0x0000a869      0x334 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
- .debug_line    0x0000ab9d      0x2c7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
- .debug_line    0x0000ae64      0x327 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
- .debug_line    0x0000b18b      0x1c3 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x0000b34e      0x2c0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
- .debug_line    0x0000b60e      0x26a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
- .debug_line    0x0000b878       0x8b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
- .debug_line    0x0000b903       0x8b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
- .debug_line    0x0000b98e      0x1b8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
- .debug_line    0x0000bb46      0x1c3 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x0000bd09      0x28d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
- .debug_line    0x0000bf96      0x247 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
- .debug_line    0x0000c1dd      0x399 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
- .debug_line    0x0000c576       0x6b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
- .debug_line    0x0000c5e1      0x2a9 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
- .debug_line    0x0000c88a       0x72 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
- .debug_line    0x0000c8fc      0x35d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
- .debug_line    0x0000cc59      0x2b7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
- .debug_line    0x0000cf10      0x1dc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
- .debug_line    0x0000d0ec       0x82 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
- .debug_line    0x0000d16e      0x368 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
- .debug_line    0x0000d4d6       0xab ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
- .debug_line    0x0000d581      0x2de ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
- .debug_line    0x0000d85f      0x309 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
- .debug_line    0x0000db68      0x33d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
- .debug_line    0x0000dea5      0x203 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
- .debug_line    0x0000e0a8      0x223 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
- .debug_line    0x0000e2cb      0x270 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
- .debug_line    0x0000e53b      0x2d2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
- .debug_line    0x0000e80d      0x350 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
- .debug_line    0x0000eb5d      0x360 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
- .debug_line    0x0000eebd      0x129 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
- .debug_line    0x0000efe6      0x187 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
- .debug_line    0x0000f16d      0x25a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
+ .debug_line    0x00000066      0xca1 obj/default/cruise_opti.o
+ .debug_line    0x00000d07      0x187 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_sf.o)
+ .debug_line    0x00000e8e       0xd1 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_sf_to_df.o)
+ .debug_line    0x00000f5f      0x430 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_addsub_df.o)
+ .debug_line    0x0000138f      0x301 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_div_df.o)
+ .debug_line    0x00001690      0x175 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_si_to_df.o)
+ .debug_line    0x00001805      0x149 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_df_to_si.o)
+ .debug_line    0x0000194e       0xe9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_make_df.o)
+ .debug_line    0x00001a37       0x94 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_thenan_df.o)
+ .debug_line    0x00001acb      0x2c6 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-divmod.o)
+ .debug_line    0x00001d91      0x191 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(lib2-mul.o)
+ .debug_line    0x00001f22      0x17c /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clzsi2.o)
+ .debug_line    0x0000209e      0x1ca /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_sf.o)
+ .debug_line    0x00002268      0x197 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_sf.o)
+ .debug_line    0x000023ff      0x222 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_pack_df.o)
+ .debug_line    0x00002621      0x1e4 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_unpack_df.o)
+ .debug_line    0x00002805      0x121 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_clz.o)
+ .debug_line    0x00002926      0x2be /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-printf.o)
+ .debug_line    0x00002be4      0x666 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-vfprintf.o)
+ .debug_line    0x0000324a      0x2a9 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .debug_line    0x000034f3      0x230 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-impure.o)
+ .debug_line    0x00003723      0x250 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-strlen.o)
+ .debug_line    0x00003973      0x29d /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-writer.o)
+ .debug_line    0x00003c10      0x1e2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x00003df2      0x2b0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_alarm_start.o)
+ .debug_line    0x000040a2      0x225 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_load.o)
+ .debug_line    0x000042c7      0x385 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_main.o)
+ .debug_line    0x0000464c      0x1f9 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_printf.o)
+ .debug_line    0x00004845      0x1e0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_putchar.o)
+ .debug_line    0x00004a25      0x33a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_tick.o)
+ .debug_line    0x00004d5f      0x367 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_write.o)
+ .debug_line    0x000050c6      0x25d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_env_lock.o)
+ .debug_line    0x00005323      0x260 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_malloc_lock.o)
+ .debug_line    0x00005583     0x146f ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_core.o)
+ .debug_line    0x000069f2      0x226 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_dbg.o)
+ .debug_line    0x00006c18      0xe71 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_flag.o)
+ .debug_line    0x00007a89      0x662 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_mbox.o)
+ .debug_line    0x000080eb      0x56b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_sem.o)
+ .debug_line    0x00008656      0xa34 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_task.o)
+ .debug_line    0x0000908a      0x2c4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_time.o)
+ .debug_line    0x0000934e      0xbd4 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_tmr.o)
+ .debug_line    0x00009f22      0x30b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000a22d      0x2e9 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .debug_line    0x0000a516      0x363 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_read.o)
+ .debug_line    0x0000a879      0x334 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x0000abad      0x2c7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_avalon_timer_sc.o)
+ .debug_line    0x0000ae74      0x327 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_close.o)
+ .debug_line    0x0000b19b      0x1c3 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x0000b35e      0x2c0 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev.o)
+ .debug_line    0x0000b61e      0x26a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_dev_llist_insert.o)
+ .debug_line    0x0000b888       0x8b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_ctors.o)
+ .debug_line    0x0000b913       0x8b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_do_dtors.o)
+ .debug_line    0x0000b99e      0x1b8 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_errno.o)
+ .debug_line    0x0000bb56      0x1c3 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x0000bd19      0x28d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic.o)
+ .debug_line    0x0000bfa6      0x247 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_iic_isr_register.o)
+ .debug_line    0x0000c1ed      0x399 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_io_redirect.o)
+ .debug_line    0x0000c586       0x6b ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_entry.o)
+ .debug_line    0x0000c5f1      0x2a9 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_handler.o)
+ .debug_line    0x0000c89a       0x72 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_irq_vars.o)
+ .debug_line    0x0000c90c      0x35d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_open.o)
+ .debug_line    0x0000cc69      0x2b7 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_release_fd.o)
+ .debug_line    0x0000cf20      0x1dc ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_line    0x0000d0fc       0x82 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_a.o)
+ .debug_line    0x0000d17e      0x368 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(os_cpu_c.o)
+ .debug_line    0x0000d4e6       0xab ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exception_entry.o)
+ .debug_line    0x0000d591      0x2de ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_dev.o)
+ .debug_line    0x0000d86f      0x309 ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_find_file.o)
+ .debug_line    0x0000db78      0x33d ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_get_fd.o)
+ .debug_line    0x0000deb5      0x203 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-atexit.o)
+ .debug_line    0x0000e0b8      0x223 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-exit.o)
+ .debug_line    0x0000e2db      0x270 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-memcmp.o)
+ .debug_line    0x0000e54b      0x2d2 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-putc.o)
+ .debug_line    0x0000e81d      0x350 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__atexit.o)
+ .debug_line    0x0000eb6d      0x360 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul/libsmallc.a(lib_a-__call_atexit.o)
+ .debug_line    0x0000eecd      0x129 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_ge_df.o)
+ .debug_line    0x0000eff6      0x187 /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul/libgcc.a(_fpcmp_parts_df.o)
+ .debug_line    0x0000f17d      0x25a ../lab2_cruisecontroloptimized_bsp//libucosii_bsp.a(alt_exit.o)
 
 .debug_frame    0x00000000     0x165c
  *(.debug_frame)
@@ -2040,8 +2040,8 @@ LOAD /opt/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/../lib/gcc/nio
                 0x00000000       0x10 ../lab2_cruisecontroloptimized_bsp//obj/HAL/src/crt0.o
                 0x01000000                __alt_data_end = 0x1000000
                 0x01000000                PROVIDE (__alt_stack_pointer, __alt_data_end)
-                0x0080e0f4                PROVIDE (__alt_stack_limit, __alt_stack_base)
-                0x0080e0f4                PROVIDE (__alt_heap_start, end)
+                0x0080e12c                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x0080e12c                PROVIDE (__alt_heap_start, end)
                 0x01000000                PROVIDE (__alt_heap_limit, 0x1000000)
 OUTPUT(lab2_cruisecontroloptimized.elf elf32-littlenios2)
 

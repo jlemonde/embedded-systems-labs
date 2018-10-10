@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_ht18_lemonde_streit' in SOPC Builder design 'nios2_ht18_lemonde_streit'
  * SOPC Builder design path: ../../nios2_ht18_lemonde_streit.sopcinfo
  *
- * Generated: Mon Oct 08 15:35:46 CEST 2018
+ * Generated: Tue Oct 09 15:55:12 CEST 2018
  */
 
 /*
@@ -210,7 +210,7 @@ SECTIONS
         PROVIDE (__DTOR_END__ = ABSOLUTE(.));
         KEEP (*(.jcr))
         . = ALIGN(4);
-    } > sdram = 0x3a880100 /* Nios II NOP instruction */
+    } > sram = 0x3a880100 /* Nios II NOP instruction */
 
     .rodata :
     {
@@ -220,7 +220,7 @@ SECTIONS
         *(.rodata1)
         . = ALIGN(4);
         PROVIDE (__ram_rodata_end = ABSOLUTE(.));
-    } > sdram
+    } > sram
 
     PROVIDE (__flash_rodata_start = LOADADDR(.rodata));
 
@@ -254,7 +254,7 @@ SECTIONS
         _edata = ABSOLUTE(.);
         PROVIDE (edata = ABSOLUTE(.));
         PROVIDE (__ram_rwdata_end = ABSOLUTE(.));
-    } > sdram
+    } > sram
 
     PROVIDE (__flash_rwdata_start = LOADADDR(.rwdata));
 
@@ -285,7 +285,7 @@ SECTIONS
 
         . = ALIGN(4);
         __bss_end = ABSOLUTE(.);
-    } > sdram
+    } > sram
 
     /*
      *
@@ -310,12 +310,15 @@ SECTIONS
      *
      */
 
-    .sram : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    .sram LOADADDR (.bss) + SIZEOF (.bss) : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
     {
         PROVIDE (_alt_partition_sram_start = ABSOLUTE(.));
         *(.sram. sram.*)
         . = ALIGN(4);
         PROVIDE (_alt_partition_sram_end = ABSOLUTE(.));
+        _end = ABSOLUTE(.);
+        end = ABSOLUTE(.);
+        __alt_stack_base = ABSOLUTE(.);
     } > sram
 
     PROVIDE (_alt_partition_sram_load_addr = LOADADDR(.sram));
@@ -327,15 +330,12 @@ SECTIONS
      *
      */
 
-    .sdram LOADADDR (.sram) + SIZEOF (.sram) : AT ( LOADADDR (.sram) + SIZEOF (.sram) )
+    .sdram : AT ( LOADADDR (.sram) + SIZEOF (.sram) )
     {
         PROVIDE (_alt_partition_sdram_start = ABSOLUTE(.));
         *(.sdram. sdram.*)
         . = ALIGN(4);
         PROVIDE (_alt_partition_sdram_end = ABSOLUTE(.));
-        _end = ABSOLUTE(.);
-        end = ABSOLUTE(.);
-        __alt_stack_base = ABSOLUTE(.);
     } > sdram
 
     PROVIDE (_alt_partition_sdram_load_addr = LOADADDR(.sdram));
@@ -404,7 +404,7 @@ SECTIONS
 /*
  * Don't override this, override the __alt_stack_* symbols instead.
  */
-__alt_data_end = 0x1000000;
+__alt_data_end = 0x80000;
 
 /*
  * The next two symbols define the location of the default stack.  You can
@@ -420,4 +420,4 @@ PROVIDE( __alt_stack_limit   = __alt_stack_base );
  * Override this symbol to put the heap in a different memory.
  */
 PROVIDE( __alt_heap_start    = end );
-PROVIDE( __alt_heap_limit    = 0x1000000 );
+PROVIDE( __alt_heap_limit    = 0x80000 );

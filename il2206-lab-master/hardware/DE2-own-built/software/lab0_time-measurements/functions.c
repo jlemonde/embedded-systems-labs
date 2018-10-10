@@ -89,7 +89,6 @@ int main ()
           stop_measurement();
           measures[j] = ticks - timer_overhead;
           measures_mean += measures[j];
-          //printf("Result: %d\n", a);
           printf("Test %d : %5.2f us (%d ticks)\n", j, microseconds(measures[j]), (int) (measures[j]));
       }
       measures_mean /= measures_in_total;
